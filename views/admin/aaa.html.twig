@@ -1,0 +1,14 @@
+{% for i in range(2, 8) %}
+    {{ i }},
+{% endfor %}
+
+{% for i in range(low=1, high=10, step=2) %}
+    {{ i }},
+{% endfor %}
+
+{{ user.name }}
+
+<h1>Members</h1>
+{% for user in users %}
+    {{ loop .index }}  -  {{ user }}
+{% endfor %}

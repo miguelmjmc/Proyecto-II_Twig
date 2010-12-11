@@ -18,4 +18,5 @@ function configDB()
  * Date: 17/05/2017
  * Time: 12:54 AM
  */
+
 ?>

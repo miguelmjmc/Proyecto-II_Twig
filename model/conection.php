@@ -1,6 +1,6 @@
 <?php
 
-include_once "../config/configDB.php";
+include_once PATH. "/config/configDB.php";
 
 class conection
 {

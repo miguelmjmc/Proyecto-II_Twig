@@ -1,5 +1,5 @@
 #map-container {
-    height: 500px;
+    height: 900px;
     z-index: 1;
     display: block;
     float: left;
@@ -9,7 +9,6 @@
     transform: skew(0deg, 3deg);
     -ms-transform: skew(0deg, 3deg); /* IE 9 */
     -webkit-transform: skew(0deg, 3deg); /* Safari and Chrome */
-
 }
 
 .map {
@@ -41,4 +40,30 @@
     }
 }
 
+.no-margin {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
 
+.text-button {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: white !important;
+    color: black !important;
+    text-decoration: underline;
+    border: none !important;
+}
+
+.text:hover {
+    font-size: 1.5em ;
+
+}
+
+.text-button:focus {
+    outline: none !important;
+}
+
+.tech{
+max-width: 30% !important;
+}

@@ -1,6 +1,6 @@
 <?php
 
-include_once "conection.php";
+include_once PATH. "/model/conection.php";
 
 class query extends conection
 {

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ titulo_pagina }}</title>
+    <title>{% block title %} {% endblock %}</title>
 
 
     <!-- Google Fonts -->
@@ -22,10 +22,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ configAsset.css }}css/owl.carousel.css">
-    <link rel="stylesheet" href="{{ configAsset.css }}css/style.css">
-    <link rel="stylesheet" href="{{ configAsset.css }}css/responsive.css">
-    <link rel="stylesheet" href="{{ configAsset.css }}css/custom.css">
+    <link rel="stylesheet" href="{{ pathAsset }}css/owl.carousel.css">
+    <link rel="stylesheet" href="{{ pathAsset }}css/style.css">
+    <link rel="stylesheet" href="{{ pathAsset }}css/responsive.css">
+    <link rel="stylesheet" href="{{ pathAsset }}css/custom.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -57,15 +57,15 @@
         <div class="row">
             <div class="col-md-2 col-sm-3 col-xs-12">
                 <div class="logo-container">
-                    <img src="{{ main.logo }}" alt="Logo {{ main.nombre_empresa1 }} {{ main.nombre_empresa2 }}"
+                    <img src="{{ array.main.logo }}" alt="Logo de {{ array.main.name1 }} {{ array.main.nome2 }}"
                          class="logo-empresa">
                 </div>
             </div>
             <div class="col-md-10 col-sm-9 col-xs-12">
                 <div class="logo">
 
-                    <h1><a href="{{ index_user }}">{{ main.nombre_empresa1 }}
-                            <br/> <span> {{ main.nombre_empresa2 }}</span></a></h1>
+                    <h1><a href="     ">{{ array.main.name1 }}
+                            <br/> <span> {{ array.main.name2 }}</span></a></h1>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ index_user }}">inicio</a></li>
+                    <li class="active"><a href="         ">inicio</a></li>
                     <li><a href="#">quienes somos</a></li>
                     <li><a href="#">nuestras marcas</a></li>
                     <li><a href="#">nuestros productos</a></li>
@@ -106,15 +106,15 @@
             <div class="col-md-6 col-sm-12">
                 <div class="footer-about-us">
                     <h2 class="footer-wid-title">Contactos</h2>
-                    <p>Telefonos: {{ main.telefono1 }}, {{ main.telefono2 }}.</p>
-                    <p>Correo: {{ main.correo }}</p>
-                    <h2>{{ main.nombre_empresa1 }}<span> {{ main.nombre_empresa2 }}</span></h2>
+                    <p>Telefonos: {{ array.main.phone1 }}, {{ array.main.phone2 }}.</p>
+                    <p>Correo: {{ array.main.email }}</p>
+                    <h2>{{ array.main.name1 }}<span> {{ array.main.name2 }}</span></h2>
                     <div class="footer-social">
-                        <a href="{{ main.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="{{ main.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="{{ main.youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
-                        <a href="{{ main.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a>
-                        <a href="{{ main.printerest }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+                        <a href="{{ array.main.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="{{ array.main.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="{{ array.main.googleplus }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="{{ array.main.skype }}" target="_blank"><i class="fa fa-skype"></i></a>
+                        <a href="{{ array.main.youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -149,26 +149,22 @@
                 </div>
             </div>
 
-<!--
+            <!--
 
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-newsletter">
-                    <h2 class="footer-wid-title">Newsletter</h2>
-                    <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
-                    <div class="newsletter-form">
-                        <form action="#">
-                            <input type="email" placeholder="Type your email">
-                            <input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-newsletter">
+                                <h2 class="footer-wid-title">Newsletter</h2>
+                                <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                                <div class="newsletter-form">
+                                    <form action="#">
+                                        <input type="email" placeholder="Type your email">
+                                        <input type="submit" value="Subscribe">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
-            -->
-
-
-
-
+                        -->
 
 
         </div>
@@ -180,13 +176,14 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright">
-                    <p>&copy; 2017. Todos los Derechos Reservados. Codificado por <a href="#">{{ main.autores }}</a></p>
+                    <p>&copy; 2017. Todos los Derechos Reservados. Codificado por <a href="#">Miguel, Oel, Carlos.</a>
+                    </p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="footer-card-icon">
-                    <img src="{{ main.img_tecnologias }}">
+                    <img src="{{ pathAsset }}img/tech.png" alt="Tecnologias utilizadas para el desarrollo del sistema" class="tech">
                 </div>
             </div>
         </div>
@@ -201,19 +198,19 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!-- jQuery sticky menu -->
-<script src="{{ configAsset.js }}js/owl.carousel.min.js"></script>
-<script src="{{ configAsset.js }}js/jquery.sticky.js"></script>
+<script src="{{ pathAsset }}js/owl.carousel.min.js"></script>
+<script src="{{ pathAsset }}js/jquery.sticky.js"></script>
 
 <!-- jQuery easing -->
-<script src="{{ configAsset.js }}js/jquery.easing.1.3.min.js"></script>
+<script src="{{ pathAsset }}js/jquery.easing.1.3.min.js"></script>
 
 <!-- Main Script -->
-<script src="{{ configAsset.js }}js/main.js"></script>
+<script src="{{ pathAsset }}js/main.js"></script>
 
 <!--Google Maps API-->
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyCcGd_BnaxoSjIb29KIa87jukExeb6xzu8"></script>
 
-<script type="text/javascript" src="{{ configAsset.js }}js/google_map.js"></script>
+<script type="text/javascript" src="{{ pathAsset }}js/google_map.js"></script>
 
 </body>
 </html>
