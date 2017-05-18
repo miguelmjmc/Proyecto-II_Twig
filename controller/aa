@@ -1,5 +1,0 @@
-{# Add assets into head of the document by using default priority. #} {% assets in 'head' with { priority: 0 } %}
-<link rel="stylesheet" href="{{ url('gantry-theme://css/my.css') }}" type="text/css"/>
-
-<script type="text/javascript" src="{{ url('gantry-theme://js/my.js') }}"></script>
-<script type="text/javascript"> var MY_VAR = 'test'; </script> {% endassets -%}

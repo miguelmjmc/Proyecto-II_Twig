@@ -1,15 +1,26 @@
 <?php
 
-require_once "../vendor/autoload.php";
+include_once "../vendor/autoload.php";
+include_once "../config/configAsset.php";
+include_once "../model/user/main.php";
+include_once "../model/query.php";
+include_once "../model/conection.php";
+include_once "../config/configDB.php";
+
 
 
 $loader = new Twig_Loader_Filesystem("../views/user");
 $twig = new Twig_Environment($loader);
 
-$bsse = 
+
+$configAsset=configAsset();
+$main=load();
 
 
-echo $twig->render("base.html.twig", compact("base"));
+/*"titulo_pagina" => "Inicio",
+       "index_user" => "prueba.php",
+*/
+echo $twig->render("product.html.twig", compact("configAsset","main"));
 
 
 /*

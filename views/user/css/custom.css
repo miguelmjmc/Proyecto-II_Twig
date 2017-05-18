@@ -1,0 +1,44 @@
+#map-container {
+    height: 500px;
+    z-index: 1;
+    display: block;
+    float: left;
+    margin-top: -100px;
+    width: 100%;
+    background: white;
+    transform: skew(0deg, 3deg);
+    -ms-transform: skew(0deg, 3deg); /* IE 9 */
+    -webkit-transform: skew(0deg, 3deg); /* Safari and Chrome */
+
+}
+
+.map {
+    margin-top: 200px;
+}
+
+.product-widget-area {
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .logo-empresa {
+        width: 100%;
+        max-width: 120px;
+        min-width: 120px;
+        height: 120px;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo-empresa {
+        display: block;
+        width: 100%;
+        max-width: 150px;
+        min-width: 120px;
+        height: 120px;
+        margin: 40px auto 0;
+    }
+}
+
+
