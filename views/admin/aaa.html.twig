@@ -1,14 +1,31 @@
-{% for i in range(2, 8) %}
-    {{ i }},
-{% endfor %}
 
-{% for i in range(low=1, high=10, step=2) %}
-    {{ i }},
-{% endfor %}
-
-{{ user.name }}
 
 <h1>Members</h1>
-{% for user in users %}
-    {{ loop .index }}  -  {{ user }}
-{% endfor %}
+{{ array.index.slides.1.title }}
+<br>
+<h1>pruebas</h1>
+<div class="carousel-inner" role="listbox">
+    {% for slide  in array.index.slides %}
+        <div class="item">
+            <div class="single-slide">
+                <div class="slide-bg slide-"></div>
+
+                <div class="slide-text-wrapper">
+                    <div class="slide-text">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-6">
+                                    <div class="slide-content">
+                                        <h2> {{ slide.title }} </h2>
+                                        <p>{{ slide.content }}</p>
+                                        <a href="{{ slide.link }}" class="readmore">Ver mas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

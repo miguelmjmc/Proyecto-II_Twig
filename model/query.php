@@ -9,13 +9,24 @@ class query extends conection
         parent::__construct();
     }
 
-    //
     function query($query)
     {
         $this->connect();
         $result = mysqli_query($this->conection, "$query");
         $data = mysqli_fetch_assoc($result);
         $this->disconnect();
+        return $data;
+    }
+
+
+    public function loadArray($query)
+    {
+        $data = null;
+        $i = 1;
+        while ($this->query("$query") != null) {
+            $data["$i"] = $this->query("$query $i");
+            $i++;
+        }
         return $data;
     }
 }

@@ -2,16 +2,14 @@
 
 include_once "../config/configPath.php";
 include_once PATH . "/model/renderTwig.php";
-include_once PATH . "/model/user/indexUserModel.php";
-
+include_once PATH . "/model/user/index.php";
 
 
 $directory = "user";
 $view = "index.html.twig";
 
-$load=new indexUserModel();
+$load = new index();
 $array=$load->loadIndex();
-
 
 
 
