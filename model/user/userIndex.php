@@ -1,15 +1,15 @@
 <?php
 
-include_once PATH . "/model/user/base.php";
+include_once PATH . "/model/user/userBase.php";
 
-class index extends base
+class userIndex extends userBase
 {
 
     public function __construct()
     {
     }
 
-    public function loadIndex()
+    public function load()
     {
         $main = $this->loadMain();
 
@@ -25,7 +25,14 @@ class index extends base
 
         $array = compact("main");
 
-        return $array;
+        $directory = "user";
+       
+        $view = "index.html.twig";
+
+        $values = compact("directory", "view", "array");
+
+        return $values;
+        
     }
 }
 

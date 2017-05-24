@@ -1,22 +1,24 @@
 <?php
 
 include_once "../config/configPath.php";
-include_once PATH . "/model/renderTwig.php";
-include_once PATH . "/model/user/index.php";
+include_once PATH . "/config/include.php";
 
 
-$directory = "user";
-$view = "index.html.twig";
+if ($_POST) {
+    $className = $_POST["link"];
+} elseif ($_GET) {
+    $className = $_GET["link"];
+} else {
+    $className = "userIndex";
+}
 
-$load = new index();
-$array=$load->loadIndex();
 
-
-
+$load = new $className();
+$values = $load->load();
 
 
 $renderTwig = new renderTwig();
-$renderTwig->renderTwig($directory, $view, $array);
+$renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
 
 
 /*

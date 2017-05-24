@@ -2,7 +2,7 @@
 
 include_once PATH . "/model/query.php";
 
-class base
+class userBase
 {
     public function __construct()
     {

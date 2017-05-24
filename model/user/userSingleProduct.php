@@ -1,15 +1,15 @@
 <?php
 
-include_once PATH . "/model/user/base.php";
+include_once PATH . "/model/user/userBase.php";
 
-class product extends base
+class userSingleProduct extends userBase
 {
 
     public function __construct()
     {
     }
 
-    public function loadSingleProduct($code)
+    public function load($code)
     {
         $main = $this->loadMain();
 
@@ -23,7 +23,13 @@ class product extends base
 
         $array = compact("main", "singleProduct");
 
-        return $array;
+        $directory = "user";
+
+        $view = "singleProduct.html.twig";
+
+        $values = compact("directory", "view", "array");
+
+        return $values;
     }
 }
   
