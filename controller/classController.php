@@ -54,7 +54,7 @@ class classController
     {
         if (isset($post["login"])) {
             $query = new query();
-            $admin = $query->query("SELECT * FROM admin WHERE WHERE id=1");
+            $admin = $query->query("SELECT * FROM admin WHERE id=1");
             if ($post["login"] == $admin["email"] && $post["password"] == $admin["password"]) {
                 session_start();
                 $_SESSION["name"] = $admin["name"];
@@ -62,14 +62,21 @@ class classController
         }
     }
     
+    public function test($d, $v, $a)
+    {
+        $renderTwig = new renderTwig();
+        $renderTwig->renderTwig($d, $v, $a);
+    }
+
 }
+    
 
 
-/*
- * Created by PhpStorm.
- * User: Windows
- * Date: 11/12/2010
- * Time: 12:44 AM
- */
+    /*
+     * Created by PhpStorm.
+     * User: Windows
+     * Date: 11/12/2010
+     * Time: 12:44 AM
+     */
 
 ?>

@@ -52,21 +52,22 @@
                                     <div class="row">
                                         <div class="col-md-12 login-padding">
                                             <p>Login:</p>
-                                            <form class="form" role="form" method="post" action=""
+                                            <form class="form" role="form" method="post" action="mainController.php"
                                                   accept-charset="UTF-8" id="login-nav">
                                                 <div class="form-group">
                                                     <label class="sr-only" for="exampleInputEmail2">Email</label>
-                                                    <input type="email" class="form-control" placeholder="Email"
+                                                    <input type="email" class="form-control" placeholder="Email" name="login"
                                                            required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="sr-only"
                                                            for="exampleInputPassword2">Contraseña</label>
-                                                    <input type="password" class="form-control" placeholder="Contraseña"
+                                                    <input type="password" class="form-control" placeholder="Contraseña" name="password"
                                                            required>
                                                     <div class="help-block text-right"><a href=""> Oldido su contraseña
                                                             ?</a></div>
                                                 </div>
+                                                <input name="link" value="adminBase" style="display: none">
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-primary btn-block">Acceder
                                                     </button>

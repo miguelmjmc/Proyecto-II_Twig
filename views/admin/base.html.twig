@@ -166,7 +166,15 @@ desired effect
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
+
+
+
+            <form method="post" action="mainController">
+                <input name="logout" value="true" style="display: none">
+                <button type="submit">desconectar</button>
+            </form>
             {% block main %}
+
             {% endblock %}
 
         </section>

@@ -8,12 +8,30 @@ class adminBase
     {
     }
 
-    function loadMain()
+    function load()
     {
-        $query = new query();
-        $main = $query->query("SELECT * FROM configuration WHERE id= 1");
-        return $main;
+
+        $array = null;
+
+        $directory = "admin";
+
+        $view = "base.html.twig";
+
+        $values = compact("directory", "view", "array");
+
+        return $values;
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    
 }
 
 

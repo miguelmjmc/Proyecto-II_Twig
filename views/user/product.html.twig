@@ -18,21 +18,21 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                {% for product in array.product %}
+                {% for product in array.product.productList %}
                     <div class="col-md-3 col-sm-6">
                         <div class="single-product">
                             <div class="product-f-image">
-                                <img src="{{ product.img }}"
-                                     alt="{{ product.name }}">
+                                <img src="data:{{ array.main.imgType }}; base64,{{ product.img }}"
+                                     alt="{{ product.name }} {{ product.code }}">
                                 <div class="product-hover">
                                     <a href="" class="view-details-link"><i
                                                 class="fa fa-link"></i>detalles</a>
                                 </div>
                             </div>
-                            <h2><a href="">{{ product.name }}</a></h2>
+                            <h2><a href="">{{ product.name }} {{ product.code }}</a></h2>
                             <div class="product-carousel-price">
-                                <ins>{{ product.offer }}</ins>
-                                <del>{{ product.price }}</del>
+                                <ins>{{ product.offer }} Bs.</ins>
+                                <del>{{ product.price }} Bs.</del>
                             </div>
                         </div>
                     </div>

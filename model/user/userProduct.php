@@ -15,7 +15,11 @@ class userProduct extends userBase
 
         $query = new query();
 
-        $productList = $query->loadArray("SELECT * FROM product INNER JOIN productClass ON product.productClass_id = productClass.id WHERE product.id= ");
+        $productList = $query->loadArray("SELECT * FROM product INNER JOIN  productImage ON 
+                                                        product.code = productImage.product_code AND 
+                                                        product.productBrand_id = productImage.product_productBrand_id AND 
+                                                        product.productClass_id = productImage.product_productclass_id WHERE  
+                                                        product.id = ");
 
         $product = compact("productList");
 
