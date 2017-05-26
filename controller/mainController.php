@@ -4,18 +4,23 @@ include_once "../config/configPath.php";
 include_once PATH . "/config/include.php";
 
 
-if ($_POST) {
+if (isset($_POST["link"])) {
     $className = $_POST["link"];
-} elseif ($_GET) {
+} elseif (isset($_GET["link"])) {
     $className = $_GET["link"];
 } else {
     $className = "userIndex";
 }
 
-
+$values = null;
 $load = new $className();
-$values = $load->load();
 
+
+if (isset($_POST["aux"]) || isset($_GET["aux"])) {
+    $values = $load->load($_POST["aux"]);
+} else {
+    $values = $load->load();
+}
 
 $renderTwig = new renderTwig();
 $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);

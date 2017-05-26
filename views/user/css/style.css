@@ -210,7 +210,7 @@ body {
 }
 
 .slide-text-wrapper {
-    height: 700px;
+    height: 800px;
 }
 
 .slide-text-wrapper {
@@ -255,16 +255,12 @@ body {
     width: 100%;
 }
 
-.slide-one {
-    background-image: url(img/slide-1.jpg)
-}
-
-.slide-two {
-    background-image: url(img/slide-2.jpg)
-}
-
-.slide-three {
-    background-image: url(img/slide-3.jpg)
+.img-slide {
+    min-width: 110%;
+    max-width: 120%;
+    min-height: 110%;
+    max-height: 120%;
+    margin: -5%;
 }
 
 .slide-text {
@@ -323,7 +319,7 @@ body {
 .brands-area {
     background: none repeat scroll 0 0 #1abc9c;
     color: #fff;
-    padding: 0px 0 200px;
+    padding: 0 0 200px;
 }
 
 .promo-area .zigzag-bottom, .brands-area .zigzag-bottom {

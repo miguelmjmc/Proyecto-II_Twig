@@ -15,15 +15,15 @@ class userIndex extends userBase
 
         $query = new query();
 
-        //$slide = $query->loadArray("SELECT * FROM slides WHERE id= ");
+        $slide = $query->loadArray("SELECT * FROM slide WHERE id= ");
 
-        //$about = $query->query("SELECT * FROM about WHERE id=1");
+        $about = $query->query("SELECT * FROM about WHERE id=1");
 
-        //$productBrand = $query->loadArray("SELECT * FROM productBrand WHERE id=");
+        $vehicleBrand = $query->loadArray("SELECT * FROM vehicleBrand WHERE id=");
 
-        //$index = compact("slide", "about", "productBrand");
+        $index = compact("slide","about","vehicleBrand");
 
-        $array = compact("main");
+        $array = compact("main","index");
 
         $directory = "user";
        
@@ -32,7 +32,6 @@ class userIndex extends userBase
         $values = compact("directory", "view", "array");
 
         return $values;
-        
     }
 }
 

@@ -26,6 +26,7 @@ class conection
     function connect()
     {
         $this->conection = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
+        mysqli_set_charset($this->conection,"UTF-8");
     }
 
     //función para destruir la conexión.

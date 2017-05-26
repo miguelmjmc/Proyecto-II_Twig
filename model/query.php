@@ -1,6 +1,7 @@
 <?php
 
-include_once PATH. "/model/conection.php";
+include_once PATH . "/model/conection.php";
+include_once PATH . "/model/imgCode.php";
 
 class query extends conection
 {
@@ -14,19 +15,28 @@ class query extends conection
         $this->connect();
         $result = mysqli_query($this->conection, "$query");
         $data = mysqli_fetch_assoc($result);
+        if (isset($data["img"])) {
+            $data["img"] = $this->decode($data["img"]);
+        }
         $this->disconnect();
         return $data;
     }
-
 
     public function loadArray($query)
     {
         $data = null;
         $i = 1;
-        while ($this->query("$query") != null) {
+        while ($this->query("$query $i") != null) {
             $data["$i"] = $this->query("$query $i");
             $i++;
         }
+        return $data;
+    }
+
+    public function decode($data)
+    {
+        $img = new imgCode();
+        $data = $img->decode($data);
         return $data;
     }
 }

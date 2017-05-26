@@ -23,7 +23,9 @@
                 {% for slide  in array.index.slide %}
                     <div class="item {% if loop.first %}active{% endif %}">
                         <div class="single-slide">
-                            <div class="slide-bg slide-{{ slide.number }}"></div>
+                            <div class="slide-bg slide-{{ slide.number }}"><img
+                                        src="data:{{ array.main.imgType }}; base64,{{ slide.img }}" class="img-slide">
+                            </div>
                             <div class="slide-text-wrapper">
                                 <div class="slide-text">
                                     <div class="container">
@@ -76,31 +78,19 @@
             </div>
         </div>
     </div> <!-- End promo area -->
-
-
-
-
-
-
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">
-                        <h2 class="section-title">Nuevos Productos</h2>
-
-
-
+                        <h2 class="section-title">Quienes Somos</h2>
+                        <p>{{ array.index.about.content }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div> <!-- End main content area -->
-
-
-
-
     <div class="brands-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -109,8 +99,9 @@
                     <div class="brand-wrapper">
                         <h2 class="section-title">Nuestras Marcas</h2>
                         <div class="brand-list">
-                            {% for brand  in array.index.productBrand %}
-                                <img src="{{ brand.logo }}" alt="logo de {{ brand.name }}">
+                            {% for brand  in array.index.vehicleBrand %}
+                                <img src="data:{{ array.main.imgType }}; base64,{{ brand.img }}"
+                                     alt="logo de {{ brand.name }}">
                             {% endfor %}
                         </div>
                     </div>
@@ -118,7 +109,6 @@
             </div>
         </div>
     </div> <!-- End brands area -->
-
     <div class="product-widget-area">
         <div class="zigzag-bottom" id="zig-map"></div>
         <div class="container no-margin">

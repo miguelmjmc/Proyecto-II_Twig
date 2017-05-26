@@ -9,19 +9,19 @@ class userSingleProduct extends userBase
     {
     }
 
-    public function load($code)
+    public function load($product)
     {
         $main = $this->loadMain();
 
-        $query = new query();
+        //$query = new query();
 
-        $product = $query->query("SELECT * FROM (product INNER JOIN productClass ON product.productClass_id = productClass.id) 
-                                          INNER JOIN productCategory ON prodcutClass.productCategory_id = productCategory.id)
-                                          INNER JOIN productBrand ON product.productBrand_id = productBrand.id WHERE product.code = $code");
+        //$product = $query->query("SELECT * FROM (product INNER JOIN productClass ON product.productClass_id = productClass.id) 
+          //                                INNER JOIN productCategory ON prodcutClass.productCategory_id = productCategory.id)
+            //                              INNER JOIN productBrand ON product.productBrand_id = productBrand.id WHERE product.code = $product");
 
-        $singleProduct = compact("product");
+        //$singleProduct = compact("product");
 
-        $array = compact("main", "singleProduct");
+        $array = compact("main");
 
         $directory = "user";
 
