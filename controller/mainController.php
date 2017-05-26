@@ -1,29 +1,18 @@
 <?php
 
 include_once "../config/configPath.php";
-include_once PATH . "/config/include.php";
+include_once PATH . "/controller/classController.php";
 
 
-if (isset($_POST["link"])) {
-    $className = $_POST["link"];
-} elseif (isset($_GET["link"])) {
-    $className = $_GET["link"];
-} else {
-    $className = "userIndex";
-}
+$controller = new classController();
 
-$values = null;
-$load = new $className();
+$controller->session($_POST);
 
+$className = $controller->selectView($_POST, $_GET);
 
-if (isset($_POST["aux"]) || isset($_GET["aux"])) {
-    $values = $load->load($_POST["aux"]);
-} else {
-    $values = $load->load();
-}
+$values = $controller->loadModel($className, $_POST, $_GET);
 
-$renderTwig = new renderTwig();
-$renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
+$controller->renderView($values);
 
 
 /*

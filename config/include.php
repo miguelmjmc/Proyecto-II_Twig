@@ -1,9 +1,11 @@
 <?php
 
+include_once PATH . "/model/query.php";
 include_once PATH . "/model/renderTwig.php";
 include_once PATH . "/model/user/userIndex.php";
 include_once PATH . "/model/user/userProduct.php";
 include_once PATH . "/model/user/userSingleProduct.php";
+include_once PATH . "/model/admin/adminBase.php";
 
 
 
