@@ -18,28 +18,26 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                    {% for product in array.product %}
-                        <div class="col-md-3 col-sm-6">
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="{{ product.img }}"
-                                         alt="{{ product.name }}">
-                                    <div class="product-hover">
-                                        <a href="" class="view-details-link"><i
-                                                    class="fa fa-link"></i>detalles</a>
-                                    </div>
-                                </div>
-                                <h2><a href="">{{ product.name }}</a></h2>
-                                <div class="product-carousel-price">
-                                    <ins>{{ product.offer }}</ins>
-                                    <del>{{ product.price }}</del>
+                {% for product in array.product %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="{{ product.img }}"
+                                     alt="{{ product.name }}">
+                                <div class="product-hover">
+                                    <a href="" class="view-details-link"><i
+                                                class="fa fa-link"></i>detalles</a>
                                 </div>
                             </div>
+                            <h2><a href="">{{ product.name }}</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>{{ product.offer }}</ins>
+                                <del>{{ product.price }}</del>
+                            </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
             </div>
-
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-pagination text-center">
@@ -54,7 +52,6 @@
                                 <li><a href="#">1</a></li>
 
 
-
                                 <li>
                                     <a href="#" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
@@ -65,10 +62,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
 
         </div>
