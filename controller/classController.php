@@ -61,7 +61,7 @@ class classController
             }
         }
     }
-    
+
     public function test($d, $v, $a)
     {
         $renderTwig = new renderTwig();
@@ -69,14 +69,10 @@ class classController
     }
 
 }
-    
 
-
-    /*
-     * Created by PhpStorm.
-     * User: Windows
-     * Date: 11/12/2010
-     * Time: 12:44 AM
-     */
-
-?>
+/*
+ * Created by PhpStorm.
+ * User: Windows
+ * Date: 11/12/2010
+ * Time: 12:44 AM
+ */

@@ -41,12 +41,9 @@ class query extends conection
     }
 }
 
-
 /*
  * Created by PhpStorm.
  * User: Windows
  * Date: 17/05/2017
  * Time: 01:46 AM
  */
-
-?>

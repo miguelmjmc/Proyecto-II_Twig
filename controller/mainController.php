@@ -1,6 +1,5 @@
 <?php
 
-include_once "../config/configPath.php";
 include_once PATH . "/controller/classController.php";
 
 
@@ -18,15 +17,9 @@ $values = $controller->loadModel($className, $_POST, $_GET);
 
 $controller->renderView($values);
 
-
-
-
-
 /*
  * Created by PhpStorm.
  * User: Windows
  * Date: 16/05/2017
  * Time: 03:14 PM
  */
-
-?>

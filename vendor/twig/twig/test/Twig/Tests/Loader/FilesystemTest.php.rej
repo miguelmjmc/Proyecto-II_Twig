@@ -1,0 +1,12 @@
+diff a/vendor/twig/twig/test/Twig/Tests/Loader/FilesystemTest.php b/vendor/twig/twig/test/Twig/Tests/Loader/FilesystemTest.php	(rejected hunks)
+@@ -15,8 +15,8 @@
+     {
+         $path = dirname(__FILE__).'/../Fixtures';
+         $loader = new Twig_Loader_Filesystem(array($path));
+-        $this->assertEquals('errors/index.html', $loader->getSourceContext('errors/index.html')->getName());
+-        $this->assertEquals(realpath($path.'/errors/index.html'), realpath($loader->getSourceContext('errors/index.html')->getPath()));
++        $this->assertEquals('errors/index.php', $loader->getSourceContext('errors/index.php')->getName());
++        $this->assertEquals(realpath($path.'/errors/index.php'), realpath($loader->getSourceContext('errors/index.php')->getPath()));
+     }
+ 
+     /**

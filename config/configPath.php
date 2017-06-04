@@ -2,9 +2,9 @@
 
 define("PATH", "C:/wamp/www/Proyecto-II_Twig");
 
-define("userAsset", "../views/user/");
+define("userAsset", "views/user/");
 
-define("adminAsset", "../views/admin/");
+define("adminAsset", "views/admin/");
 
 
 

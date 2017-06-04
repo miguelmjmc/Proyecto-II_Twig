@@ -35,12 +35,9 @@ class userIndex extends userBase
     }
 }
 
-
 /*
  * Created by PhpStorm.
  * User: Windows
  * Date: 22/05/2017
  * Time: 03:09 AM
  */
-
-?>

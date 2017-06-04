@@ -1,0 +1,20 @@
+diff a/vendor/twig/twig/test/Twig/Tests/ErrorTest.php b/vendor/twig/twig/test/Twig/Tests/ErrorTest.php	(rejected hunks)
+@@ -71,15 +71,15 @@
+         ));
+         $twig = new Twig_Environment($loader, array('strict_variables' => true, 'debug' => true, 'cache' => false));
+ 
+-        $template = $twig->loadTemplate('index.html');
++        $template = $twig->loadTemplate('index.php');
+         try {
+             $template->render(array('foo' => new Twig_Tests_ErrorTest_Foo()));
+ 
+             $this->fail();
+         } catch (Twig_Error_Runtime $e) {
+-            $this->assertEquals('An exception has been thrown during the rendering of a template ("Runtime error...") in "index.html" at line 3.', $e->getMessage());
++            $this->assertEquals('An exception has been thrown during the rendering of a template ("Runtime error...") in "index.php" at line 3.', $e->getMessage());
+             $this->assertEquals(3, $e->getTemplateLine());
+-            $this->assertEquals('index.html', $e->getSourceContext()->getName());
++            $this->assertEquals('index.php', $e->getSourceContext()->getName());
+         }
+     }
+ 

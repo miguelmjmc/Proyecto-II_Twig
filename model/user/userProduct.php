@@ -35,11 +35,9 @@ class userProduct extends userBase
     }
 }
 
-
 /*
  * Created by PhpStorm.
  * User: Windows
  * Date: 23/05/2017
  * Time: 12:36 AM
  */
-?>

@@ -19,5 +19,3 @@ class imgCode
  * Date: 25/05/2017
  * Time: 05:53 PM
  */
-
-?>
