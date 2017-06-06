@@ -2,8 +2,7 @@
 
 include_once PATH . "/controller/classController.php";
 
-
-if (isset($_post["logout"])){
+if (isset($_POST["logout"])){
     session_destroy();
 }
 
@@ -14,6 +13,8 @@ $controller->session($_POST);
 $className = $controller->selectView($_POST, $_GET);
 
 $values = $controller->loadModel($className, $_POST, $_GET);
+
+unset($_POST);
 
 $controller->renderView($values);
 

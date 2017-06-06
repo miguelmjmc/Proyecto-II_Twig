@@ -1,6 +1,6 @@
 <?php
 
-$_GET["link"]="userSingleProduct";
+//$_GET["link"]="userSingleProduct";
 
 
 include_once "config/configPath.php";

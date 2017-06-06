@@ -27,7 +27,6 @@ class classController
         $values = null;
         if (isset($post["aux"])) {
             $values = $load->load($post["aux"]);
-
         } elseif (isset($get["aux"])) {
             $values = $load->load($get["aux"]);
         } else {
@@ -67,7 +66,6 @@ class classController
         $renderTwig = new renderTwig();
         $renderTwig->renderTwig($d, $v, $a);
     }
-
 }
 
 /*
