@@ -4,9 +4,12 @@
 
 
 include_once "config/configPath.php";
-include_once PATH. "/controller/mainController.php";
+include_once PATH. "/model/query.php";
 
-
+$a=new query();
+$b=$a->query("SELECT * FROM product inner join productimage where product.code=productimage.product_code and product.productbrand_id=productimage.product_productbrand_id");
+echo print_r($b);
+echo "<img src='data:;base64,"."$b['img']"."'>";
 
 
 

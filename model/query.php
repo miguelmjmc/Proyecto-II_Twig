@@ -39,6 +39,11 @@ class query extends conection
         $data = $img->decode($data);
         return $data;
     }
+
+    public function aa()
+    {
+       mysqli_real_escape_string();
+    }
 }
 
 /*

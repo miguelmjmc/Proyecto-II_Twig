@@ -37,7 +37,7 @@ class userSingleProduct extends userBase
  INNER JOIN productCategory_has_productClass ON
  productClass.id = productCategory_has_productClass.productClass_id) 
  INNER JOIN productCategory ON
- productCategory_has_productClass.productCategory_id = productCategory.id WHERE product.id=1");
+ productCategory_has_productClass.productCategory_id = productCategory.id WHERE $aux");
 
         $productList = $this->loadRelatedProducts();
 

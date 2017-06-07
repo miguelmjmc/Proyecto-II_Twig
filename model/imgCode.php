@@ -13,6 +13,15 @@ class imgCode
     }
 }
 
+
+
+
+
+//$filename = "c:\\files\\imagen.gif";
+//$gestor = fopen($filename, "rb");
+//$contenido = fread($gestor, filesize($filename));
+//fclose($gestor);
+
 /*
  * Created by PhpStorm.
  * User: Windows

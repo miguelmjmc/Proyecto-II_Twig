@@ -1,6 +1,6 @@
 <?php
 
-define("PATH", "C:/wamp/www/Proyecto-II_Twig");
+define("PATH", $_SERVER["DOCUMENT_ROOT"]."Proyecto-II_Twig");
 
 define("userAsset", "views/user/");
 

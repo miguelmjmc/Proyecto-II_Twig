@@ -2,21 +2,18 @@
 
 include_once PATH . "/controller/classController.php";
 
-if (isset($_POST["logout"])){
-    session_destroy();
+logout();
+
+if (isset($_POST["login"])) {
+    session();
+} else {
+    session_start();
 }
 
-$controller = new classController();
+renderView(loadModel(selectModel()));
 
-$controller->session($_POST);
 
-$className = $controller->selectView($_POST, $_GET);
 
-$values = $controller->loadModel($className, $_POST, $_GET);
-
-unset($_POST);
-
-$controller->renderView($values);
 
 /*
  * Created by PhpStorm.

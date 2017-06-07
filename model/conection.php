@@ -14,11 +14,11 @@ class conection
     //creación del constructor
     function __construct()
     {
-        $config_db = configDB();
-        $this->host = $config_db["host"];
-        $this->db = $config_db["db"];
-        $this->user = $config_db["user"];
-        $this->pass = $config_db["pass"];
+        $config_DB = configDB();
+        $this->host = $config_DB["host"];
+        $this->db = $config_DB["db"];
+        $this->user = $config_DB["user"];
+        $this->pass = $config_DB["pass"];
 
     }
     

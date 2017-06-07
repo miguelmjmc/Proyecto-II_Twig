@@ -2,71 +2,91 @@
 
 include_once PATH . "/config/include.php";
 
-class classController
+function logout()
 {
-    public function __construct()
-    {
+    if (isset($_GET["logout"])) {
+
+        session_start();
+        session_destroy();
+        $_GET = null;
+        $_POST = null;
+        header("LOCATION:index.php");
     }
 
-    public function selectView($post, $get)
-    {
-        if (isset($post["link"])) {
-            $className = $post["link"];
-        } elseif (isset($get["link"])) {
-            $className = $get["link"];
-        } else {
-            $className = "userIndex";
+}
+
+function session()
+{
+    if (isset($_POST["login"])) {
+        $query = new query();
+        $admin = $query->query("SELECT * FROM admin WHERE id=1");
+        if ($_POST["login"] == $admin["email"] && $_POST["password"] == $admin["password"]) {
+            session_start();
+            $_SESSION["name"] = $admin["name"];
         }
-        return $className;
-    }
-
-    public function loadModel($className, $post, $get)
-    {
-
-        $load = new $className();
-        $values = null;
-        if (isset($post["aux"])) {
-            $values = $load->load($post["aux"]);
-        } elseif (isset($get["aux"])) {
-            $values = $load->load($get["aux"]);
-        } else {
-            $values = $load->load();
-        }
-        return $values;
-    }
-
-    public function renderView($values)
-    {
-        $renderTwig = new renderTwig();
-        if ($values["directory"] == "user") {
-            $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
-        } elseif ($values["directory"] == "admin" && isset($_SESSION["name"])) {
-            $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
-        } else {
-            $load = new userIndex();
-            $values = $load->load();
-            $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
-        }
-    }
-
-    public function session($post)
-    {
-        if (isset($post["login"])) {
-            $query = new query();
-            $admin = $query->query("SELECT * FROM admin WHERE id=1");
-            if ($post["login"] == $admin["email"] && $post["password"] == $admin["password"]) {
-                session_start();
-                $_SESSION["name"] = $admin["name"];
-            }
-        }
-    }
-
-    public function test($d, $v, $a)
-    {
-        $renderTwig = new renderTwig();
-        $renderTwig->renderTwig($d, $v, $a);
+        header("LOCATION:index.php");
     }
 }
+
+
+function selectModel()
+{
+    if (isset($_SESSION["name"])) {
+        if (isset($_POST["link"])) {
+            $className = $_POST["link"];
+        } elseif (isset($_GET["link"])) {
+            $className = $_GET["link"];
+        } else {
+            $className = "adminBase";
+        }
+    } elseif (isset($_GET["link"])) {
+        $className = $_GET["link"];
+    } else {
+        $className = "userIndex";
+    }
+    return $className;
+}
+
+function loadModel($className)
+{
+    $load = new $className();
+    $values = null;
+    if (isset($_SESSION["name"])) {
+        if (isset($_POST["aux"])) {
+            $values = $load->load($_POST["aux"]);
+        } else {
+            $values = $load->load();
+        }
+
+    } elseif (isset($_GET["aux"])) {
+        $values = $load->load($_GET["aux"]);
+    } else {
+        $values = $load->load();
+    }
+    return $values;
+}
+
+function renderView($values)
+{
+    $renderTwig = new renderTwig();
+    if ($values["directory"] == "user") {
+        $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
+    } elseif ($values["directory"] == "admin" && isset($_SESSION["name"])) {
+        $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
+    } else {
+        $load = new userIndex();
+        $values = $load->load();
+        $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
+    }
+}
+
+
+function test($d, $v, $a)
+{
+    $renderTwig = new renderTwig();
+    $renderTwig->renderTwig($d, $v, $a);
+}
+
 
 /*
  * Created by PhpStorm.

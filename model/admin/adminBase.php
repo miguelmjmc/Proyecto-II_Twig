@@ -34,7 +34,7 @@ class adminBase
 
         $directory = "admin";
 
-        $view = "tabla.html.twig";
+        $view = "product.html.twig";
 
         $values = compact("directory", "view", "array");
 
