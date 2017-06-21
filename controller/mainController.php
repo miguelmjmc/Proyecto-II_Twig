@@ -2,15 +2,18 @@
 
 include_once PATH . "/controller/classController.php";
 
-logout();
+$controller = new controller();
+
+$controller->logout();
 
 if (isset($_POST["login"])) {
-    session();
+    $controller->session();
 } else {
     session_start();
 }
 
-renderView(loadModel(selectModel()));
+$controller->renderView($controller->loadModel($controller->selectModel()));
+
 
 
 

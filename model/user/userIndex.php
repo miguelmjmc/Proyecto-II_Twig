@@ -15,11 +15,19 @@ class userIndex extends userBase
 
         $query = new query();
 
-        $slide = $query->loadArray("SELECT * FROM slide WHERE id= ");
+        $slide = $query->query("SELECT * FROM slide");
+       for($i=0;$i<3;$i++){
+            $slide["$i"]["slideImg"]=base64_encode($slide["$i"]["slideImg"]);
+        }
 
         $about = $query->query("SELECT * FROM about WHERE id=1");
 
-        $vehicleBrand = $query->loadArray("SELECT * FROM vehicleBrand WHERE id=");
+        $vehicleBrand = $query->query("SELECT * FROM vehicleBrand");
+        $i=0;
+        while (isset($vehicleBrand["$i"])){
+            $vehicleBrand["$i"]["vehicleBrandImg"]=base64_encode($vehicleBrand["$i"]["vehicleBrandImg"]);
+            $i++;
+        }
 
         $index = compact("slide","about","vehicleBrand");
 

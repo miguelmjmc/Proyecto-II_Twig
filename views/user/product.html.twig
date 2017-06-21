@@ -2,7 +2,18 @@
 
 {% block title %} Productos {% endblock %}
 
+{% block navLink %}
+    <li><a href="index.php">inicio</a></li>
+    <li><a href="index.php#about">quienes somos</a></li>
+    <li><a href="index.php#brands">nuestras marcas</a></li>
+    <li class="active"><a href="#products">nuestros productos</a></li>
+    <li><a href="index.php#location">donde estamos</a></li>
+    <li><a href="#contacts">contactos</a></li>
+{% endblock %}
+
+
 {% block main %}
+    <div id="products">
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -22,14 +33,14 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="single-product">
                             <div class="product-f-image">
-                                <img src="data:{{ array.main.imgType }}; base64,{{ product.img }}"
-                                     alt="{{ product.name }} {{ product.code }}">
+                                <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                     alt="{{ product.productClass }} {{ product.productCode }}">
                                 <div class="product-hover">
-                                    <a href="index.php?link=userSingleProduct&aux={{ aux }}" class="view-details-link"><i
+                                    <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}" class="view-details-link"><i
                                                 class="fa fa-link"></i>detalles</a>
                                 </div>
                             </div>
-                            <h2><a href="">{{ product.name }} {{ product.code }}</a></h2>
+                            <h2><a href="">{{ product.productClass }} {{ product.productCode }}</a></h2>
                             <div class="product-carousel-price">
                                 <ins>{{ product.offer }} Bs.</ins>
                                 <del>{{ product.price }} Bs.</del>
@@ -65,5 +76,6 @@
 
 
         </div>
+    </div>
     </div>
 {% endblock %}

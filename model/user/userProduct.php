@@ -9,18 +9,19 @@ class userProduct extends userBase
     {
     }
 
-    public function load()
+    public function load($var)
     {
         $main = $this->loadMain();
 
         $query = new query();
 
-        $productList = $query->loadArray("SELECT * FROM product INNER JOIN  productImage ON 
-                                                        product.code = productImage.product_code AND 
-                                                        product.productBrand_id = productImage.product_productBrand_id AND 
-                                                        product.productClass_id = productImage.product_productclass_id WHERE  
-                                                        product.id = ");
-
+        $productList = $query->query("SELECT * FROM product INNER JOIN productImage ON (product.productCode = productImage.productCode AND product.productBrand = productImage.productBrand AND product.productClass = productImage.productClass) ");
+        $i=0;
+        while (isset($productList["$i"])){
+            $productList["$i"]["productImg"]=base64_encode($productList["$i"]["productImg"]);
+            $i++;
+        }
+        
         $product = compact("productList");
 
         $array = compact("main", "product");

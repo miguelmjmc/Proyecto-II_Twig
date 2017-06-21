@@ -3,6 +3,15 @@
 
 {% block title %} Productos {% endblock %}
 
+{% block navLink %}
+    <li><a href="index.php">inicio</a></li>
+    <li><a href="index.php#about">quienes somos</a></li>
+    <li><a href="index.php#brands">nuestras marcas</a></li>
+    <li class="active"><a href="index.php?link=userProduct">nuestros productos</a></li>
+    <li><a href="index.php#location">donde estamos</a></li>
+    <li><a href="#contacts">contactos</a></li>
+{% endblock %}
+
 {% block main %}
 
 
@@ -36,7 +45,7 @@
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="data:{{ array.singleProduct.product.imgType }}; base64,{{ array.singleProduct.product.img }} " alt="">
+                                        <img src="data:{{ array.singleProduct.product.productImgType }}; base64,{{ array.singleProduct.product.productImg.productImg }} " alt="">
                                     </div>
 
                                     <div class="product-gallery">
@@ -47,7 +56,7 @@
 
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name">{{ array.singleProduct.product.code }} / {{ array.singleProduct.product.productClass }} </h2>
+                                    <h2 class="product-name">{{ array.singleProduct.product.productCode }} / {{ array.singleProduct.product.productClass }} </h2>
                                     <div class="product-inner-price">
                                         <ins>{{ array.singleProduct.product.offer }} Bs.</ins>
                                         <del>{{ array.singleProduct.product.price}} Bs.</del>
@@ -94,14 +103,15 @@
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="single-product">
                                                     <div class="product-f-image">
-                                                        <img src="data:{{ array.main.imgType }}; base64,{{ product.img }}"
-                                                             alt="{{ product.name }} {{ product.code }}">
+                                                        <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                                             alt="{{ product.productClass }} {{ product.productCode }}">
                                                         <div class="product-hover">
-                                                            <a href="" class="view-details-link"><i
+                                                            <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}" class="view-details-link"><i
+                                                                        class="view-details-link"><i
                                                                         class="fa fa-link"></i>detalles</a>
                                                         </div>
                                                     </div>
-                                                    <h2><a href="">{{ product.name }} {{ product.code }}</a></h2>
+                                                    <h2><a href="">{{ product.productClass }} {{ product.productCode }}</a></h2>
                                                     <div class="product-carousel-price">
                                                         <ins>{{ product.offer }} Bs.</ins>
                                                         <del>{{ product.price }} Bs.</del>

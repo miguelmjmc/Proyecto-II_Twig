@@ -12,6 +12,8 @@ class userBase
     {
         $query = new query();
         $main = $query->query("SELECT * FROM configuration WHERE id= 1");
+        $main=$main["0"];
+        $main["img"]=base64_encode($main["img"]);
         return $main;
     }
 }

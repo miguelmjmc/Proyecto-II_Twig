@@ -14,36 +14,26 @@ class query extends conection
     {
         $this->connect();
         $result = mysqli_query($this->conection, "$query");
-        $data = mysqli_fetch_assoc($result);
-        if (isset($data["img"])) {
-            $data["img"] = $this->decode($data["img"]);
-        }
+        $data = null;
+        $i = 0;
+        while ($assoc = mysqli_fetch_assoc($result)) {
+            $data["$i"] = $assoc;
+            $i++;
+        };
+        mysqli_free_result($result);
         $this->disconnect();
         return $data;
     }
 
-    public function loadArray($query)
+    function querySuccess($query)
     {
-        $data = null;
-        $i = 1;
-        while ($this->query("$query $i") != null) {
-            $data["$i"] = $this->query("$query $i");
-            $i++;
-        }
-        return $data;
+        $this->connect();
+        mysqli_query($this->conection, "$query");
+        $success = mysqli_affected_rows($this->conection);
+        $this->disconnect();
+        return $success;
     }
 
-    public function decode($data)
-    {
-        $img = new imgCode();
-        $data = $img->decode($data);
-        return $data;
-    }
-
-    public function aa()
-    {
-       mysqli_real_escape_string();
-    }
 }
 
 /*

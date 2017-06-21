@@ -26,7 +26,12 @@ class conection
     function connect()
     {
         $this->conection = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
+        if (!$this->conection) {
+            printf("No hay conexión con la base de datos. Error: %s\n", mysqli_connect_error());
+            exit();
+        }
         mysqli_set_charset($this->conection,"UTF-8");
+
     }
 
     //función para destruir la conexión.

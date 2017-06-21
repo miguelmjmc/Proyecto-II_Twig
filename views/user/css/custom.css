@@ -19,6 +19,10 @@
     padding-bottom: 0;
 }
 
+.tech {
+    max-width: 100px !important;
+}
+
 @media (min-width: 768px) {
     .logo-empresa {
         width: 100%;

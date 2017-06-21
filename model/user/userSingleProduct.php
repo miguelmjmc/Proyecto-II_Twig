@@ -13,35 +13,34 @@ class userSingleProduct extends userBase
     public function loadRelatedProducts()
     {
         $query = new query();
-
-        $productList = $query->loadArray("SELECT * FROM product INNER JOIN  productImage ON 
-                                                        product.code = productImage.product_code AND 
-                                                        product.productBrand_id = productImage.product_productBrand_id AND 
-                                                        product.productClass_id = productImage.product_productclass_id WHERE  
-                                                        product.id = ");
+        $productList = $query->query("SELECT * FROM product INNER JOIN productImage ON (product.productCode = productImage.productCode AND product.productBrand = productImage.productBrand AND product.productClass = productImage.productClass) ");
+        $i = 0;
+        while (isset($productList["$i"])) {
+            $productList["$i"]["productImg"] = base64_encode($productList["$i"]["productImg"]);
+            $i++;
+        }
         return $productList;
     }
 
-    public function load($aux)
+    public function load($var)
     {
         $main = $this->loadMain();
 
         $query = new query();
+        
+        $code = $var["code"];
+        $class = $var["class"];
+        $brand = $var["brand"];
 
-        $product = $query->query("SELECT * FROM (((product INNER JOIN  productImage ON
- product.code = productImage.product_code AND
- product.productBrand_id = productImage.product_productBrand_id AND
- product.productClass_id = productImage.product_productclass_id) 
- INNER JOIN productClass ON
- product.productClass_id = productClass.id) 
- INNER JOIN productCategory_has_productClass ON
- productClass.id = productCategory_has_productClass.productClass_id) 
- INNER JOIN productCategory ON
- productCategory_has_productClass.productCategory_id = productCategory.id WHERE $aux");
+        $product = $query->query("SELECT * FROM product WHERE productCode = '$code' AND productClass = '$class' AND productBrand = '$brand'");
+        $product = $product["0"];
+        $product["productImg"] = $query->query("SELECT * FROM productImage WHERE productCode = '$code' AND productClass = '$class' AND productBrand = '$brand'");
+        $product["productImg"] = $product["productImg"]["0"];
+        $product["productImg"]["productImg"] = base64_encode($product["productImg"]["productImg"]);
 
         $productList = $this->loadRelatedProducts();
 
-        $singleProduct = compact("productList","product");
+        $singleProduct = compact("productList", "product");
 
         $array = compact("main", "singleProduct");
 
