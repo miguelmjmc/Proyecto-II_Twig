@@ -5,7 +5,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
                 <div class="box box-default collapsed-box">
                     <div class="box-header">
                         <h3 class="box-title">Marcas de Productos</h3>
@@ -18,7 +18,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <table class="table table-bordered table-striped">
+                        <table id="table1" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th class="th-2">Nombre</th>
@@ -51,7 +51,7 @@
             <!-- /.col -->
 
 
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
                 <div class="box box-default collapsed-box">
                     <div class="box-header">
                         <h3 class="box-title">Categorias de Productos</h3>
@@ -64,7 +64,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <table class="table table-bordered table-striped">
+                        <table id="table2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th class="th-2">Nombre</th>
@@ -97,7 +97,7 @@
             <!-- /.col -->
 
 
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
                 <div class="box box-default collapsed-box">
                     <div class="box-header">
                         <h3 class="box-title">Clases de Productos</h3>
@@ -110,7 +110,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <table class="table table-bordered table-striped">
+                        <table id="table3" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th class="th-2">Nombre</th>
@@ -147,12 +147,12 @@
                     <div class="box-header">
                         <h3 class="box-title">Productos</h3>
                         <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                                data-target="#productNewModal">Nuevo</button>
+                                data-target="#productNewModal">Nuevo
+                        </button>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table id="maintable" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th class="th-5">Codigo</th>
@@ -165,7 +165,7 @@
                             <tbody>
                             {% for product in array.productList %}
                                 <tr>
-                                    <td class="td-5">{{ product.code }}</td>
+                                    <td class="td-5">{{ product.productCode }}</td>
                                     <td class="td-5">{{ product.productClass }}</td>
                                     <td class="td-5">{{ product.productBrand }}</td>
                                     <td class="td-5">{{ product.status }}</td>
@@ -233,15 +233,14 @@
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
                                         <img class="xzoom" id="xzoom-default"
-                                             src="data:{{ product.imgType }}; base64,{{ product.img }}"
-                                        />
+                                             src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                             alt="{{ product.productClass }} {{ product.productCode }}">
                                         <div class="xzoom-thumbs">
-                                            <a href="#"><img class="xzoom-gallery" width="80"
-                                                             src="data:{{ product.imgType }}; base64,{{ product.img }}"
-                                                             title="The description goes here"></a>
-                                        <!--    <a href="#"><img class="xzoom-gallery" width="80"
-                                                             src="http://www.bearings.parts/image/catalog/Tapered_Roller/30210/Timken-Poland-30210-Tapered-Roller-Bearing_S.jpg"
-                                                             title="The description goes here"></a>  -->
+                                            {% for img in product.img %}
+                                                <a href="#"><img class="xzoom-gallery" width="80"
+                                                                 src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
+                                                                 alt="{{ product.productClass }} {{ product.productCode }}"></a>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +252,7 @@
                                             <label for="code" class="col-sm-3 control-label">Codigo:</label>
                                             <div class="col-sm-9">
                                                 <input type="text" id="code" class="form-control"
-                                                       placeholder="{{ product.code }}"
+                                                       placeholder="{{ product.productCode }}"
                                                        title="Codigo del producto" disabled>
                                             </div>
                                         </div>
@@ -310,10 +309,12 @@
                                             <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
                                             <div class="col-sm-12">
 
-                                                <select id="main-pop-select" class="form-control" title="Vehiculos que utilizan el producto" disabled>
+                                                <select id="main-pop-select" class="form-control"
+                                                        title="Vehiculos que utilizan el producto" disabled>
                                                     <option value="" selected="selected">aaa</option>
                                                     {% for vehicle in product.vehicle %}
-                                                        <option value="{{ vehicle.vehicleModel }}" selected="selected">{{ vehicle.vehicleModel }}</option>
+                                                        <option value="{{ vehicle.vehicleModel }}"
+                                                                selected="selected">{{ vehicle.vehicleModel }}</option>
                                                     {% endfor %}
                                                 </select>
 
@@ -389,15 +390,14 @@
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
                                         <img class="xzoom" id="xzoom-default"
-                                             src="data:{{ product.imgType }}; base64,{{ product.img }}"
-                                        />
+                                             src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                             alt="{{ product.productClass }} {{ product.productCode }}">
                                         <div class="xzoom-thumbs">
-                                            <a href="#"><img class="xzoom-gallery" width="80"
-                                                             src="data:{{ product.imgType }}; base64,{{ product.img }}"
-                                                             title="The description goes here"></a>
-                                          <!--  <a href="#"><img class="xzoom-gallery" width="80"
-                                                             src="http://www.bearings.parts/image/catalog/Tapered_Roller/30210/Timken-Poland-30210-Tapered-Roller-Bearing_S.jpg"
-                                                             title="The description goes here"></a> -->
+                                            {% for img in product.img %}
+                                                <a href="#"><img class="xzoom-gallery" width="80"
+                                                                 src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
+                                                                 alt="{{ product.productClass }} {{ product.productCode }}"></a>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -409,7 +409,7 @@
                                             <label for="code" class="col-sm-3 control-label">Codigo:</label>
                                             <div class="col-sm-9">
                                                 <input type="text" id="code" class="form-control"
-                                                       placeholder="{{ product.code }}"
+                                                       placeholder="{{ product.productCode }}"
                                                        title="Codigo del producto" disabled>
                                             </div>
                                         </div>
@@ -466,10 +466,12 @@
                                             <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
                                             <div class="col-sm-12">
 
-                                                <select id="main-pop-select" class="form-control" title="Vehiculos que utilizan el producto" disabled>
+                                                <select id="main-pop-select" class="form-control"
+                                                        title="Vehiculos que utilizan el producto" disabled>
                                                     <option value="" selected="selected">aaa</option>
                                                     {% for vehicle in product.vehicle %}
-                                                        <option value="{{ vehicle.vehicleModel }}" selected="selected">{{ vehicle.vehicleModel }}</option>
+                                                        <option value="{{ vehicle.vehicleModel }}"
+                                                                selected="selected">{{ vehicle.vehicleModel }}</option>
                                                     {% endfor %}
                                                 </select>
 
@@ -496,7 +498,7 @@
 
                         <form action="index.php" method="post">
                             <input type="text" value="delete" name="aux" style="display: none">
-                            <input type="text" value="{{ product.code }}" name="code" style="display: none">
+                            <input type="text" value="{{ product.productCode }}" name="code" style="display: none">
                             <input type="text" value="{{ product.productBrand }}" name="brand" style="display: none">
                             <input type="text" value="{{ product.productClass }}" name="class" style="display: none">
                             <input type="submit" value="Eleminar" class="btn btn-primary">

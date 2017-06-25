@@ -1,50 +1,49 @@
 <?php
 
-include_once PATH . "/model/query.php";
+include_once PATH . "/model/admin/adminBase.php";
 
-class adminProduct
+class adminProduct extends adminBase
 {
     public function __construct()
     {
     }
 
-    function load($post)
+    function load()
     {
+        $admin = $this->loadmain();
 
         $query = new query();
-        if (isset($post["action"])) {
+
+
+        /* if (isset($post["action"])) {
             if ($post["action"] == "delete") {
+                $this->delete();
+            }
+        }*/
+
+        $productList = $query->query("SELECT * FROM product ");
+        $i = 0;
+        while (isset($productList["$i"])) {
+            $code = $productList["$i"]["productCode"];
+            $brand = $productList["$i"]["productBrand"];
+            $class = $productList["$i"]["productClass"];
+            
+            $productList["$i"]["img"] = $query->query("SELECT * FROM  productImage WHERE productCode = '$code' AND productBrand = '$brand' AND productClass = '$class' ");
+            $j = 0;
+            while (isset($productList["$i"]["img"]["$j"])){
+                $productList["$i"]["img"]["$j"]["productImg"]=base64_encode($productList["$i"]["img"]["$j"]["productImg"]);
+                $j++;
+            }
+            $i++;
         }
-        }
 
+        $productBrandList = $query->query("SELECT * FROM productBrand");
 
+        $productCategoryList = $query->query("SELECT * FROM productCategory");
 
+        $productClassList = $query->query("SELECT * FROM productClass");
 
-
-
-
-
-        $main = $query->query("SELECT * FROM configuration WHERE id= 1");
-
-        $productList = $query->query("SELECT * FROM ((((product INNER JOIN  productImage ON
- product.code = productImage.product_code AND
- product.productBrand_id = productImage.product_productBrand_id AND
- product.productClass_id = productImage.product_productclass_id)
- INNER JOIN productBrand ON product.productBrand_id = productBrand.id)
- INNER JOIN productClass ON
- product.productClass_id = productClass.id) 
- INNER JOIN productCategory_has_productClass ON
- productClass.id = productCategory_has_productClass.productClass_id) 
- INNER JOIN productCategory ON
- productCategory_has_productClass.productCategory_id = productCategory.id WHERE product.id=");
-
-        $productBrandList = $query->query("SELECT * FROM productBrand where id=");
-        $productCategoryList = $query->query("SELECT * FROM productCategory where id=");
-        $productClassList = $query->query("SELECT * FROM productClass where id=");
-
-        $user = $query->query("SELECT * FROM admin WHERE id=1");
-
-        $array = compact("main", "productList", "productBrandList", "productCategoryList", "productClassList", "user");
+        $array = compact("admin", "productList", "productBrandList", "productCategoryList", "productClassList");
 
         $directory = "admin";
 
@@ -57,10 +56,11 @@ class adminProduct
 
     }
 
-    function delete(){
-        $a=$post["code"];
-        $b=$post["brand"];
-        $c=$post["class"];
+    function delete()
+    {
+        $a = $post["code"];
+        $b = $post["brand"];
+        $c = $post["class"];
 
         $query->querySuccess("DELETE FROM jemaro.productImage WHERE productImage.product_code = '$a' AND productImage.product_productBrand_id IN (SELECT id FROM productBrand WHERE productBrand = '$b') AND productImage.product_productClass_id IN (SELECT id FROM productClass WHERE ProductClass = '$c')");
 
@@ -69,17 +69,7 @@ class adminProduct
     }
 
 
-
-
-
-
-
-
 }
-
-
-
-
 
 
 /*

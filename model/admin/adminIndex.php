@@ -1,8 +1,8 @@
 <?php
 
-include_once PATH . "/model/query.php";
+include_once PATH . "/model/admin/adminBase.php";
 
-class adminIndex
+class adminIndex extends adminBase
 {
     public function __construct()
     {
@@ -10,19 +10,13 @@ class adminIndex
 
     function load()
     {
+        $admin=$this->loadmain();
 
         $query = new query();
 
+        $a = $query->query("SELECT * FROM configuration WHERE id= 1");
 
-
-
-        $main = $query->query("SELECT * FROM configuration WHERE id= 1");
-
-
-
-        $user = $query->query("SELECT * FROM admin WHERE id=1");
-
-        $array = compact("main", "productList", "productBrandList", "productCategoryList", "productClassList", "user");
+        $array = compact("admin","a");
 
         $directory = "admin";
 

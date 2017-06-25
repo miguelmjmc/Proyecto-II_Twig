@@ -34,37 +34,47 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-content-right">
-                       <!-- <div class="product-breadcroumb">
-                            <a href="">Home</a>
-                            <a href="">Category Name</a>
-                            <a href="">Sony Smart TV - 2015</a>
-                        </div>
-                        -->
+                        <!-- <div class="product-breadcroumb">
+                             <a href="">Home</a>
+                             <a href="">Category Name</a>
+                             <a href="">Sony Smart TV - 2015</a>
+                         </div>
+                         -->
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="data:{{ array.singleProduct.product.productImgType }}; base64,{{ array.singleProduct.product.productImg.productImg }} " alt="">
-                                    </div>
-
-                                    <div class="product-gallery">
-                                        <img src="data:{{ array.singleProduct.product.imgType }}; base64,{{ array.singleProduct.product.img }} " alt="">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom" id="xzoom-default"
+                                                 src="data:{{ array.singleProduct.product.img.0.productImgType }}; base64,{{ array.singleProduct.product.img.0.productImg }}"
+                                                 alt="{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}"
+                                                 xoriginal="data:{{ array.singleProduct.product.img.0.productImgType }}; base64,{{ array.singleProduct.product.img.0.productImg }}">
+                                            <div class="xzoom-thumbs">
+                                                {% for img in array.singleProduct.product.img %}
+                                                    <a href="data:{{ img.productImgType }}; base64,{{ img.productImg }}"><img class="xzoom-gallery" width="80"
+                                                                     src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
+                                                                     alt="{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}"></a>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name">{{ array.singleProduct.product.productCode }} / {{ array.singleProduct.product.productClass }} </h2>
+                                    <h2 class="product-name">{{ array.singleProduct.product.productCode }}
+                                        / {{ array.singleProduct.product.productClass }} </h2>
                                     <div class="product-inner-price">
                                         <ins>{{ array.singleProduct.product.offer }} Bs.</ins>
-                                        <del>{{ array.singleProduct.product.price}} Bs.</del>
+                                        <del>{{ array.singleProduct.product.price }} Bs.</del>
                                     </div>
 
 
                                     <div class="product-inner-category">
-                                        <p>Categoria: <a href="">{{ array.singleProduct.product.productCategory }}</a>. Etiquetas: <a href=""> {{ array.singleProduct.product.productClass }}</a>. </p>
+                                        <p>Categoria: <a href="">{{ array.singleProduct.product.productCategory }}</a>.
+                                            Etiquetas: <a href=""> {{ array.singleProduct.product.productClass }}</a>.
+                                        </p>
                                     </div>
 
                                     <div role="tabpanel">
@@ -103,15 +113,17 @@
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="single-product">
                                                     <div class="product-f-image">
-                                                        <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                                        <img src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
                                                              alt="{{ product.productClass }} {{ product.productCode }}">
                                                         <div class="product-hover">
-                                                            <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}" class="view-details-link"><i
-                                                                        class="view-details-link"><i
-                                                                        class="fa fa-link"></i>detalles</a>
+                                                            <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}"
+                                                               class="view-details-link">
+                                                                <i class="view-details-link"></i><i class="fa fa-link"></i>detalles</a>
                                                         </div>
                                                     </div>
-                                                    <h2><a href="">{{ product.productClass }} {{ product.productCode }}</a></h2>
+                                                    <h2>
+                                                        <a href="">{{ product.productClass }} {{ product.productCode }}</a>
+                                                    </h2>
                                                     <div class="product-carousel-price">
                                                         <ins>{{ product.offer }} Bs.</ins>
                                                         <del>{{ product.price }} Bs.</del>

@@ -8,34 +8,15 @@ class adminBase
     {
     }
 
-    function load()
+    function loadmain()
     {
-
-        $query = new query();
-
-
         
+        $admin = $_SESSION["admin"];
 
-        $main = $query->query("SELECT * FROM configuration WHERE id= 1");
-
-       
-
-        $user = $query->query("SELECT * FROM admin WHERE id=1");
-
-        $array = compact("main", "productList", "productBrandList", "productCategoryList", "productClassList", "user");
-
-        $directory = "admin";
-
-        $view = "product.html.twig";
-
-        $values = compact("directory", "view", "array");
-
-        return $values;
-
-
+        $admin["adminImg"] = base64_encode($admin["adminImg"]);
+        
+        return $admin;
     }
-
-
 }
 
 

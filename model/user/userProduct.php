@@ -15,10 +15,19 @@ class userProduct extends userBase
 
         $query = new query();
 
-        $productList = $query->query("SELECT * FROM product INNER JOIN productImage ON (product.productCode = productImage.productCode AND product.productBrand = productImage.productBrand AND product.productClass = productImage.productClass) ");
-        $i=0;
-        while (isset($productList["$i"])){
-            $productList["$i"]["productImg"]=base64_encode($productList["$i"]["productImg"]);
+        $productList = $query->query("SELECT * FROM product ");
+        $i = 0;
+        while (isset($productList["$i"])) {
+            $code = $productList["$i"]["productCode"];
+            $brand = $productList["$i"]["productBrand"];
+            $class = $productList["$i"]["productClass"];
+
+            $productList["$i"]["img"] = $query->query("SELECT * FROM  productImage WHERE productCode = '$code' AND productBrand = '$brand' AND productClass = '$class' ");
+            $j = 0;
+            while (isset($productList["$i"]["img"]["$j"])){
+                $productList["$i"]["img"]["$j"]["productImg"]=base64_encode($productList["$i"]["img"]["$j"]["productImg"]);
+                $j++;
+            }
             $i++;
         }
         

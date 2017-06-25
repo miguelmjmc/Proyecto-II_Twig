@@ -12,7 +12,6 @@ include_once PATH . "/model/admin/adminProduct.php";
 
 
 
-
 /*
  * Created by PhpStorm.
  * User: Windows

@@ -33,7 +33,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="single-product">
                             <div class="product-f-image">
-                                <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                <img src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
                                      alt="{{ product.productClass }} {{ product.productCode }}">
                                 <div class="product-hover">
                                     <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}" class="view-details-link"><i

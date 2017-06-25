@@ -4,7 +4,6 @@ include_once PATH . "/config/include.php";
 
 class controller
 {
-
     public function logout()
     {
         if (isset($_GET["logout"])) {
@@ -14,29 +13,28 @@ class controller
             $_POST = null;
             header("LOCATION:index.php");
         }
-
     }
-
-
+    
     public function session()
     {
         if (isset($_POST["login"])) {
             $query = new query();
-            $admin = $query->query("SELECT * FROM admin WHERE id=1");
-            $admin=$admin["0"];
-            echo print_r($admin);
-            if ($_POST["login"] == $admin["email"] && $_POST["password"] == $admin["password"]) {
-                session_start();
-                $_SESSION["name"] = $admin["email"];
+            $admin = $query->query("SELECT * FROM admin INNER JOIN person ON (admin.person_id = person.id)");
+            $i = 0;
+            while (isset($admin["$i"])) {
+                if ($admin["$i"]["email"] == $_POST["login"] && $admin["$i"]["password"] == $_POST ["password"]) {
+                    session_start();
+                    $_SESSION["admin"] = $admin["$i"];
+                    header("LOCATION:index.php");
+                }
+                $i++;
             }
-            header("LOCATION:index.php");
         }
     }
 
-
     public function selectModel()
     {
-        if (isset($_SESSION["name"])) {
+        if (isset($_SESSION["admin"])) {
             if (isset($_POST["link"])) {
                 $className = $_POST["link"];
             } elseif (isset($_GET["link"])) {
@@ -56,7 +54,7 @@ class controller
     {
         $load = new $className();
         $values = null;
-        if (isset($_SESSION["name"])) {
+        if (isset($_SESSION["admin"])) {
             if (isset($_POST["aux"])) {
                 $values = $load->load($_POST);
             } else {
@@ -76,7 +74,7 @@ class controller
         $renderTwig = new renderTwig();
         if ($values["directory"] == "user") {
             $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
-        } elseif ($values["directory"] == "admin" && isset($_SESSION["name"])) {
+        } elseif ($values["directory"] == "admin" && isset($_SESSION["admin"])) {
             $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
         } else {
             $load = new userIndex();
