@@ -7,6 +7,7 @@ include_once PATH . "/model/user/userProduct.php";
 include_once PATH . "/model/user/userSingleProduct.php";
 include_once PATH . "/model/admin/adminIndex.php";
 include_once PATH . "/model/admin/adminProduct.php";
+include_once PATH . "/model/admin/adminVehicle.php";
 
 
 

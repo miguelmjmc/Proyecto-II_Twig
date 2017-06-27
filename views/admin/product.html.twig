@@ -232,7 +232,7 @@
                             <div class="container width-100">
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
-                                        <img class="xzoom" id="xzoom-default"
+                                        <img class="xzoom xzoom-width" id="xzoom-default"
                                              src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
                                              alt="{{ product.productClass }} {{ product.productCode }}">
                                         <div class="xzoom-thumbs">
@@ -389,12 +389,12 @@
                             <div class="container width-100">
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
-                                        <img class="xzoom" id="xzoom-default"
-                                             src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                        <img class="xzoom2 xzoom-width" id="xzoom-default"
+                                             src="data:{{ pxzoom-widthroduct.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
                                              alt="{{ product.productClass }} {{ product.productCode }}">
                                         <div class="xzoom-thumbs">
                                             {% for img in product.img %}
-                                                <a href="#"><img class="xzoom-gallery" width="80"
+                                                <a href="#"><img class="xzoom-gallery2" width="80"
                                                                  src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
                                                                  alt="{{ product.productClass }} {{ product.productCode }}"></a>
                                             {% endfor %}
@@ -498,9 +498,9 @@
 
                         <form action="index.php" method="post">
                             <input type="text" value="delete" name="aux" style="display: none">
-                            <input type="text" value="{{ product.productCode }}" name="code" style="display: none">
-                            <input type="text" value="{{ product.productBrand }}" name="brand" style="display: none">
-                            <input type="text" value="{{ product.productClass }}" name="class" style="display: none">
+                            <input type="text" value="{{ product.productCode }}" name="code" class="no-display">
+                            <input type="text" value="{{ product.productBrand }}" name="brand" class="no-display">
+                            <input type="text" value="{{ product.productClass }}" name="class" class="no-display">
                             <input type="submit" value="Eleminar" class="btn btn-primary">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </form>
