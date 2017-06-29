@@ -11,7 +11,7 @@ class adminBase
     function loadmain()
     {
         
-        $admin = $_SESSION["admin"];
+        $admin = $_SESSION["access"];
 
         $admin["adminImg"] = base64_encode($admin["adminImg"]);
         

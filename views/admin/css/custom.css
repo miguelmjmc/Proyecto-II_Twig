@@ -6,6 +6,14 @@
     width: 50% !important;
 }
 
+.th-3 {
+    width: 33% !important;
+}
+
+.th-4 {
+    width: 25% !important;
+}
+
 .th-5 {
     width: 20% !important;
 }
@@ -43,7 +51,9 @@ label {
     padding-right: 0;
 }
 
-
+.input-margin {
+    margin: 15px;
+}
 
 /*
 .fileinput-button {

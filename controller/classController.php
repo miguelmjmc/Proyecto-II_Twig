@@ -7,6 +7,8 @@ class controller
     public function logout()
     {
         if (isset($_GET["logout"])) {
+            $query= new query();
+            $query->history("Cierre de sesión");
             session_start();
             session_destroy();
             $_GET = null;
@@ -19,12 +21,13 @@ class controller
     {
         if (isset($_POST["login"])) {
             $query = new query();
-            $admin = $query->query("SELECT * FROM admin INNER JOIN person ON (admin.person_id = person.id)");
+            $admin = $query->query("SELECT * FROM user INNER JOIN person ON (user.ci = person.ci)");
             $i = 0;
             while (isset($admin["$i"])) {
                 if ($admin["$i"]["email"] == $_POST["login"] && $admin["$i"]["password"] == $_POST ["password"]) {
                     session_start();
-                    $_SESSION["admin"] = $admin["$i"];
+                    $_SESSION["access"] = $admin["$i"];
+                    $query->history("Inicio de sesión");
                     header("LOCATION:index.php");
                 }
                 $i++;
@@ -34,7 +37,7 @@ class controller
 
     public function selectModel()
     {
-        if (isset($_SESSION["admin"])) {
+        if (isset($_SESSION["access"])) {
             if (isset($_POST["link"])) {
                 $className = $_POST["link"];
             } elseif (isset($_GET["link"])) {
@@ -54,7 +57,7 @@ class controller
     {
         $load = new $className();
         $values = null;
-        if (isset($_SESSION["admin"])) {
+        if (isset($_SESSION["access"])) {
             if (isset($_POST["aux"])) {
                 $values = $load->load($_POST);
             } else {
@@ -74,7 +77,7 @@ class controller
         $renderTwig = new renderTwig();
         if ($values["directory"] == "user") {
             $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
-        } elseif ($values["directory"] == "admin" && isset($_SESSION["admin"])) {
+        } elseif ($values["directory"] == "admin" && isset($_SESSION["access"])) {
             $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
         } else {
             $load = new userIndex();
@@ -82,7 +85,6 @@ class controller
             $renderTwig->renderTwig($values["directory"], $values["view"], $values["array"]);
         }
     }
-
 }
 /*
  * Created by PhpStorm.

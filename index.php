@@ -1,5 +1,4 @@
 <?php
-
 include_once "config/configPath.php";
 include_once PATH . "/controller/mainController.php";
 

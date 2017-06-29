@@ -2,7 +2,7 @@
 
 include_once PATH. "/config/configDB.php";
 
-class conection
+class connection
 {
     //declaración de variables
     public $host; // para conectarnos a localhost o el ip del servidor de postgres

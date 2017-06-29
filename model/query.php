@@ -1,9 +1,9 @@
 <?php
 
-include_once PATH . "/model/conection.php";
-include_once PATH . "/model/imgCode.php";
+include_once PATH . "/model/connection.php";
+include_once PATH . "/model/imgClass.php";
 
-class query extends conection
+class query extends connection
 {
     function __construct()
     {
@@ -34,6 +34,11 @@ class query extends conection
         return $success;
     }
 
+    public function history ($action){
+        $this->connect();
+        $access=$_SESSION["access"]["email"];
+        mysqli_query($this->conection, "INSERT INTO history (`email`, `action`, `date`) values ('$access', '$action', now()) ");
+    }
 }
 
 /*
