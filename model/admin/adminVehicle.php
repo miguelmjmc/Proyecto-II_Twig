@@ -79,7 +79,7 @@ class adminVehicle extends adminBase
             if ($success > 0) {
                 $query->history("Registro: Marca de vehiculo");
             }
-        };
+        }
         header("LOCATION:index.php?link=adminVehicle");
     }
 
@@ -98,11 +98,11 @@ class adminVehicle extends adminBase
             }
         } elseif ($_POST["object"] == "vehicleBrand") {
             $id = $_POST["id"];
+            $brand = $_POST["brand"];
             $upload = new imgClass();
             $imgSrc = $upload->upload();
             $img = $imgSrc["file"];
             $type = $imgSrc["type"];
-            $brand = $_POST["brand"];
             $img = addslashes($img);
             if (is_uploaded_file($_FILES["file"]["tmp_name"])) {
                 $success = $query->querySuccess("UPDATE jemaro.vehicleBrand SET vehicleBrand = '$brand',  vehicleBrandImg = '$img', vehicleBrandImgType = '$type' where vehicleBrand = '$id' ");
@@ -115,7 +115,7 @@ class adminVehicle extends adminBase
                     $query->history("Actualización: Marca de vehiculo");
                 }
             }
-        };
+        }
         header("LOCATION:index.php?link=adminVehicle");
     }
 
@@ -134,7 +134,7 @@ class adminVehicle extends adminBase
             if ($success > 0) {
                 $query->history("Eliminación: Marca de vehiculo");
             }
-        };
+        }
         header("LOCATION:index.php?link=adminVehicle");
     }
 

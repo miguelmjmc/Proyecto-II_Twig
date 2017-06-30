@@ -8,75 +8,258 @@
     <section class="content" xmlns="http://www.w3.org/1999/html">
         <div class="row">
 
+            {% for slide in array.slide %}
+                <div class="col-lg-6 col-sm-12">
+                    <div class="box box-default collapsed-box">
+                        <div class="box-header">
+                            <h3 class="box-title">Slide {{ loop.index }}</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                            class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="box-body">
+                                <div class="col-sm-12 margin-button">
+                                    <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                            data-target="#slideModal{{ loop.index }}">Editar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class=" border-form">
+                                <div class="container width-100">
+                                    <div class="large-12 column">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width"
+                                                 src="data:{{ slide.slideImg }}; base64,{{ slide.slideImg }}"
+                                                 alt="Imagen slide {{ loop.index }}" disabled="">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="title1" class="col-sm-2 control-label">Titulo:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" id="title" class="form-control"
+                                                           placeholder="{{ slide.title }}"
+                                                           title="Titulo del slide {{ loop.index }}" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="content1" class="col-sm-2 control-label">Contenido:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" id="content1" class="form-control"
+                                                           placeholder="{{ slide.content }}"
+                                                           title="Contenido del slide {{ loop.index }}" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="link1" class="col-sm-2 control-label">Link:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" id="link1" class="form-control"
+                                                           placeholder="{{ slide.link }}"
+                                                           title="Link del slide {{ loop.index }}" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            {% endfor %}
+
+
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Vehiculos</h3>
+                        <h3 class="box-title">Detalles de la Empresa</h3>
                         <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                                data-target="#mainNewModal">Nuevo
+                                data-target="#configModal">Editar
                         </button>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class=" border-form">
-                            <div class="container width-100">
-                                <div class="large-12 column">
-                                    <div class="xzoom-container">
-                                        <img class="xzoom xzoom-width"
-                                             src="data:{{ vehicle.vehicleBrandImgType }}; base64,{{ vehicle.vehicleBrandImg }}"
-                                             alt="Logo de {{ vehicle.vehicleBrand }}">
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width"
+                                                 src="data:{{ array.config.ImgType }}; base64,{{ array.config.img }}"
+                                                 alt="Logo de {{ array.config.name1 }} {{ array.config.name2 }}">
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name1" class="col-sm-2 control-label">Nombre:</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" id="name1" class="form-control"
+                                                       placeholder="{{ array.config.name1 }}"
+                                                       title="Nombre de la empresa" disabled>
+
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" id="nombre2" class="form-control"
+                                                       placeholder="{{ array.config.name2 }}"
+                                                       title="Nombre de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="slogan" class="col-sm-2 control-label">Eslogan:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="slogan" class="form-control"
+                                                       placeholder="{{ array.config.slogan }}"
+                                                       title="Eslogan de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="rif" class="col-sm-2 control-label">Rif:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="rif" class="form-control"
+                                                       placeholder="{{ array.config.rif }}"
+                                                       title="Rif de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="email" class="form-control"
+                                                       placeholder="{{ array.config.email }}"
+                                                       title="Email de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone1" class="col-sm-2 control-label">Telefono:</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" id="phone1" class="form-control"
+                                                       placeholder="{{ array.config.phone1 }}"
+                                                       title="Telefono de la empresa" disabled>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="text" id="phone2" class="form-control"
+                                                       placeholder="{{ array.config.phone2 }}"
+                                                       title="Telefono de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="location" class="col-sm-2 control-label">Dirección:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="location" class="form-control"
+                                                       placeholder="{{ array.config.location }}"
+                                                       title="Dirección de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="facebook" class="col-sm-2 control-label">Facebook:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="facebook" class="form-control"
+                                                       placeholder="{{ array.config.facebook }}"
+                                                       title="Facebook de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="twitter" class="col-sm-2 control-label">Twitter:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="twitter" class="form-control"
+                                                       placeholder="{{ array.config.twitter }}"
+                                                       title="Twitter de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="googleplus" class="col-sm-2 control-label">Google+:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="facebook" class="form-control"
+                                                       placeholder="{{ array.config.googleplus }}"
+                                                       title="Google+ de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="skype" class="col-sm-2 control-label">Skype:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="f" class="form-control"
+                                                       placeholder="{{ array.config.skype }}"
+                                                       title="Skype de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="youtube" class="col-sm-2 control-label">Youtube:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="youtube" class="form-control"
+                                                       placeholder="{{ array.config.youtube }}"
+                                                       title="Youtube de la empresa" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="view"
+                                                   class="col-sm-12 control-label">Visión:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea id="view" class="form-control" rows="5"
+                                                           placeholder="{{ array.about.view }}"
+                                                           title="Misión de la empresa"
+                                                           readonly></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="mission"
+                                                   class="col-sm-12 control-label">Misión:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea id="mission" class="form-control" rows="5"
+                                                           placeholder="{{ array.about.mission }}"
+                                                           title="Misión de la empresa"
+                                                           readonly></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="values"
+                                                   class="col-sm-12 control-label">Valores:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea id="values" class="form-control" rows="5"
+                                                           placeholder="{{ array.about.values }}"
+                                                           title="Valores de la empresa"
+                                                           readonly></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class=" border-form">
-                                <form class="form-horizontal">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="model" class="col-sm-3 control-label">Modelo:</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" id="model" class="form-control"
-                                                           placeholder="{{ vehicle.vehicleModel }}"
-                                                           title="Modelo del vehivculo" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="brand" class="col-sm-3 control-label">Marca:</label>
-                                                <div class="col-sm-9">
-                                                    <select id="brand" class="form-control" title="Marca del vehiculo"
-                                                            disabled>
-                                                        {% for brand in array.vehicleBrandList %}
-                                                            <option value="{{ brand.vehicleBrand }}"
-                                                                    {% if vehicle.vehicleBrand == brand.vehicleBrand %}selected="selected"{% endif %}>{{ brand.vehicleBrand }}</option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="year1" class="col-sm-3 control-label">Inicio:</label>
-                                                <div class="col-sm-9">
-                                                    <input type="number" step="0.01" id="year1" class="form-control"
-                                                           placeholder="{{ vehicle.firstYear }}"
-                                                           title="Año de inicio de la serie"
-                                                           disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="year2" class="col-sm-3 control-label">Final:</label>
-                                                <div class="col-sm-9">
-                                                    <input type="number" step="0.01" id="year2" class="form-control"
-                                                           placeholder="{{ vehicle.lastYear }}"
-                                                           title="Año de finalizacion de la serie"
-                                                           disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -85,100 +268,265 @@
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Modal ---------------------------------------------------------------------------------------------------->
-    <div id="mainSelectModal{{ loop.index }}" class="modal fade" role="dialog">
+    <div id="configModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Detalles del Vehiculo</h4>
-                </div>
-                <div class="modal-body">
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Editar Empresa</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="container width-100">
+                                <div class="large-12 column">
+                                    <div class="xzoom-container">
+                                        <img class="xzoom xzoom-width"
+                                             src="data:{{ array.config.imgType }}; base64,{{ array.config.img }}"
+                                             alt="Logo de {{ array.config.name1 }} {{ array.config.name1 }}">
 
-                    <div class=" border-form">
-                        <div class="container width-100">
-                            <div class="large-12 column">
-                                <div class="xzoom-container">
-                                    <img class="xzoom xzoom-width"
-                                         src="data:{{ vehicle.vehicleBrandImgType }}; base64,{{ vehicle.vehicleBrandImg }}"
-                                         alt="Logo de {{ vehicle.vehicleBrand }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="name1" class="col-sm-2 control-label">Nombre:</label>
+                                            <div class="col-sm-5">
+                                                <input name="name1" type="text" id="name1" class="form-control"
+                                                       value="{{ array.config.name1 }}"
+                                                       title="Nombre de la empresa">
 
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input name="name2" type="text" id="nombre2" class="form-control"
+                                                       value="{{ array.config.name2 }}"
+                                                       title="Nombre de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slogan" class="col-sm-2 control-label">Eslogan:</label>
+                                            <div class="col-sm-10">
+                                                <input name="slogan" type="text" id="slogan" class="form-control"
+                                                       value="{{ array.config.slogan }}"
+                                                       title="Eslogan de la empresa">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="rif" class="col-sm-2 control-label">Rif:</label>
+                                            <div class="col-sm-10">
+                                                <input name="rif" type="text" id="rif" class="form-control"
+                                                       value="{{ array.config.rif }}"
+                                                       title="Rif de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email:</label>
+                                            <div class="col-sm-10">
+                                                <input name="email" type="text" id="email" class="form-control"
+                                                       value="{{ array.config.email }}"
+                                                       title="Email de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone1" class="col-sm-2 control-label">Telefono:</label>
+                                            <div class="col-sm-5">
+                                                <input name="phone1" type="text" id="phone1" class="form-control"
+                                                       value="{{ array.config.phone1 }}"
+                                                       title="Telefono de la empresa">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input name="phone2" type="text" id="phone2" class="form-control"
+                                                       value="{{ array.config.phone2 }}"
+                                                       title="Telefono de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="location" class="col-sm-2 control-label">Dirección:</label>
+                                            <div class="col-sm-10">
+                                                <input name="location" type="text" id="location" class="form-control"
+                                                       value="{{ array.config.location }}"
+                                                       title="Dirección de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="facebook" class="col-sm-2 control-label">Facebook:</label>
+                                            <div class="col-sm-10">
+                                                <input name="facebook" type="text" id="facebook" class="form-control"
+                                                       value="{{ array.config.facebook }}"
+                                                       title="Facebook de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="twitter" class="col-sm-2 control-label">Twitter:</label>
+                                            <div class="col-sm-10">
+                                                <input name="twitter" type="text" id="twitter" class="form-control"
+                                                       value="{{ array.config.twitter }}"
+                                                       title="Twitter de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="googleplus" class="col-sm-2 control-label">Google+:</label>
+                                            <div class="col-sm-10">
+                                                <input name="googleplus" type="text" id="facebook" class="form-control"
+                                                       value="{{ array.config.googleplus }}"
+                                                       title="Google+ de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="skype" class="col-sm-2 control-label">Skype:</label>
+                                            <div class="col-sm-10">
+                                                <input name="skype" type="text" id="f" class="form-control"
+                                                       value="{{ array.config.skype }}"
+                                                       title="Skype de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="youtube" class="col-sm-2 control-label">Youtube:</label>
+                                            <div class="col-sm-10">
+                                                <input name="youtube" type="text" id="youtube" class="form-control"
+                                                       value="{{ array.config.youtube }}"
+                                                       title="Youtube de la empresa">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="view"
+                                                   class="col-sm-12 control-label">Visión:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea name="view" id="view" class="form-control" rows="5"
+                                                           title="Misión de la empresa">{{ array.about.view }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mission"
+                                                   class="col-sm-12 control-label">Misión:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea name="mission" id="mission" class="form-control" rows="5"
+                                                           title="Misión de la empresa">{{ array.about.mission }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="values"
+                                                   class="col-sm-12 control-label">Valores:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea name="values" id="values" class="form-control" rows="5"
+                                                           title="Valores de la empresa">{{ array.about.values }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="file" id="file-config"
+                                                   class="inputfile inputfile-1 no-display"
+                                                   data-multiple-caption="{count} files selected">
+                                            <label for="file-config">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                     viewBox="0 0 20 17">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                </svg>
+                                                <span>Choose a file&hellip;</span></label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <form class="form-horizontal">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="model" class="col-sm-3 control-label">Modelo:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" id="model" class="form-control"
-                                                   placeholder="{{ vehicle.vehicleModel }}"
-                                                   title="Modelo del vehivculo" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="brand" class="col-sm-3 control-label">Marca:</label>
-                                        <div class="col-sm-9">
-                                            <select id="brand" class="form-control" title="Marca del vehiculo"
-                                                    disabled>
-                                                {% for brand in array.vehicleBrandList %}
-                                                    <option value="{{ brand.vehicleBrand }}"
-                                                            {% if vehicle.vehicleBrand == brand.vehicleBrand %}selected="selected"{% endif %}>{{ brand.vehicleBrand }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="year1" class="col-sm-3 control-label">Inicio:</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" step="0.01" id="year1" class="form-control"
-                                                   placeholder="{{ vehicle.firstYear }}"
-                                                   title="Año de inicio de la serie"
-                                                   disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="year2" class="col-sm-3 control-label">Final:</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" step="0.01" id="year2" class="form-control"
-                                                   placeholder="{{ vehicle.lastYear }}"
-                                                   title="Año de finalizacion de la serie"
-                                                   disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                    <div class="modal-footer">
+                        <input type="text" value="adminConfig" name="link" class="no-display">
+                        <input type="text" value="update" name="action" class="no-display">
+                        <input type="text" value="config" name="object" class="no-display">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                    </div>
+                </form>
             </div>
 
         </div>
     </div>
 
+
+
+    {% for slide in array.slide %}
+        <!-- Modal ---------------------------------------------------------------------------------------------------->
+        <div id="slideModal{{ loop.index }}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <form action="index.php" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Editar Slide {{ loop.index }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" border-form">
+                                <div class="container width-100">
+                                    <div class="large-12 column">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width"
+                                                 src="data:{{ slide.slideImg }}; base64,{{ slide.slideImg }}"
+                                                 alt="Imagen slide {{ loop.index }}">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="title1" class="col-sm-2 control-label">Titulo:</label>
+                                                <div class="col-sm-10">
+                                                    <input name="title" type="text" id="title" class="form-control"
+                                                           value="{{ slide.title }}"
+                                                           title="Titulo del slide {{ loop.index }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="content1" class="col-sm-2 control-label">Contenido:</label>
+                                                <div class="col-sm-10">
+                                                    <input name="content" type="text" id="content1" class="form-control"
+                                                           value="{{ slide.content }}"
+                                                           title="Contenido del slide {{ loop.index }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="link1" class="col-sm-2 control-label">Link:</label>
+                                                <div class="col-sm-10">
+                                                    <input name=slideLink type="text" id="link1" class="form-control"
+                                                           value="{{ slide.link }}"
+                                                           title="Link del slide {{ loop.index }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="file" name="file" id="file-slide-{{ loop.index }}"
+                                                       class="inputfile inputfile-1 no-display"
+                                                       data-multiple-caption="{count} files selected">
+                                                <label for="file-slide-{{ loop.index }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                         viewBox="0 0 20 17">
+                                                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                    </svg>
+                                                    <span>Choose a file&hellip;</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="text" value="adminConfig" name="link" class="no-display">
+                                <input type="text" value="update" name="action" class="no-display">
+                                <input type="text" value="slide" name="object" class="no-display">
+                                <input type="text" value="{{ loop.index }}" name="id" class="no-display">
+                                <input type="submit" value="Guardar" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
