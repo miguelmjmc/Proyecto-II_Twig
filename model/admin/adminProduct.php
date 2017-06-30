@@ -8,18 +8,34 @@ class adminProduct extends adminBase
     {
     }
 
-    function load()
+    public function load()
+    {
+        if (isset($_POST["action"])) {
+            if ($_POST["action"] == "new") {
+                $this->news();
+            } else if ($_POST["action"] == "update") {
+                $this->update();
+            } else if ($_POST["action"] == "delete") {
+                $this->delete();
+            }
+        }
+
+        $directory = "admin";
+
+        $view = "product.html.twig";
+
+        $array = $this->select();
+
+        $values = compact("directory", "view", "array");
+
+        return $values;
+    }
+
+    public function select()
     {
         $admin = $this->loadmain();
 
         $query = new query();
-
-
-        /* if (isset($post["action"])) {
-            if ($post["action"] == "delete") {
-                $this->delete();
-            }
-        }*/
 
         $productList = $query->query("SELECT * FROM product ");
         $i = 0;
@@ -27,17 +43,22 @@ class adminProduct extends adminBase
             $code = $productList["$i"]["productCode"];
             $brand = $productList["$i"]["productBrand"];
             $class = $productList["$i"]["productClass"];
-            
+
             $productList["$i"]["img"] = $query->query("SELECT * FROM  productImage WHERE productCode = '$code' AND productBrand = '$brand' AND productClass = '$class' ");
             $j = 0;
-            while (isset($productList["$i"]["img"]["$j"])){
-                $productList["$i"]["img"]["$j"]["productImg"]=base64_encode($productList["$i"]["img"]["$j"]["productImg"]);
+            while (isset($productList["$i"]["img"]["$j"])) {
+                $productList["$i"]["img"]["$j"]["productImg"] = base64_encode($productList["$i"]["img"]["$j"]["productImg"]);
                 $j++;
             }
             $i++;
         }
 
         $productBrandList = $query->query("SELECT * FROM productBrand");
+        $i = 0;
+        while (isset($productBrandList["$i"]["productBrandImg"])) {
+            $productBrandList["$i"]["productBrandImg"] = base64_encode($productBrandList["$i"]["productBrandImg"]);
+            $i++;
+        }
 
         $productCategoryList = $query->query("SELECT * FROM productCategory");
 
@@ -45,27 +66,86 @@ class adminProduct extends adminBase
 
         $array = compact("admin", "productList", "productBrandList", "productCategoryList", "productClassList");
 
-        $directory = "admin";
-
-        $view = "product.html.twig";
-
-        $values = compact("directory", "view", "array");
-
-        return $values;
-
-
+        return $array;
     }
 
-    function delete()
+    public function news()
     {
-        $a = $post["code"];
-        $b = $post["brand"];
-        $c = $post["class"];
+        $query = new query();
+        if ($_POST["object"] == "productBrand") {
+            $brand = $_POST["brand"];
+            $upload = new imgClass();
+            $imgSrc = $upload->upload();
+            $img = $imgSrc["file"];
+            $type = $imgSrc["type"];
+            $img = addslashes($img);
+            $success = $query->querySuccess("INSERT INTO jemaro.productBrand (productBrand, productBrandImg, productBrandImgType) VALUES ('$brand','$img','$type')");
+            if ($success > 0) {
+                $query->history("Registro: Marca de producto");
+            }
+        } elseif ($_POST["object"] == "productCategory") {
+            $category = $_POST["category"];
+            $success = $query->querySuccess("INSERT INTO jemaro.productCategory (`productCategory`) VALUES ('$category')");
+            if ($success > 0) {
+                $query->history("Registro: Categoria de producto");
+            }
 
-        $query->querySuccess("DELETE FROM jemaro.productImage WHERE productImage.product_code = '$a' AND productImage.product_productBrand_id IN (SELECT id FROM productBrand WHERE productBrand = '$b') AND productImage.product_productClass_id IN (SELECT id FROM productClass WHERE ProductClass = '$c')");
+        }
+        header("LOCATION:index.php?link=adminProduct");
+    }
 
-        $query->querySuccess("DELETE FROM jemaro.product WHERE product.code = '$a' AND product.productBrand_id IN (SELECT id FROM productBrand WHERE productBrand = '$b') AND product.productClass_id IN (SELECT id FROM productClass WHERE ProductClass = '$c')");
+    public function update()
+    {
+        $query = new query();
+        if ($_POST["object"] == "productBrand") {
+            $id = $_POST["id"];
+            $brand = $_POST["brand"];
+            $upload = new imgClass();
+            $imgSrc = $upload->upload();
+            $img = $imgSrc["file"];
+            $type = $imgSrc["type"];
+            $img = addslashes($img);
+            if (is_uploaded_file($_FILES["file"]["tmp_name"])) {
+                $success = $query->querySuccess("UPDATE jemaro.productBrand SET productBrand = '$brand',  productBrandImg = '$img', productBrandImgType = '$type' where productBrand = '$id'");
+                if ($success > 0) {
+                    $query->history("Actualización: Marca de producto");
+                }
+            } else {
+                $success = $query->querySuccess("UPDATE jemaro.productBrand SET productBrand = '$brand' where productBrand = '$id'");
+                if ($success > 0) {
+                    $query->history("Actualización: Marca de producto");
+                }
+            }
+        } elseif ($_POST["object"] == "productCategory") {
+            $id = $_POST["id"];
+            $category = $_POST["category"];
+            $success = $query->querySuccess("UPDATE jemaro.productCategory SET productCategory = '$category' WHERE productCategory = '$id'");
+            if ($success > 0) {
+                $query->history("Actualización: Categoria de producto");
+            }
 
+        }
+        header("LOCATION:index.php?link=adminProduct");
+    }
+
+
+    public function delete()
+    {
+        $query = new query();
+        if ($_POST["object"] == "productBrand") {
+            $id = $_POST["id"];
+            $success = $query->querySuccess("DELETE FROM jemaro.productBrand WHERE productBrand = '$id'");
+            if ($success > 0) {
+                $query->history("Eliminación: Marca de producto");
+            }
+        } elseif ($_POST["object"] == "productCategory") {
+            $id = $_POST["id"];
+            $success = $query->querySuccess("DELETE FROM jemaro.productCategory  WHERE productCategory = '$id'");
+            if ($success > 0) {
+                $query->history("Eliminación: Categoria de producto");
+            }
+        }
+        header("LOCATION:index.php?link=adminProduct");
     }
 
 

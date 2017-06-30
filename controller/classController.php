@@ -7,7 +7,7 @@ class controller
     public function logout()
     {
         if (isset($_GET["logout"])) {
-            $query= new query();
+            $query = new query();
             $query->history("Cierre de sesión");
             session_start();
             session_destroy();
@@ -16,15 +16,16 @@ class controller
             header("LOCATION:index.php");
         }
     }
-    
+
     public function session()
     {
         if (isset($_POST["login"])) {
             $query = new query();
+            $encrypt = new encrypt();
             $admin = $query->query("SELECT * FROM `user`");
             $i = 0;
             while (isset($admin["$i"])) {
-                if ($admin["$i"]["email"] == $_POST["login"] && $admin["$i"]["password"] == $_POST ["password"]) {
+                if ($admin["$i"]["email"] == $_POST["login"] && $encrypt->passwordVerify($_POST["password"], $admin["$i"]["password"])) {
                     session_start();
                     $_SESSION["access"] = $admin["$i"];
                     $query->history("Inicio de sesión");

@@ -1,6 +1,7 @@
 <?php
 
 include_once PATH . "/model/query.php";
+include_once PATH . "/model/encrypt.php";
 include_once PATH . "/model/renderTwig.php";
 include_once PATH . "/model/user/userIndex.php";
 include_once PATH . "/model/user/userProduct.php";
