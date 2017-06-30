@@ -21,7 +21,7 @@ class controller
     {
         if (isset($_POST["login"])) {
             $query = new query();
-            $admin = $query->query("SELECT * FROM user INNER JOIN person ON (user.ci = person.ci)");
+            $admin = $query->query("SELECT * FROM `user`");
             $i = 0;
             while (isset($admin["$i"])) {
                 if ($admin["$i"]["email"] == $_POST["login"] && $admin["$i"]["password"] == $_POST ["password"]) {
