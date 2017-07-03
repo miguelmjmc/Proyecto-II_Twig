@@ -10,9 +10,11 @@ class adminConfig extends adminBase
 
     public function load()
     {
+        $alert=null;
+        
         if (isset($_POST["action"])) {
             if ($_POST["action"] == "update") {
-                $this->update();
+                $alert = $this->update();
             }
         }
 
@@ -21,6 +23,8 @@ class adminConfig extends adminBase
         $view = "config.html.twig";
 
         $array = $this->select();
+
+        $array["alert"] = $alert;
 
         $values = compact("directory", "view", "array");
 
@@ -71,11 +75,17 @@ class adminConfig extends adminBase
                 $success = $query->querySuccess("UPDATE jemaro.slide SET title = '$title', content = '$content', link = '$link', slideImg = '$img', slideImgType = '$type' WHERE id = '$id'");
                 if ($success > 0) {
                     $query->history("Actualización: Slide");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             } else {
                 $success = $query->querySuccess("UPDATE jemaro.slide SET title = '$title', content = '$content', link = '$link' WHERE id = '$id'");
                 if ($success > 0) {
                     $query->history("Actualización: Slide");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             }
 
@@ -105,18 +115,24 @@ class adminConfig extends adminBase
             if (is_uploaded_file($_FILES["file"]["tmp_name"])) {
                 $success1 = $query->querySuccess("UPDATE jemaro.configuration SET img = '$img', imgType = '$type', name1 = '$name1', name2 = '$name2', slogan = '$slogan', rif = '$rif', email = '$email', phone1 = '$phone1', phone2 = '$phone2', location = '$location', facebook = '$facebook', twitter = '$twitter', googlePlus = '$googleplus', skype = '$skype', youtube = '$youtube' WHERE id = 1 ");
                 $success2 = $query->querySuccess("UPDATE jemaro.about SET `view` = '$view', mission = '$mission', `values` = '$values' WHERE id = 1");
-                if (($success1 > 0) && ($success2 > 0)) {
+                if (($success1 > 0) || ($success2 > 0)) {
                     $query->history("Actualización: Datos de la empresa");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             } else {
                 $success1 = $query->querySuccess("UPDATE jemaro.configuration SET name1 = '$name1', name2 = '$name2', slogan = '$slogan', rif = '$rif', email = '$email', phone1 = '$phone1', phone2 = '$phone2', location = '$location', facebook = '$facebook', twitter = '$twitter', googlePlus = '$googleplus', skype = '$skype', youtube = '$youtube' WHERE id = 1 ");
                 $success2 = $query->querySuccess("UPDATE jemaro.about SET `view` = '$view', mission = '$mission', `values` = '$values' WHERE id = 1");
-                if (($success1 > 0) && ($success2 > 0)) {
+                if (($success1 > 0) || ($success2 > 0)) {
                     $query->history("Actualización: Datos de la empresa");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             }
         }
-        header("LOCATION:index.php?link=adminConfig");
+        return $alert;
     }
 }
 

@@ -26,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <link rel="stylesheet" href="{{ pathAsset }}dist/css/skins/skin-blue.min.css">
     <!-- xzoom plugin here -->
-    <link rel="stylesheet" type="text/css" href="{{ pathAsset }}css/xzoom.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ pathAsset }}css/xzoom.css" media="all"/>
     <!-- popSelect -->
     <link rel="stylesheet" href="{{ pathAsset }}css/jquery.popSelect.css">
     <!-- Custom styles -->
@@ -88,7 +88,8 @@ desired effect
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}" class="user-image" alt="Imagen de usuario">
+                            <img src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}"
+                                 class="user-image" alt="Imagen de usuario">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{ array.admin.name }} {{ array.admin.lastName }}</span>
                         </a>
@@ -102,7 +103,7 @@ desired effect
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                   <!-- <a href="#" class="btn btn-default btn-flat">Perfil</a> -->
+                                    <!-- <a href="#" class="btn btn-default btn-flat">Perfil</a> -->
                                 </div>
                                 <div class="pull-right">
                                     <a href="index.php?logout=true" class="btn btn-default btn-flat">Salir</a>
@@ -123,7 +124,8 @@ desired effect
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}" class="img-circle" alt="Imagen de usuario">
+                    <img src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}" class="img-circle"
+                         alt="Imagen de usuario">
                 </div>
                 <div class="pull-left info">
                     <p>{{ array.admin.name }} {{ array.admin.lastName }}</p>
@@ -150,8 +152,23 @@ desired effect
         <!-- /.sidebar -->
     </aside>
 
+
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <div class="box-body">
+            {% if array.alert == "success" %}
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-check"></i> Exito!</h4> La operación se ha completado satisfactoriamente..
+                </div>
+            {% elseif array.alert == "danger" %}
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-ban"></i> Alerta!</h4> Ha ocurrido un error durante la operación. Verifique que el objeto no este registrado o se encuentre en uso.
+                </div>
+            {% endif %}
+        </div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -160,7 +177,7 @@ desired effect
                 {% endblock %}
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li><a href="index.php"><i class="fa fa-home"></i> Inicio</a></li>
                 {% block breadcrumb %}
                 {% endblock %}
             </ol>
@@ -236,13 +253,13 @@ desired effect
         $("#table2").DataTable();
         $("#table3").DataTable();
         /* {
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": false,
-                "autoWidth": false
-        }*/
+         "paging": true,
+         "lengthChange": false,
+         "searching": false,
+         "ordering": true,
+         "info": false,
+         "autoWidth": false
+         }*/
     });
 </script>
 
@@ -253,7 +270,7 @@ desired effect
 <script src="{{ pathAsset }}js/jquery.popSelect.js"></script>
 <!-- Initilization Scripts PopSelect -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         // The Main Example on the Top
         $('#main-pop-select').popSelect({
@@ -261,26 +278,26 @@ desired effect
             showTitle: false
             //autofocus: true
         });
-/*
+        /*
          Example 1: With Max Allowed
-        $('#example1').popSelect({
-            showTitle: false,
-            maxAllowed: 2
-        });
+         $('#example1').popSelect({
+         showTitle: false,
+         maxAllowed: 2
+         });
 
-        With Bottom Popover
-        $('#example2').popSelect({
-            showTitle: false,
-            placeholderText: 'Click to Add More',
-            position: 'bottom'
-        });
+         With Bottom Popover
+         $('#example2').popSelect({
+         showTitle: false,
+         placeholderText: 'Click to Add More',
+         position: 'bottom'
+         });
 
-        // With Pre Selected Values
-        $('#example3').popSelect({
-            showTitle: false,
-            autoIncrease: true
-        });
-*/
+         // With Pre Selected Values
+         $('#example3').popSelect({
+         showTitle: false,
+         autoIncrease: true
+         });
+         */
     });
 </script>
 <!-- file input -->

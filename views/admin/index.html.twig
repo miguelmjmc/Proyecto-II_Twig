@@ -1,7 +1,77 @@
 {% extends "base.html.twig" %}
 
+{% block pageTitle %}Inicio{% endblock %}
+
+
 {% block main %}
 
- <p>bienvenidos</p>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{{ array.index.product }}</h3>
+                        <p>Productos registrados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-th"></i>
+                    </div>
+                    <a href="index.php?link=adminProduct" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>{{ array.index.vehicle }}</h3>
+                        <p>Vehiculos registrados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-car"></i>
+                    </div>
+                    <a href="index.php?link=adminVehicle" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{{ array.index.user }}</h3>
+                        <p>Usuarios registrados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <a href="index.php?link=adminUser" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>{{ array.index.history }}</h3>
+                        <p>Operaciones realizadas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-history"></i>
+                    </div>
+                    <a href="index.php?link=adminHistory" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-md-12">
+                <center>
+                    <img src="{{ pathAsset }}img/welcome.png" alt="Bienvenido">
+                </center>
+            </div>
+        </div>
+    </section>
+
 
 {% endblock %}

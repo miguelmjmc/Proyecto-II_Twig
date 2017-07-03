@@ -10,21 +10,24 @@ class adminVehicle extends adminBase
 
     public function load()
     {
-
+        $alert = null;
         if (isset($_POST["action"])) {
             if ($_POST["action"] == "new") {
-                $this->news();
+                $alert = $this->news();
             } else if ($_POST["action"] == "update") {
-                $this->update();
+                $alert = $this->update();
             } else if ($_POST["action"] == "delete") {
-                $this->delete();
+                $alert = $this->delete();
             }
         }
+
         $directory = "admin";
 
         $view = "vehicle.html.twig";
 
         $array = $this->select();
+
+        $array["alert"] = $alert;
 
         $values = compact("directory", "view", "array");
 
@@ -67,6 +70,9 @@ class adminVehicle extends adminBase
             $success = $query->querySuccess("INSERT INTO jemaro.vehicleModel (vehicleModel, vehicleBrand, firstYear, lastYear) VALUES ('$model','$brand','$firstYear','$lastYear')");
             if ($success > 0) {
                 $query->history("Registro: Vehiculo");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         } elseif ($_POST["object"] == "vehicleBrand") {
             $upload = new imgClass();
@@ -78,9 +84,12 @@ class adminVehicle extends adminBase
             $success = $query->querySuccess("INSERT INTO jemaro.vehicleBrand (vehicleBrand, vehicleBrandImg, vehicleBrandImgType) VALUES ('$brand','$img','$type')");
             if ($success > 0) {
                 $query->history("Registro: Marca de vehiculo");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         }
-        header("LOCATION:index.php?link=adminVehicle");
+        return $alert;
     }
 
     public function update()
@@ -95,6 +104,9 @@ class adminVehicle extends adminBase
             $success = $query->querySuccess("UPDATE jemaro.vehicleModel SET vehicleModel = '$model', vehicleBrand = '$brand', firstYear = '$firstYear', lastYear = '$lastYear' WHERE id = $id");
             if ($success > 0) {
                 $query->history("Actualización: Vehiculo");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         } elseif ($_POST["object"] == "vehicleBrand") {
             $id = $_POST["id"];
@@ -108,15 +120,21 @@ class adminVehicle extends adminBase
                 $success = $query->querySuccess("UPDATE jemaro.vehicleBrand SET vehicleBrand = '$brand',  vehicleBrandImg = '$img', vehicleBrandImgType = '$type' where vehicleBrand = '$id' ");
                 if ($success > 0) {
                     $query->history("Actualización: Marca de vehiculo");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             } else {
                 $success = $query->querySuccess("UPDATE jemaro.vehicleBrand SET vehicleBrand = '$brand' where vehicleBrand = '$id'");
                 if ($success > 0) {
                     $query->history("Actualización: Marca de vehiculo");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
                 }
             }
         }
-        header("LOCATION:index.php?link=adminVehicle");
+        return $alert;
     }
 
     public function delete()
@@ -124,18 +142,24 @@ class adminVehicle extends adminBase
         $query = new query();
         if ($_POST["object"] == "vehicle") {
             $id = $_POST["id"];
-            $success=$query->querySuccess("DELETE FROM jemaro.vehicleModel WHERE id = $id");
+            $success = $query->querySuccess("DELETE FROM jemaro.vehicleModel WHERE id = $id");
             if ($success > 0) {
                 $query->history("Eliminación: Vehiculo");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         } elseif ($_POST["object"] == "vehicleBrand") {
             $id = $_POST["id"];
-            $success=$query->querySuccess("DELETE FROM jemaro.vehicleBrand WHERE vehicleBrand = '$id'");
+            $success = $query->querySuccess("DELETE FROM jemaro.vehicleBrand WHERE vehicleBrand = '$id'");
             if ($success > 0) {
                 $query->history("Eliminación: Marca de vehiculo");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         }
-        header("LOCATION:index.php?link=adminVehicle");
+        return $alert;
     }
 
 }
