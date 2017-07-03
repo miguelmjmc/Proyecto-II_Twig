@@ -12,7 +12,7 @@ class connection
     public $conection; //dirección de la conexión
 
     //creación del constructor
-    function __construct()
+    public function __construct()
     {
         $config_DB = configDB();
         $this->host = $config_DB["host"];
@@ -23,19 +23,18 @@ class connection
     }
     
     //función que se utilizara al momento de hacer la instancia de la clase
-    function connect()
+    public function connect()
     {
         $this->conection = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
         if (!$this->conection) {
-            printf("No hay conexión con la base de datos. Error: %s\n", mysqli_connect_error());
+            printf("No hay conexión con la base de datos. Error: %s", mysqli_connect_error());
             exit();
         }
         mysqli_set_charset($this->conection,"UTF-8");
-
     }
 
     //función para destruir la conexión.
-    function disconnect()
+    public function disconnect()
     {
         mysqli_close($this->conection);
     }

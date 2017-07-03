@@ -89,7 +89,23 @@ class adminProduct extends adminBase
             if ($success > 0) {
                 $query->history("Registro: Categoria de producto");
             }
-
+        } else if ($_POST["object"] == "productClass") {
+            $class = $_POST["class"];
+            $success = $query->querySuccess("INSERT INTO jemaro.productClass (`productClass`) VALUES ('$class')");
+            if ($success > 0) {
+                $query->history("Registro: Clase de producto");
+            }
+        } else if ($_POST["object"] == "product") {
+            $code = $_POST["code"];
+            $class = $_POST["class"];
+            $brand = $_POST["brand"];
+            $price = $_POST["price"];
+            $offer = $_POST["offer"];
+            $description = $_POST["description"];
+            $success = $query->querySuccess("INSERT INTO jemaro.product (productCode, productClass, productBrand, price, offer, description) VALUES ('$code','$class','$brand','$price','$offer','$description')");
+            if ($success > 0) {
+                $query->history("Registro: Producto");
+            }
         }
         header("LOCATION:index.php?link=adminProduct");
     }
@@ -123,7 +139,27 @@ class adminProduct extends adminBase
             if ($success > 0) {
                 $query->history("Actualización: Categoria de producto");
             }
-
+        } else if ($_POST["object"] == "productClass") {
+            $id = $_POST["id"];
+            $class = $_POST["class"];
+            $success = $query->querySuccess("UPDATE jemaro.productClass SET productClass = '$class' WHERE productClass = '$id'");
+            if ($success > 0) {
+                $query->history("Actualización: Clase de producto");
+            }
+        } else if ($_POST["object"] == "product") {
+            $codeId = $_POST["codeId"];
+            $brandId = $_POST["brandId"];
+            $classId = $_POST["classId"];
+            $code = $_POST["code"];
+            $class = $_POST["class"];
+            $brand = $_POST["brand"];
+            $price = $_POST["price"];
+            $offer = $_POST["offer"];
+            $description = $_POST["description"];
+            $success = $query->querySuccess("UPDATE jemaro.product SET productCode = '$code', productClass = '$class', productBrand = '$brand', price = '$price', offer = '$offer', description = '$description' WHERE  productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
+            if ($success > 0) {
+                $query->history("Actualización: Producto");
+            }
         }
         header("LOCATION:index.php?link=adminProduct");
     }
@@ -138,11 +174,26 @@ class adminProduct extends adminBase
             if ($success > 0) {
                 $query->history("Eliminación: Marca de producto");
             }
-        } elseif ($_POST["object"] == "productCategory") {
+        } else if ($_POST["object"] == "productCategory") {
             $id = $_POST["id"];
             $success = $query->querySuccess("DELETE FROM jemaro.productCategory  WHERE productCategory = '$id'");
             if ($success > 0) {
                 $query->history("Eliminación: Categoria de producto");
+            }
+        } else if ($_POST["object"] == "productClass") {
+            $id = $_POST["id"];
+
+            $success = $query->querySuccess("DELETE FROM jemaro.productClass WHERE productClass = '$id'");
+            if ($success > 0) {
+                $query->history("Eliminación: Clase de producto");
+            }
+        } else if ($_POST["object"] == "product") {
+            $codeId = $_POST["codeId"];
+            $brandId = $_POST["brandId"];
+            $classId = $_POST["classId"];
+            $success = $query->querySuccess("DELETE FROM jemaro.product WHERE productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
+            if ($success > 0) {
+                $query->history("Eliminación: Producto");
             }
         }
         header("LOCATION:index.php?link=adminProduct");
