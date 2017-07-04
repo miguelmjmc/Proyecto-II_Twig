@@ -141,10 +141,14 @@ desired effect
                 <li><a href="index.php"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
                 <li><a href="index.php?link=adminProduct"><i class="fa fa-th"></i> <span>Productos</span></a></li>
                 <li><a href="index.php?link=adminVehicle"><i class="fa fa-car"></i> <span>Vehiculos</span></a></li>
-                <!-- <li><a href="index.php?link=adminUser"><i class="fa fa-group"></i> <span>Usuarios</span></a></li> -->
+                {% if array.admin.userType == "Administrador" %}
+                    <li><a href="index.php?link=adminUser"><i class="fa fa-group"></i> <span>Usuarios</span></a></li>
+                {% endif %}
                 <li><a href="index.php?link=adminReport"><i class="fa fa-area-chart"></i> <span>Reportes</span></a></li>
-                <li><a href="index.php?link=adminHistory"><i class="fa fa-history"></i> <span>Historial</span></a></li>
-                <li><a href="index.php?link=adminConfig"><i class="fa fa-cogs"></i> <span>Ajustes</span></a></li>
+                    <li><a href="index.php?link=adminHistory"><i class="fa fa-history"></i> <span>Historial</span></a></li>
+                {% if array.admin.userType == "Administrador" %}
+                    <li><a href="index.php?link=adminConfig"><i class="fa fa-cogs"></i> <span>Ajustes</span></a></li>
+                {% endif %}
                 <!--<li><a href="index.php?link=adminHelp"><i class="fa fa-book"></i> <span>Documentación</span></a></li>-->
             </ul>
             <!-- /.sidebar-menu -->
@@ -153,19 +157,19 @@ desired effect
     </aside>
 
 
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="box-body">
             {% if array.alert == "success" %}
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i> Exito!</h4> La operación se ha completado satisfactoriamente..
+                    <h4><i class="icon fa fa-check"></i> Exito!</h4> La operación se ha completado satisfactoriamente.
                 </div>
             {% elseif array.alert == "danger" %}
                 <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-ban"></i> Alerta!</h4> Ha ocurrido un error durante la operación. Verifique que el objeto no este registrado o se encuentre en uso.
+                    <h4><i class="icon fa fa-ban"></i> Alerta!</h4> Ha ocurrido un error durante la operación. Verifique
+                    que el objeto no este registrado o se encuentre en uso.
                 </div>
             {% endif %}
         </div>

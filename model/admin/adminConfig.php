@@ -10,25 +10,27 @@ class adminConfig extends adminBase
 
     public function load()
     {
-        $alert=null;
-        
-        if (isset($_POST["action"])) {
-            if ($_POST["action"] == "update") {
-                $alert = $this->update();
+        if ($_SESSION["access"]["userType"] == "Administrador") {
+            $alert = null;
+
+            if (isset($_POST["action"])) {
+                if ($_POST["action"] == "update") {
+                    $alert = $this->update();
+                }
             }
+
+            $directory = "admin";
+
+            $view = "config.html.twig";
+
+            $array = $this->select();
+
+            $array["alert"] = $alert;
+
+            $values = compact("directory", "view", "array");
+
+            return $values;
         }
-
-        $directory = "admin";
-
-        $view = "config.html.twig";
-
-        $array = $this->select();
-
-        $array["alert"] = $alert;
-
-        $values = compact("directory", "view", "array");
-
-        return $values;
     }
 
     public function select()

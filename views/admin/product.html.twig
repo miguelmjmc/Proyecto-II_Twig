@@ -285,7 +285,8 @@
                                             <div class="col-sm-9">
                                                 <input name="price" type="number" step="0.01" id="price"
                                                        class="form-control"
-                                                       placeholder="Ingrese el precio" title="Precio del producto" required>
+                                                       placeholder="Ingrese el precio" title="Precio del producto"
+                                                       required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -300,12 +301,25 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label for="vehicle" class="col-sm-3 control-label">Vehiculos:</label>
+                                            <div class="col-sm-9">
+                                                <select name="vehicle[]" title="Vehículos compatibles" multiple>
+                                                    {% for vehicle in array.vehicleList %}
+                                                        <option value="{{ vehicle.id }}">{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}-{{ vehicle.lastYear }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                             <label for="description"
                                                    class="col-sm-12 control-label">Descripción:</label>
                                             <div class="col-sm-12">
                                                  <textarea name="description" id="description" class="form-control"
                                                            rows="5"
-                                                           title="descripción del producto" placeolder="Ingrese la Descripción" required></textarea>
+                                                           title="descripción del producto"
+                                                           placeolder="Ingrese la Descripción" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -416,6 +430,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description"
@@ -522,6 +537,24 @@
                                                            rows="5"
                                                            title="descripción del producto">{{ product.description }}</textarea>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vehicle" class="col-sm-3 control-label">Vehiculos:</label>
+                                            <div class="col-sm-9">
+                                                <select name="vehicle[]" id="vehicle" title="Vehículos compatibles" multiple>
+                                                    {% for vehicle in array.vehicleList %}
+                                                        <option value="{{ vehicle.id }}"
+                                                                {% for vehicleProduct in product.vehicle %}
+                                                                    {% if vehicleproduct.vehicleModel_id == vehicle.id  %}selected="selected"{% endif %}{% endfor %}>{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}-{{ vehicle.lastYear }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <select name="vehi[]" title="Vehículos compatibles" multiple>
+                                                        <option value="{{ vehicle.id }}"
+                                                                {% for vehicleProduct in product.vehicle %}
+                                                            {{vehicleproduct.vehicleModel_id}} {% endfor %}>{{ vehicleproduct.vehicleModel_id }}</option>
+
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">

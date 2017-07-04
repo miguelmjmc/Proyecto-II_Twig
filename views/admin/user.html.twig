@@ -1,0 +1,613 @@
+{% extends "base.html.twig" %}
+
+{% block pageTitle %}Usuarios{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="index.php?link=adminVehicle"><i class="fa fa-user"></i> Usuarios</a></li>
+{% endblock %}
+
+{% block main %}
+
+
+    <section class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="box box-default collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Administrador</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-body">
+                            <div class="col-sm-12 margin-button">
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                        data-target="#adminUpdateModal">Editar
+                                </button>
+                            </div>
+                        </div>
+                        <div class=" border-form">
+                            <div class="container width-100">
+                                <div class="large-12 column">
+                                    <div class="xzoom-container">
+                                        <img class="xzoom xzoom-width"
+                                             src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}"
+                                             alt="Imagen del administrador {{ array.admin.name }} {{ array.admin.lastName }}"
+                                             disabled="">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Email:</label>
+                                            <div class="col-sm-9">
+                                                <input name="email" type="email" id="email" class="form-control"
+                                                       placeholder="{{ array.admin.email }}"
+                                                       title="Email del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-3 control-label">Nombre:</label>
+                                            <div class="col-sm-9">
+                                                <input name="name" type="text" id="name" class="form-control"
+                                                       placeholder="{{ array.admin.name }}"
+                                                       title="Nombre del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName" class="col-sm-3 control-label">Apellido:</label>
+                                            <div class="col-sm-9">
+                                                <input name="lastName" type="text" id="lastName" class="form-control"
+                                                       placeholder="{{ array.admin.lastName }}"
+                                                       title="Apellido del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ci" class="col-sm-3 control-label">C.I:</label>
+                                            <div class="col-sm-9">
+                                                <input name="ci" type="text" id="name" class="form-control"
+                                                       placeholder="{{ array.admin.ci }}"
+                                                       title="Cedula del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-3 control-label">Telefono:</label>
+                                            <div class="col-sm-9">
+                                                <input name="phone" type="text" id="phone" class="form-control"
+                                                       placeholder="{{ array.admin.phone }}"
+                                                       title="Telefono del usuario" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Usuarios</h3>
+                        <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                data-target="#mainNewModal">Nuevo
+                        </button>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="maintable" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="th-5">Email</th>
+                                <th class="th-5">Nombre</th>
+                                <th class="th-5">Rol</th>
+                                <th class="th-5">Estado</th>
+                                <th class="th-5">Opciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in array.userList %}
+                                <tr>
+                                    <td class="td-5">{{ user.email }}</td>
+                                    <td class="td-5">{{ user.name }} {{ user.lastName }}</td>
+                                    <td class="td-5">{{ user.userType }}</td>
+                                    <td class="td-5">{{ user.status }}</td>
+                                    <td class="td-5">
+                                        <!-- Trigger the modal with a button -->
+                                        <button type="button" class="btn btn-box-tool" data-toggle="modal"
+                                                data-target="#mainSelectModal{{ loop.index }}"><i class="fa fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-box-tool" data-toggle="modal"
+                                                data-target="#mainUpdateModal{{ loop.index }}"><i
+                                                    class="fa fa-pencil"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- / .table -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+
+
+
+    <!-- Modal -------------------------------------------------------------------------------------------------------->
+    <div id="mainNewModal{{ loop.index }}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Nuevo Usuario</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Email:</label>
+                                            <div class="col-sm-9">
+                                                <input name="email" type="email" id="email" class="form-control"
+                                                       placeholder="Ingrese el email del usuario"
+                                                       title="Email del usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-3 control-label">Nombre:</label>
+                                            <div class="col-sm-9">
+                                                <input name="name" type="text" id="name" class="form-control"
+                                                       placeholder="Ingrese el nombre del usuario"
+                                                       title="Nombre del usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName" class="col-sm-3 control-label">Apellido:</label>
+                                            <div class="col-sm-9">
+                                                <input name="lastName" type="text" id="lastName" class="form-control"
+                                                       placeholder="Ingrese el apllido del usuario"
+                                                       title="Apellido del usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ci" class="col-sm-3 control-label">C.I:</label>
+                                            <div class="col-sm-9">
+                                                <input name="ci" type="text" id="name" class="form-control"
+                                                       placeholder="Ingrese la cedula del usuario"
+                                                       title="Cedula del usuario" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-3 control-label">Contraseña:</label>
+                                            <div class="col-sm-9">
+                                                <input name="password" type="password" id="password"
+                                                       class="form-control"
+                                                       placeholder="Ingrese la contraseña del Usuario"
+                                                       title="Contraseña del usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-3 control-label">Telefono:</label>
+                                            <div class="col-sm-9">
+                                                <input name="phone" type="text" id="phone" class="form-control"
+                                                       placeholder="Ingrese el telefono del Usuario"
+                                                       title="Telefono del usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rol" class="col-sm-3 control-label">Rol:</label>
+                                            <div class="col-sm-9">
+                                                <select name="rol" id="rol" class="form-control"
+                                                        title="Rol del usuario">
+                                                    <option value="Operador" selected>Operador</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status" class="col-sm-3 control-label">Estado:</label>
+                                            <div class="col-sm-9">
+                                                <select name="status" id="status" class="form-control"
+                                                        title="Estado del usuario" require>
+                                                    <option value="activo" selected>Habilitado</option>
+                                                    <option value="Desabilitado" selected>Desabilitado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" name="file" id="file"
+                                               class="inputfile inputfile-1 no-display"
+                                               data-multiple-caption="{count} files selected" required>
+                                        <label for="file" class="f-input">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                 viewBox="0 0 20 17">
+                                                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                            </svg>
+                                            <span>Selecciona un archivo&hellip;</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="text" value="adminUser" name="link" class="no-display">
+                        <input type="text" value="new" name="action" class="no-display">
+                        <input type="text" value="user" name="object" class="no-display">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    {% for user in array.userList %}
+        <!-- Modal ---------------------------------------------------------------------------------------------------->
+        <div id="mainSelectModal{{ loop.index }}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Detalles del Vehiculo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="container width-100">
+                                <div class="large-12 column">
+                                    <div class="xzoom-container">
+                                        <img class="xzoom xzoom-width"
+                                             src="data:{{ user.adminImgType }}; base64,{{ user.adminImg }}"
+                                             alt="Imaden del usuario {{ user.name }} {{ user.lastName }}">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Email:</label>
+                                            <div class="col-sm-9">
+                                                <input name="email" type="email" id="email" class="form-control"
+                                                       placeholder="{{ user.email }}"
+                                                       title="Email del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-3 control-label">Nombre:</label>
+                                            <div class="col-sm-9">
+                                                <input name="name" type="text" id="name" class="form-control"
+                                                       placeholder="{{ user.name }}"
+                                                       title="Nombre del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName" class="col-sm-3 control-label">Apellido:</label>
+                                            <div class="col-sm-9">
+                                                <input name="lastName" type="text" id="lastName" class="form-control"
+                                                       placeholder="{{ user.lastName }}"
+                                                       title="Apellido del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ci" class="col-sm-3 control-label">C.I:</label>
+                                            <div class="col-sm-9">
+                                                <input name="ci" type="text" id="name" class="form-control"
+                                                       placeholder="{{ user.ci }}"
+                                                       title="Cedula del usuario" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-3 control-label">Telefono:</label>
+                                            <div class="col-sm-9">
+                                                <input name="phone" type="text" id="phone" class="form-control"
+                                                       placeholder="{{ user.phone }}"
+                                                       title="Telefono del usuario" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rol" class="col-sm-3 control-label">Rol:</label>
+                                            <div class="col-sm-9">
+                                                <select name="rol" id="rol" class="form-control" title="Rol del usuario"
+                                                        disabled>
+                                                    <option value="Operador" selected>Operador</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status" class="col-sm-3 control-label">Estado:</label>
+                                            <div class="col-sm-9">
+                                                <select name="status" id="status" class="form-control"
+                                                        title="Estado del usuario" disabled>
+                                                    <option value="{{ user.status }}"
+                                                            selected>{{ user.status }}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal ---------------------------------------------------------------------------------------------------->
+        <div id="mainUpdateModal{{ loop.index }}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <form action="index.php" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Editar Producto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" border-form">
+                                <div class="container width-100">
+                                    <div class="large-12 column">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width"
+                                                 src="data:{{ user.adminImgType }}; base64,{{ user.adminImg }}"
+                                                 alt="Imaden del usuario {{ user.name }} {{ user.lastName }}">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email" class="col-sm-3 control-label">Email:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="email" type="email" id="email" class="form-control"
+                                                           value="{{ user.email }}"
+                                                           title="Email del usuario">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-3 control-label">Nombre:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="name" type="text" id="name" class="form-control"
+                                                           value="{{ user.name }}"
+                                                           title="Nombre del usuario">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName" class="col-sm-3 control-label">Apellido:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="lastName" type="text" id="lastName"
+                                                           class="form-control"
+                                                           value="{{ user.lastName }}"
+                                                           title="Apellido del usuario">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ci" class="col-sm-3 control-label">C.I:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="ci" type="text" id="name" class="form-control"
+                                                           value="{{ user.ci }}"
+                                                           title="Cedula del usuario">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="password" class="col-sm-3 control-label">Contraseña:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="password" type="password" id="password"
+                                                           class="form-control"
+                                                           placeholder="Ingrese la contraseña del Usuario"
+                                                           title="Contraseña del usuario">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone" class="col-sm-3 control-label">Telefono:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="phone" type="text" id="phone" class="form-control"
+                                                           value="{{ user.phone }}"
+                                                           title="Telefono del usuario">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="rol" class="col-sm-3 control-label">Rol:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="rol" id="rol" class="form-control"
+                                                            title="Rol del usuario">
+                                                        <option value="Operador" selected>Operador</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="status" class="col-sm-3 control-label">Estado:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="status" id="status" class="form-control"
+                                                            title="Estado del usuario">
+                                                        <option value="{{ user.status }}"
+                                                                selected>{{ user.status }}</option>
+                                                        {% if user.status == "Habilitado" %}
+                                                            <option value="Desabilitado">Desabilitado</option>
+                                                        {% else %}
+                                                            <option value="Habilitado">Habilitado</option>
+                                                        {% endif %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="file" id="file-{{ loop.index }}"
+                                                   class="inputfile inputfile-1 no-display"
+                                                   data-multiple-caption="{count} files selected">
+                                            <label for="file-{{ loop.index }}" class="f-input">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                     viewBox="0 0 20 17">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                </svg>
+                                                <span>Selecciona un archivo&hellip;</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="text" value="adminUser" name="link" class="no-display">
+                            <input type="text" value="update" name="action" class="no-display">
+                            <input type="text" value="user" name="object" class="no-display">
+                            <input type="text" value="{{ user.email }}" name="emailId" class="no-display">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+
+
+
+
+    <!-- Modal ---------------------------------------------------------------------------------------------------->
+    <div id="adminUpdateModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Editar Producto</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="container width-100">
+                                <div class="large-12 column">
+                                    <div class="xzoom-container">
+                                        <img class="xzoom xzoom-width"
+                                             src="data:{{ array.admin.adminImgType }}; base64,{{ array.admin.adminImg }}"
+                                             alt="Imagen del administrador {{ array.admin.name }} {{ array.admin.lastName }}"
+                                             disabled="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="email" class="col-sm-3 control-label">Email:</label>
+                                    <div class="col-sm-9">
+                                        <input name="email" type="email" id="email" class="form-control"
+                                               value="{{ array.admin.email }}"
+                                               title="Email del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-3 control-label">Nombre:</label>
+                                    <div class="col-sm-9">
+                                        <input name="name" type="text" id="name" class="form-control"
+                                               value="{{ array.admin.name }}"
+                                               title="Nombre del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="col-sm-3 control-label">Apellido:</label>
+                                    <div class="col-sm-9">
+                                        <input name="lastName" type="text" id="lastName" class="form-control"
+                                               value="{{ array.admin.lastName }}"
+                                               title="Apellido del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ci" class="col-sm-3 control-label">C.I:</label>
+                                    <div class="col-sm-9">
+                                        <input name="ci" type="text" id="name" class="form-control"
+                                               value="{{ array.admin.ci }}"
+                                               title="Cedula del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="col-sm-3 control-label">Telefono:</label>
+                                    <div class="col-sm-9">
+                                        <input name="phone" type="text" id="phone" class="form-control"
+                                               value="{{ array.admin.phone }}"
+                                               title="Telefono del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-3 control-label">Contraseña:</label>
+                                    <div class="col-sm-9">
+                                        <input name="password" type="password" id="password"
+                                               class="form-control"
+                                               placeholder="Ingrese la contraseña del Usuario"
+                                               title="Contraseña del usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" name="file" id="file-admin"
+                                           class="inputfile inputfile-1 no-display"
+                                           data-multiple-caption="{count} files selected">
+                                    <label for="file-admin" class="f-input">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                             viewBox="0 0 20 17">
+                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                        </svg>
+                                        <span>Selecciona un archivo&hellip;</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="modal-footer">
+                <input type="text" value="adminUser" name="link" class="no-display">
+                <input type="text" value="update" name="action" class="no-display">
+                <input type="text" value="admin" name="object" class="no-display">
+                <input type="text" value="{{ array.admin.email }}" name="emailId" class="no-display">
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            </div>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

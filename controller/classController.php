@@ -26,17 +26,29 @@ class controller
             $i = 0;
             while (isset($admin["$i"])) {
                 if ($admin["$i"]["email"] == $_POST["login"] && $encrypt->passwordVerify($_POST["password"], $admin["$i"]["password"])) {
-                    session_start();
-                    $_SESSION["access"] = $admin["$i"];
-                    $query->history("Inicio de sesión");
-                    header("LOCATION:index.php");
+                    if ($admin["$i"]["userType"] == "Administrador") {
+                        session_start();
+                        $_SESSION["access"] = $admin["$i"];
+                        $query->history("Inicio de sesión");
+                        header("LOCATION:index.php");
+                    } else {
+                        if ($admin["$i"]["status"] == "Habilitado") {
+                            session_start();
+                            $_SESSION["access"] = $admin["$i"];
+                            $query->history("Inicio de sesión");
+                            header("LOCATION:index.php");
+                        }else{
+                            header("LOCATION:index.php");
+                        }
+                    }
                 }
                 $i++;
             }
         }
     }
 
-    public function selectModel()
+    public
+    function selectModel()
     {
         if (isset($_SESSION["access"])) {
             if (isset($_POST["link"])) {

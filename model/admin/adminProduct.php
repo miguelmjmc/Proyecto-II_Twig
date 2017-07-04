@@ -43,8 +43,14 @@ class adminProduct extends adminBase
         $productList = $query->query("SELECT * FROM product ");
         $i = 0;
         while (isset($productList["$i"])) {
-            $productList["$i"]["productImg"]= base64_encode($productList["$i"]["productImg"]);
+            $code = $productList["$i"]["productCode"];
+            $brand = $productList["$i"]["productBrand"];
+            $class = $productList["$i"]["productClass"];
+            $productList["$i"]["vehicle"] = $query->query("SELECT * FROM vehicleModel_has_product WHERE (productCode = '$code' AND productBrand = '$brand' AND productClass = '$class')");
+            $productList["$i"]["productImg"] = base64_encode($productList["$i"]["productImg"]);
+            print_r($productList["$i"]{"vehicle"});
             $i++;
+
         }
 
         $productBrandList = $query->query("SELECT * FROM productBrand");
@@ -58,7 +64,9 @@ class adminProduct extends adminBase
 
         $productClassList = $query->query("SELECT * FROM productClass");
 
-        $array = compact("admin", "productList", "productBrandList", "productCategoryList", "productClassList");
+        $vehicleList = $query->query("SELECT * FROM vehicleModel");
+
+        $array = compact("admin", "productList", "productBrandList", "productCategoryList", "productClassList", "vehicleList");
 
         return $array;
     }
@@ -111,8 +119,18 @@ class adminProduct extends adminBase
             $img = $imgSrc["file"];
             $type = $imgSrc["type"];
             $img = addslashes($img);
-            $success = $query->querySuccess("INSERT INTO jemaro.product (productImg, productImgType, productCode, productClass, productBrand, price, offer, description) VALUES ('$img', '$type', '$code','$class','$brand','$price','$offer','$description')");
-            if ($success > 0) {
+            $vehicle = $_POST["vehicle"];
+            $success1 = $query->querySuccess("INSERT INTO jemaro.product (productImg, productImgType, productCode, productClass, productBrand, price, offer, description) VALUES ('$img', '$type', '$code','$class','$brand','$price','$offer','$description')");
+            $i = 0;
+            print_r($vehicle);
+            while (isset($vehicle["$i"])) {
+                $vehicleId = $vehicle["$i"];
+                $success2 = $query->querySuccess("INSERT INTO jemaro.vehicleModel_has_product (vehicleModel_id, productCode, productBrand, productClass) VALUES ('$vehicleId', '$code', '$brand', '$class')");
+                $i++;
+            }
+
+
+            if (($success1 > 0) || ($success2 > 0)) {
                 $query->history("Registro: Producto");
                 $alert = "success";
             } else {
@@ -195,14 +213,14 @@ class adminProduct extends adminBase
                     $alert = "danger";
                 }
             } else {
-            $success = $query->querySuccess("UPDATE jemaro.product SET productCode = '$code', productClass = '$class', productBrand = '$brand', price = '$price', offer = '$offer', description = '$description' WHERE  productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
-            if ($success > 0) {
-                $query->history("Actualización: Producto");
-                $alert = "success";
-            } else {
-                $alert = "danger";
+                $success = $query->querySuccess("UPDATE jemaro.product SET productCode = '$code', productClass = '$class', productBrand = '$brand', price = '$price', offer = '$offer', description = '$description' WHERE  productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
+                if ($success > 0) {
+                    $query->history("Actualización: Producto");
+                    $alert = "success";
+                } else {
+                    $alert = "danger";
+                }
             }
-        }
         }
         return $alert;
     }
