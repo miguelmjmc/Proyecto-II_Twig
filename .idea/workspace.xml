@@ -26,54 +26,7 @@
     <favorites_list name="untitled" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adminProduct.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/admin/adminProduct.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-              <folding>
-                <marker date="1499179827026" expanded="true" signature="914:935" placeholder="SELECT * FRO... product" />
-                <marker date="1499179827026" expanded="true" signature="1228:1272" placeholder="SELECT * FRO... vehicleModel_has_product" />
-                <marker date="1499179827026" expanded="true" signature="1228:1295" placeholder="SELECT * FRO... vehicleModel_has_product" />
-                <marker date="1499179827026" expanded="true" signature="1228:1323" placeholder="SELECT * FRO... vehicleModel_has_product" />
-                <marker date="1499179827026" expanded="true" signature="1228:1351" placeholder="SELECT * FRO... vehicleModel_has_product" />
-                <marker date="1499179827026" expanded="true" signature="1228:1352" placeholder="SELECT * FRO... vehicleModel_has_product" />
-                <marker date="1499179827026" expanded="true" signature="1577:1603" placeholder="SELECT * FRO... productBrand" />
-                <marker date="1499179827026" expanded="true" signature="1882:1911" placeholder="SELECT * FRO... productCategory" />
-                <marker date="1499179827026" expanded="true" signature="1959:1985" placeholder="SELECT * FRO... productClass" />
-                <marker date="1499179827026" expanded="true" signature="2028:2054" placeholder="SELECT * FRO... vehicleModel" />
-                <marker date="1499179827026" expanded="true" signature="2603:2720" placeholder="INSERT INTO jemaro.productBrand... " />
-                <marker date="1499179827026" expanded="true" signature="3074:3149" placeholder="INSERT INTO jemaro.productCategory... " />
-                <marker date="1499179827026" expanded="true" signature="3543:3641" placeholder="INSERT INTO jemaro.productClass... " />
-                <marker date="1499179827026" expanded="true" signature="4414:4622" placeholder="INSERT INTO jemaro.product... " />
-                <marker date="1499179827026" expanded="true" signature="4816:4969" placeholder="INSERT INTO jemaro.product... " />
-                <marker date="1499179827026" expanded="true" signature="5754:5893" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="6198:6279" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="6708:6801" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="7232:7344" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="8272:8573" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="8869:9123" placeholder="UPDATE jemar... " />
-                <marker date="1499179827026" expanded="true" signature="9596:9654" placeholder="DELETE FROM " />
-                <marker date="1499179827026" expanded="true" signature="10000:10065" placeholder="DELETE FROM " />
-                <marker date="1499179827026" expanded="true" signature="10413:10471" placeholder="DELETE FROM " />
-                <marker date="1499179827026" expanded="true" signature="10901:11017" placeholder="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin/product.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="554" column="153" selection-start-line="554" selection-start-column="153" selection-end-line="554" selection-end-column="153" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,8 +92,8 @@
         <option value="$PROJECT_DIR$/model/admin/adminUser.php" />
         <option value="$PROJECT_DIR$/views/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminIndex.php" />
-        <option value="$PROJECT_DIR$/views/admin/product.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminProduct.php" />
+        <option value="$PROJECT_DIR$/views/admin/product.html.twig" />
       </list>
     </option>
   </component>
@@ -154,10 +107,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1362" />
+    <option name="x" value="-4" />
     <option name="y" value="-4" />
-    <option name="width" value="1608" />
-    <option name="height" value="908" />
+    <option name="width" value="1374" />
+    <option name="height" value="732" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -200,7 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,97 +161,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proyecto-II_Twig" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,22 +293,22 @@
       <workItem from="1499084583705" duration="25578000" />
       <workItem from="1499114023405" duration="455000" />
       <workItem from="1499135602663" duration="4303000" />
-      <workItem from="1499160243789" duration="18311000" />
+      <workItem from="1499160243789" duration="21883000" />
+      <workItem from="1499209517379" duration="39000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="548087000" />
+    <option name="totallyTimeSpent" value="551698000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1362" y="-4" width="1608" height="908" extended-state="6" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.193125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19253294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -455,6 +320,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -671,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,7 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
           <caret line="153" column="26" selection-start-line="147" selection-start-column="20" selection-end-line="153" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,23 +551,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
           <caret line="128" column="62" selection-start-line="128" selection-start-column="62" selection-end-line="128" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/user.html" />
     <entry file="file://$PROJECT_DIR$/views/admin/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8942">
           <caret line="526" column="0" selection-start-line="526" selection-start-column="0" selection-end-line="526" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,7 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="607" column="50" selection-start-line="597" selection-start-column="44" selection-end-line="607" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,7 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,7 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="84" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="84" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-557">
           <caret line="126" column="97" selection-start-line="126" selection-start-column="74" selection-end-line="126" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,17 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2278">
           <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
-          <folding>
-            <marker date="1499084295850" expanded="true" signature="912:1021" placeholder="SELECT * FRO... vehicleModel" />
-            <marker date="1499084295850" expanded="true" signature="1282:1308" placeholder="SELECT * FRO... vehicleBrand" />
-            <marker date="1499084295850" expanded="true" signature="1961:2094" placeholder="INSERT INTO jemaro.vehicleModel... " />
-            <marker date="1499084295850" expanded="true" signature="2619:2736" placeholder="INSERT INTO jemaro.vehicleBrand... " />
-            <marker date="1499084295850" expanded="true" signature="3335:3476" placeholder="UPDATE jemar... " />
-            <marker date="1499084295850" expanded="true" signature="4110:4249" placeholder="UPDATE jemar... " />
-            <marker date="1499084295850" expanded="true" signature="4555:4636" placeholder="UPDATE jemar... " />
-            <marker date="1499084295850" expanded="true" signature="5112:5155" placeholder="DELETE FROM " />
-            <marker date="1499084295850" expanded="true" signature="5491:5549" placeholder="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -769,16 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <marker date="1499110299508" expanded="true" signature="235:414" placeholder="SELECT * FRO... product" />
-            <marker date="1499110299508" expanded="true" signature="670:1176" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="677:791" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="798:1176" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="862:1176" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="869:975" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="982:1176" placeholder="..." />
-            <marker date="1499110299508" expanded="true" signature="1271:1525" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,9 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-          <folding>
-            <marker date="1498675970000" expanded="true" signature="272:293" placeholder="SELECT * FRO... history" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -796,17 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="2" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <marker date="1499171743361" expanded="true" signature="841:868" placeholder="SELECT * FRO... configuration" />
-            <marker date="1499171743361" expanded="true" signature="905:924" placeholder="SELECT * FRO... about" />
-            <marker date="1499171743361" expanded="true" signature="961:980" placeholder="SELECT * FRO... slide" />
-            <marker date="1499171743361" expanded="true" signature="1892:2030" placeholder="UPDATE jemar... " />
-            <marker date="1499171743361" expanded="true" signature="2323:2418" placeholder="UPDATE jemar... " />
-            <marker date="1499171743361" expanded="true" signature="3656:3998" placeholder="UPDATE jemar... " />
-            <marker date="1499171743361" expanded="true" signature="4053:4150" placeholder="UPDATE jemar... " />
-            <marker date="1499171743361" expanded="true" signature="4480:4789" placeholder="UPDATE jemar... " />
-            <marker date="1499171743361" expanded="true" signature="4844:4941" placeholder="UPDATE jemar... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,7 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,9 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="57" />
-          <folding>
-            <marker date="1499172160675" expanded="true" signature="580:600" placeholder="SELECT * FRO... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -840,17 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="162" column="17" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
-          <folding>
-            <marker date="1499174253773" expanded="true" signature="887:901" placeholder="SELECT * FRO... configuration" />
-            <marker date="1499174253773" expanded="true" signature="887:938" placeholder="SELECT * FRO... user" />
-            <marker date="1499174253773" expanded="true" signature="1897:2116" placeholder="INSERT INTO jemaro.vehicleBrand... " />
-            <marker date="1499174253773" expanded="true" signature="3012:3064" placeholder="SELECT passw... user" />
-            <marker date="1499174253773" expanded="true" signature="3408:3649" placeholder="UPDATE jemar... " />
-            <marker date="1499174253773" expanded="true" signature="3944:4143" placeholder="UPDATE jemar... " />
-            <marker date="1499174253773" expanded="true" signature="4843:4895" placeholder="SELECT passw... user" />
-            <marker date="1499174253773" expanded="true" signature="5238:5442" placeholder="UPDATE jemar... " />
-            <marker date="1499174253773" expanded="true" signature="5832:5993" placeholder="UPDATE jemar... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -858,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1491">
           <caret line="589" column="34" selection-start-line="589" selection-start-column="34" selection-end-line="589" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,54 +671,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/admin/adminProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="285" column="5" selection-start-line="285" selection-start-column="5" selection-end-line="285" selection-end-column="5" />
           <folding>
-            <marker date="1499174868005" expanded="true" signature="270:307" placeholder="SELECT count... product" />
-            <marker date="1499174868005" expanded="true" signature="389:431" placeholder="SELECT count... vehicleModel" />
-            <marker date="1499174868005" expanded="true" signature="518:554" placeholder="SELECT count... user" />
-            <marker date="1499174868005" expanded="true" signature="630:667" placeholder="SELECT count... history" />
+            <marker date="1499183328847" expanded="true" signature="914:935" placeholder="SELECT * FRO... product" />
+            <marker date="1499183328847" expanded="true" signature="1228:1360" placeholder="SELECT * FRO... vehicleModel_has_product" />
+            <marker date="1499183328847" expanded="true" signature="1228:1408" placeholder="SELECT * FRO... vehicleModel_has_product" />
+            <marker date="1499183328847" expanded="true" signature="1228:1461" placeholder="SELECT * FRO... vehicleModel_has_product" />
+            <marker date="1499183328847" expanded="true" signature="1228:1514" placeholder="SELECT * FRO... vehicleModel_has_product" />
+            <marker date="1499183328847" expanded="true" signature="1228:1515" placeholder="SELECT * FRO... vehicleModel_has_product" />
+            <marker date="1499183328847" expanded="true" signature="1687:1713" placeholder="SELECT * FRO... productBrand" />
+            <marker date="1499183328847" expanded="true" signature="1992:2021" placeholder="SELECT * FRO... productCategory" />
+            <marker date="1499183328847" expanded="true" signature="2069:2095" placeholder="SELECT * FRO... productClass" />
+            <marker date="1499183328847" expanded="true" signature="2138:2164" placeholder="SELECT * FRO... vehicleModel" />
+            <marker date="1499183328847" expanded="true" signature="2713:2830" placeholder="INSERT INTO jemaro.productBrand... " />
+            <marker date="1499183328847" expanded="true" signature="3184:3259" placeholder="INSERT INTO jemaro.productCategory... " />
+            <marker date="1499183328847" expanded="true" signature="3653:3751" placeholder="INSERT INTO jemaro.productClass... " />
+            <marker date="1499183328847" expanded="true" signature="4524:4732" placeholder="INSERT INTO jemaro.product... " />
+            <marker date="1499183328847" expanded="true" signature="4895:5048" placeholder="INSERT INTO jemaro.product... " />
+            <marker date="1499183328847" expanded="true" signature="5832:5971" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="6276:6357" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="6786:6879" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="7310:7422" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="8393:8694" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="8736:8853" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="8736:8864" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="8736:8865" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="9044:9197" placeholder="INSERT INTO jemaro.vehicleModel_has_product... " />
+            <marker date="1499183328847" expanded="true" signature="9558:9812" placeholder="UPDATE jemar... " />
+            <marker date="1499183328847" expanded="true" signature="9854:9983" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="10162:10315" placeholder="INSERT INTO jemaro.vehicleModel_has_product... " />
+            <marker date="1499183328847" expanded="true" signature="10853:10911" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="11257:11322" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="11670:11728" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="12147:12282" placeholder="DELETE FROM " />
+            <marker date="1499183328847" expanded="true" signature="12331:12447" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/product.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="554" column="153" selection-start-line="554" selection-start-column="153" selection-end-line="554" selection-end-column="153" />
+        <state relative-caret-position="318">
+          <caret line="667" column="65" selection-start-line="667" selection-start-column="65" selection-end-line="667" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/adminProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-          <folding>
-            <marker date="1499179827026" expanded="true" signature="914:935" placeholder="SELECT * FRO... product" />
-            <marker date="1499179827026" expanded="true" signature="1228:1272" placeholder="SELECT * FRO... vehicleModel_has_product" />
-            <marker date="1499179827026" expanded="true" signature="1228:1295" placeholder="SELECT * FRO... vehicleModel_has_product" />
-            <marker date="1499179827026" expanded="true" signature="1228:1323" placeholder="SELECT * FRO... vehicleModel_has_product" />
-            <marker date="1499179827026" expanded="true" signature="1228:1351" placeholder="SELECT * FRO... vehicleModel_has_product" />
-            <marker date="1499179827026" expanded="true" signature="1228:1352" placeholder="SELECT * FRO... vehicleModel_has_product" />
-            <marker date="1499179827026" expanded="true" signature="1577:1603" placeholder="SELECT * FRO... productBrand" />
-            <marker date="1499179827026" expanded="true" signature="1882:1911" placeholder="SELECT * FRO... productCategory" />
-            <marker date="1499179827026" expanded="true" signature="1959:1985" placeholder="SELECT * FRO... productClass" />
-            <marker date="1499179827026" expanded="true" signature="2028:2054" placeholder="SELECT * FRO... vehicleModel" />
-            <marker date="1499179827026" expanded="true" signature="2603:2720" placeholder="INSERT INTO jemaro.productBrand... " />
-            <marker date="1499179827026" expanded="true" signature="3074:3149" placeholder="INSERT INTO jemaro.productCategory... " />
-            <marker date="1499179827026" expanded="true" signature="3543:3641" placeholder="INSERT INTO jemaro.productClass... " />
-            <marker date="1499179827026" expanded="true" signature="4414:4622" placeholder="INSERT INTO jemaro.product... " />
-            <marker date="1499179827026" expanded="true" signature="4816:4969" placeholder="INSERT INTO jemaro.product... " />
-            <marker date="1499179827026" expanded="true" signature="5754:5893" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="6198:6279" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="6708:6801" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="7232:7344" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="8272:8573" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="8869:9123" placeholder="UPDATE jemar... " />
-            <marker date="1499179827026" expanded="true" signature="9596:9654" placeholder="DELETE FROM " />
-            <marker date="1499179827026" expanded="true" signature="10000:10065" placeholder="DELETE FROM " />
-            <marker date="1499179827026" expanded="true" signature="10413:10471" placeholder="DELETE FROM " />
-            <marker date="1499179827026" expanded="true" signature="10901:11017" placeholder="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>

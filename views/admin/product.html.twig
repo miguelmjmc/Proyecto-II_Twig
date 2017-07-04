@@ -305,7 +305,8 @@
                                             <div class="col-sm-9">
                                                 <select name="vehicle[]" title="Vehículos compatibles" multiple>
                                                     {% for vehicle in array.vehicleList %}
-                                                        <option value="{{ vehicle.id }}">{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}-{{ vehicle.lastYear }}</option>
+                                                        <option value="{{ vehicle.id }}">{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}
+                                                            -{{ vehicle.lastYear }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
@@ -430,7 +431,14 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="col-md-12">
+                                        <div class="border-form">
+                                            {% for vehicleProduct in product.vehicle %}
+                                                <input type="text" placeholder="{{ vehicleProduct.vehicleModel }} {{ vehicleProduct.firstYear }}-{{ vehicleProduct.lastYear }}"
+                                                       disabled>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description"
@@ -542,18 +550,14 @@
                                         <div class="form-group">
                                             <label for="vehicle" class="col-sm-3 control-label">Vehiculos:</label>
                                             <div class="col-sm-9">
-                                                <select name="vehicle[]" id="vehicle" title="Vehículos compatibles" multiple>
+                                                <select name="vehicle[]" id="vehicle" title="Vehículos compatibles"
+                                                        multiple>
                                                     {% for vehicle in array.vehicleList %}
                                                         <option value="{{ vehicle.id }}"
                                                                 {% for vehicleProduct in product.vehicle %}
-                                                                    {% if vehicleproduct.vehicleModel_id == vehicle.id  %}selected="selected"{% endif %}{% endfor %}>{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}-{{ vehicle.lastYear }}</option>
+                                                            {% if vehicleProduct.vehicleModel_id == vehicle.id %}selected="selected"{% endif %}{% endfor %}>{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}
+                                                            -{{ vehicle.lastYear }}</option>
                                                     {% endfor %}
-                                                </select>
-                                                <select name="vehi[]" title="Vehículos compatibles" multiple>
-                                                        <option value="{{ vehicle.id }}"
-                                                                {% for vehicleProduct in product.vehicle %}
-                                                            {{vehicleproduct.vehicleModel_id}} {% endfor %}>{{ vehicleproduct.vehicleModel_id }}</option>
-
                                                 </select>
                                             </div>
                                         </div>
@@ -658,6 +662,14 @@
                                                        title="Precio de oferta del producto"
                                                        readonly>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="border-form">
+                                            {% for vehicleProduct in product.vehicle %}
+                                                <input type="text" placeholder="{{ vehicleProduct.vehicleModel }} {{ vehicleProduct.firstYear }}-{{ vehicleProduct.lastYear }}"
+                                                       disabled>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                     <div class="col-md-12">

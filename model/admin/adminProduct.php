@@ -46,11 +46,9 @@ class adminProduct extends adminBase
             $code = $productList["$i"]["productCode"];
             $brand = $productList["$i"]["productBrand"];
             $class = $productList["$i"]["productClass"];
-            $productList["$i"]["vehicle"] = $query->query("SELECT * FROM vehicleModel_has_product WHERE (productCode = '$code' AND productBrand = '$brand' AND productClass = '$class')");
+            $productList["$i"]["vehicle"] = $query->query("SELECT * FROM vehicleModel_has_product INNER JOIN vehicleModel ON (vehicleModel_has_product.vehicleModel_id = vehicleModel.id) WHERE (vehicleModel_has_product.productCode = '$code' AND vehicleModel_has_product.productBrand = '$brand' AND vehicleModel_has_product.productClass = '$class')");
             $productList["$i"]["productImg"] = base64_encode($productList["$i"]["productImg"]);
-            print_r($productList["$i"]{"vehicle"});
             $i++;
-
         }
 
         $productBrandList = $query->query("SELECT * FROM productBrand");
@@ -122,13 +120,11 @@ class adminProduct extends adminBase
             $vehicle = $_POST["vehicle"];
             $success1 = $query->querySuccess("INSERT INTO jemaro.product (productImg, productImgType, productCode, productClass, productBrand, price, offer, description) VALUES ('$img', '$type', '$code','$class','$brand','$price','$offer','$description')");
             $i = 0;
-            print_r($vehicle);
             while (isset($vehicle["$i"])) {
                 $vehicleId = $vehicle["$i"];
                 $success2 = $query->querySuccess("INSERT INTO jemaro.vehicleModel_has_product (vehicleModel_id, productCode, productBrand, productClass) VALUES ('$vehicleId', '$code', '$brand', '$class')");
                 $i++;
             }
-
 
             if (($success1 > 0) || ($success2 > 0)) {
                 $query->history("Registro: Producto");
@@ -204,9 +200,18 @@ class adminProduct extends adminBase
             $img = $imgSrc["file"];
             $type = $imgSrc["type"];
             $img = addslashes($img);
+            $vehicle = $_POST["vehicle"];
+
             if (is_uploaded_file($_FILES["file"]["tmp_name"])) {
                 $success = $query->querySuccess("UPDATE jemaro.product SET productImg = '$img', productImgType = '$type', productCode = '$code', productClass = '$class', productBrand = '$brand', price = '$price', offer = '$offer', description = '$description' WHERE  productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
-                if ($success > 0) {
+                $query->querySuccess("DELETE FROM jemaro.vehicleModel_has_product WHERE (productCode = '$code' AND productBrand = '$brand' AND productClass = '$class')");
+                $i = 0;
+                while (isset($vehicle["$i"])) {
+                    $vehicleId = $vehicle["$i"];
+                    $success2 = $query->querySuccess("INSERT INTO jemaro.vehicleModel_has_product (vehicleModel_id, productCode, productBrand, productClass) VALUES ('$vehicleId', '$code', '$brand', '$class')");
+                    $i++;
+                }
+                if (($success > 0) || ($success2 > 0)) {
                     $query->history("Actualización: Producto");
                     $alert = "success";
                 } else {
@@ -214,7 +219,14 @@ class adminProduct extends adminBase
                 }
             } else {
                 $success = $query->querySuccess("UPDATE jemaro.product SET productCode = '$code', productClass = '$class', productBrand = '$brand', price = '$price', offer = '$offer', description = '$description' WHERE  productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
-                if ($success > 0) {
+                $query->querySuccess("DELETE FROM jemaro.vehicleModel_has_product WHERE (productCode = '$code' AND productBrand = '$brand' AND productClass = '$class')");
+                $i = 0;
+                while (isset($vehicle["$i"])) {
+                    $vehicleId = $vehicle["$i"];
+                    $success2 = $query->querySuccess("INSERT INTO jemaro.vehicleModel_has_product (vehicleModel_id, productCode, productBrand, productClass) VALUES ('$vehicleId', '$code', '$brand', '$class')");
+                    $i++;
+                }
+                if (($success > 0) || ($success2 > 0)) {
                     $query->history("Actualización: Producto");
                     $alert = "success";
                 } else {
@@ -261,6 +273,7 @@ class adminProduct extends adminBase
             $codeId = $_POST["codeId"];
             $brandId = $_POST["brandId"];
             $classId = $_POST["classId"];
+            $query->querySuccess("DELETE FROM jemaro.vehicleModel_has_product WHERE (productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId')");
             $success = $query->querySuccess("DELETE FROM jemaro.product WHERE productCode = '$codeId' AND productBrand = '$brandId' AND productClass = '$classId'");
             if ($success > 0) {
                 $query->history("Eliminación: Producto");
