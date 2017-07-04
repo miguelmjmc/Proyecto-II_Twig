@@ -1,5 +1,11 @@
 {% extends "base.html.twig" %}
 
+{% block pageTitle %}Productos{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="index.php?link=adminProduct"><i class="fa fa-car"></i> Productos</a></li>
+{% endblock %}
+
 {% block main %}
 
     <!-- Main content -->
@@ -36,11 +42,14 @@
                                     <td class="td-2">
                                         <!-- Trigger the modal with a button -->
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#selectModal1{{ loop.index }}"><i class="fa fa-eye"></i></button>
+                                                data-target="#selectModal1{{ loop.index }}"><i class="fa fa-eye"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#updateModal1{{ loop.index }}"><i class="fa fa-pencil"></i></button>
+                                                data-target="#updateModal1{{ loop.index }}"><i class="fa fa-pencil"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#deleteModal1{{ loop.index }}"><i class="fa fa-close"></i></button>
+                                                data-target="#deleteModal1{{ loop.index }}"><i class="fa fa-close"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -86,11 +95,14 @@
                                     <td class="td-2">
                                         <!-- Trigger the modal with a button -->
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#selectModal2{{ loop.index }}"><i class="fa fa-eye"></i></button>
+                                                data-target="#selectModal2{{ loop.index }}"><i class="fa fa-eye"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#updateModal2{{ loop.index }}"><i class="fa fa-pencil"></i></button>
+                                                data-target="#updateModal2{{ loop.index }}"><i class="fa fa-pencil"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#deleteModal2{{ loop.index }}"><i class="fa fa-close"></i></button>
+                                                data-target="#deleteModal2{{ loop.index }}"><i class="fa fa-close"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -117,7 +129,11 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-
+                        <div class="col-sm-12 margin-button">
+                            <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                    data-target="#newModal3">Nuevo
+                            </button>
+                        </div>
                         <table id="table3" class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -132,11 +148,14 @@
                                     <td class="td-2">
                                         <!-- Trigger the modal with a button -->
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#myModal"><i class="fa fa-eye"></i></button>
+                                                data-target="#selectModal3{{ loop.index }}"><i class="fa fa-eye"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#myModal"><i class="fa fa-pencil"></i></button>
+                                                data-target="#updateModal3{{ loop.index }}"><i class="fa fa-pencil"></i>
+                                        </button>
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
-                                                data-target="#myModal"><i class="fa fa-close"></i></button>
+                                                data-target="#deleteModal3{{ loop.index }}"><i class="fa fa-close"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -155,7 +174,7 @@
                     <div class="box-header">
                         <h3 class="box-title">Productos</h3>
                         <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                                data-target="#productNewModal">Nuevo
+                                data-target="#newModal">Nuevo
                         </button>
                     </div>
                     <!-- /.box-header -->
@@ -163,21 +182,19 @@
                         <table id="maintable" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th class="th-5">Codigo</th>
-                                <th class="th-5">Producto</th>
-                                <th class="th-5">Marca</th>
-                                <th class="th-5">Visibilidad</th>
-                                <th class="th-5">Opciones</th>
+                                <th class="th-4">Codigo</th>
+                                <th class="th-4">Producto</th>
+                                <th class="th-4">Marca</th>
+                                <th class="th-4">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for product in array.productList %}
                                 <tr>
-                                    <td class="td-5">{{ product.productCode }}</td>
-                                    <td class="td-5">{{ product.productClass }}</td>
-                                    <td class="td-5">{{ product.productBrand }}</td>
-                                    <td class="td-5">{{ product.status }}</td>
-                                    <td class="td-5">
+                                    <td class="td-4">{{ product.productCode }}</td>
+                                    <td class="td-4">{{ product.productClass }}</td>
+                                    <td class="td-4">{{ product.productBrand }}</td>
+                                    <td class="td-4">
                                         <!-- Trigger the modal with a button -->
                                         <button type="button" class="btn btn-box-tool" data-toggle="modal"
                                                 data-target="#selectModal{{ loop.index }}"><i class="fa fa-eye"></i>
@@ -215,7 +232,110 @@
 
 
 
+    <!-- Modal -->
+    <div id="newModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Nuevo Product</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="code" class="col-sm-3 control-label">Codigo:</label>
+                                            <div class="col-sm-9">
+                                                <input name="code" type="text" id="code" class="form-control"
+                                                       placeholder="Ingrese el codigo"
+                                                       title="Codigo del producto" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="class" class="col-sm-3 control-label">Clase:</label>
+                                            <div class="col-sm-9">
+                                                <select name="class" id="class" class="form-control"
+                                                        title="Clase del producto" required>
+                                                    {% for class in array.productClassList %}
+                                                        <option value="{{ class.productClass }}">{{ class.productClass }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="brand" class="col-sm-3 control-label">Marca:</label>
+                                            <div class="col-sm-9">
+                                                <select name="brand" id="brand" class="form-control"
+                                                        title="Marca del producto" required>
+                                                    {% for brand in array.productBrandList %}
+                                                        <option value="{{ brand.productBrand }}">{{ brand.productBrand }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="price" class="col-sm-3 control-label">Precio:</label>
+                                            <div class="col-sm-9">
+                                                <input name="price" type="number" step="0.01" id="price"
+                                                       class="form-control"
+                                                       placeholder="Ingrese el precio" title="Precio del producto" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="offer" class="col-sm-3 control-label">Oferta:</label>
+                                            <div class="col-sm-9">
+                                                <input name="offer" type="number" step="0.01" id="offer"
+                                                       class="form-control"
+                                                       placeholder="Ingrese la Oferta"
+                                                       title="Precio de oferta del producto" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="description"
+                                                   class="col-sm-12 control-label">Descripción:</label>
+                                            <div class="col-sm-12">
+                                                 <textarea name="description" id="description" class="form-control"
+                                                           rows="5"
+                                                           title="descripción del producto" placeolder="Ingrese la Descripción" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" name="file" id="file-new-brand"
+                                               class="inputfile inputfile-1 no-display"
+                                               data-multiple-caption="{count} files selected" required>
+                                        <label for="file-new-brand">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                 viewBox="0 0 20 17">
+                                                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                            </svg>
+                                            <span>Selecciona un Archivo&hellip;</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="text" value="adminProduct" name="link" class="no-display">
+                        <input type="text" value="new" name="action" class="no-display">
+                        <input type="text" value="product" name="object" class="no-display">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -241,15 +361,8 @@
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
                                         <img class="xzoom xzoom-width" id="xzoom-default"
-                                             src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                             src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
                                              alt="{{ product.productClass }} {{ product.productCode }}">
-                                        <div class="xzoom-thumbs">
-                                            {% for img in product.img %}
-                                                <a href="#"><img class="xzoom-gallery" width="80"
-                                                                 src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
-                                                                 alt="{{ product.productClass }} {{ product.productCode }}"></a>
-                                            {% endfor %}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -286,15 +399,6 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="stock" class="col-sm-3 control-label">Stock:</label>
-                                            <div class="col-sm-9">
-                                                <select id="stock" class="form-control" title="Marca del producto"
-                                                        disabled>
-                                                    <option>{{ product.stock }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="price" class="col-sm-3 control-label">Precio:</label>
                                             <div class="col-sm-9">
                                                 <input type="number" step="0.01" id="price" class="form-control"
@@ -309,23 +413,6 @@
                                                        placeholder="{{ product.offer }}"
                                                        title="Precio de oferta del producto"
                                                        readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
-                                            <div class="col-sm-12">
-
-                                                <select id="main-pop-select" class="form-control"
-                                                        title="Vehiculos que utilizan el producto" disabled>
-                                                    <option value="" selected="selected">aaa</option>
-                                                    {% for vehicle in product.vehicle %}
-                                                        <option value="{{ vehicle.vehicleModel }}"
-                                                                selected="selected">{{ vehicle.vehicleModel }}</option>
-                                                    {% endfor %}
-                                                </select>
-
                                             </div>
                                         </div>
                                     </div>
@@ -353,21 +440,116 @@
             </div>
         </div>
 
+
         <!-- Modal -->
         <div id="updateModal{{ loop.index }}" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Editar Producto</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                    <form action="index.php" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Editar Producto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" border-form">
+                                <div class="container width-100">
+                                    <div class="large-12 column">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width" id="xzoom-default"
+                                                 src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                                 alt="Logo de {{ product.productClass }} {{ product.productCode }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="code" class="col-sm-3 control-label">Codigo:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="code" type="text" id="code" class="form-control"
+                                                           value="{{ product.productCode }}"
+                                                           title="Codigo del producto">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="class" class="col-sm-3 control-label">Clase:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="class" id="class" class="form-control"
+                                                            title="Clase del producto">
+                                                        <option>{{ product.productClass }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="brand" class="col-sm-3 control-label">Marca:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="brand" id="brand" class="form-control"
+                                                            title="Marca del producto">
+                                                        <option>{{ product.productBrand }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="price" class="col-sm-3 control-label">Precio:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="price" type="number" step="0.01" id="price"
+                                                           class="form-control"
+                                                           value="{{ product.price }}"
+                                                           title="Precio del producto">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="offer" class="col-sm-3 control-label">Oferta:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="offer" type="number" step="0.01" id="offer"
+                                                           class="form-control"
+                                                           value="{{ product.offer }}"
+                                                           title="Precio de oferta del producto">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="description"
+                                                       class="col-sm-12 control-label">Descripción:</label>
+                                                <div class="col-sm-12">
+                                                 <textarea name="description" id="description" class="form-control"
+                                                           rows="5"
+                                                           title="descripción del producto">{{ product.description }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="file" id="file-edit-product{{ loop.index }}"
+                                                   class="inputfile inputfile-1 no-display"
+                                                   data-multiple-caption="{count} files selected">
+                                            <label for="file-edit-product{{ loop.index }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                     viewBox="0 0 20 17">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                </svg>
+                                                <span>Selecciona un Archivo&hellip;</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="text" value="adminProduct" name="link" class="no-display">
+                            <input type="text" value="update" name="action" class="no-display">
+                            <input type="text" value="product" name="object" class="no-display">
+                            <input type="text" value="{{ product.productCode }}" name="codeId" class="no-display">
+                            <input type="text" value="{{ product.productBrand }}" name="brandId" class="no-display">
+                            <input type="text" value="{{ product.productClass }}" name="classId" class="no-display">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -390,15 +572,8 @@
                                 <div class="large-12 column">
                                     <div class="xzoom-container">
                                         <img class="xzoom2 xzoom-width" id="xzoom-default"
-                                             src="data:{{ pxzoom-widthroduct.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                             src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
                                              alt="{{ product.productClass }} {{ product.productCode }}">
-                                        <div class="xzoom-thumbs">
-                                            {% for img in product.img %}
-                                                <a href="#"><img class="xzoom-gallery2" width="80"
-                                                                 src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
-                                                                 alt="{{ product.productClass }} {{ product.productCode }}"></a>
-                                            {% endfor %}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -435,15 +610,6 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="stock" class="col-sm-3 control-label">Stock:</label>
-                                            <div class="col-sm-9">
-                                                <select id="stock" class="form-control" title="Marca del producto"
-                                                        disabled>
-                                                    <option>{{ product.stock }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="price" class="col-sm-3 control-label">Precio:</label>
                                             <div class="col-sm-9">
                                                 <input type="number" step="0.01" id="price" class="form-control"
@@ -458,23 +624,6 @@
                                                        placeholder="{{ product.offer }}"
                                                        title="Precio de oferta del producto"
                                                        readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
-                                            <div class="col-sm-12">
-
-                                                <select id="main-pop-select" class="form-control"
-                                                        title="Vehiculos que utilizan el producto" disabled>
-                                                    <option value="" selected="selected">aaa</option>
-                                                    {% for vehicle in product.vehicle %}
-                                                        <option value="{{ vehicle.vehicleModel }}"
-                                                                selected="selected">{{ vehicle.vehicleModel }}</option>
-                                                    {% endfor %}
-                                                </select>
-
                                             </div>
                                         </div>
                                     </div>
@@ -495,12 +644,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-
                         <form action="index.php" method="post">
-                            <input type="text" value="delete" name="aux" style="display: none">
-                            <input type="text" value="{{ product.productCode }}" name="code" class="no-display">
-                            <input type="text" value="{{ product.productBrand }}" name="brand" class="no-display">
-                            <input type="text" value="{{ product.productClass }}" name="class" class="no-display">
+                            <input type="text" value="adminProduct" name="link" class="no-display">
+                            <input type="text" value="delete" name="action" class="no-display">
+                            <input type="text" value="product" name="object" class="no-display">
+                            <input type="text" value="{{ product.productCode }}" name="codeId" class="no-display">
+                            <input type="text" value="{{ product.productBrand }}" name="brandId" class="no-display">
+                            <input type="text" value="{{ product.productClass }}" name="classId" class="no-display">
                             <input type="submit" value="Eleminar" class="btn btn-primary">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </form>
@@ -539,22 +689,23 @@
                                         <div class="form-group">
                                             <label for="productBrand" class="col-sm-2 control-label">Marca:</label>
                                             <div class="col-sm-10">
-                                                <input name="brand" type="text" id="productBrand" class="form-control"
+                                                <input name="brand" type="text" id="productBrand"
+                                                       class="form-control"
                                                        placeholder="Ingrese marca del producto"
-                                                       title="Marca de Producto">
+                                                       title="Marca de Producto" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="file" name="file" id="file-new-brand"
                                                class="inputfile inputfile-1 no-display"
-                                               data-multiple-caption="{count} files selected">
+                                               data-multiple-caption="{count} files selected" required>
                                         <label for="file-new-brand">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
                                                  viewBox="0 0 20 17">
                                                 <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
                                             </svg>
-                                            <span>Choose a file&hellip;</span></label>
+                                            <span>Selecciona un Archivo&hellip;</span></label>
                                     </div>
                                 </div>
                             </div>
@@ -598,9 +749,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productBrand{{ loop.index }}" class="col-sm-2 control-label">Marca:</label>
+                                            <label for="productBrand{{ loop.index }}"
+                                                   class="col-sm-2 control-label">Marca:</label>
                                             <div class="col-sm-10">
-                                                <input type="text" id="productBrand{{ loop.index }}" class="form-control"
+                                                <input type="text" id="productBrand{{ loop.index }}"
+                                                       class="form-control"
                                                        placeholder="{{ brand.productBrand }}"
                                                        title="Marca del producto" disabled>
                                             </div>
@@ -624,56 +777,58 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <form action="index.php" method="post" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Editar Marca</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class=" border-form">
-                            <div class="container width-100">
-                                <div class="large-12 column">
-                                    <div class="xzoom-container">
-                                        <img class="xzoom xzoom-width" id="xzoom-default"
-                                             src="data:{{ brand.productBrandImgType }}; base64,{{ brand.productBrandImg }}"
-                                             alt="Logo de {{ brand.productBrand }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-horizontal">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="productBrand{{ loop.index }}" class="col-sm-2 control-label">Marca:</label>
-                                            <div class="col-sm-10">
-                                                <input name="brand" type="text" id="productBrand{{ loop.index }}" class="form-control"
-                                                       Value="{{ brand.productBrand }}"
-                                                       title="Marca del producto">
-                                            </div>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Editar Marca</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" border-form">
+                                <div class="container width-100">
+                                    <div class="large-12 column">
+                                        <div class="xzoom-container">
+                                            <img class="xzoom xzoom-width" id="xzoom-default"
+                                                 src="data:{{ brand.productBrandImgType }}; base64,{{ brand.productBrandImg }}"
+                                                 alt="Logo de {{ brand.productBrand }}">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="file" name="file" id="file-update-brand{{ loop.index }}"
-                                               class="inputfile inputfile-1 no-display"
-                                               data-multiple-caption="{count} files selected">
-                                        <label for="file-update-brand{{ loop.index }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
-                                                 viewBox="0 0 20 17">
-                                                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
-                                            </svg>
-                                            <span>Choose a file&hellip;</span></label>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="productBrand{{ loop.index }}"
+                                                       class="col-sm-2 control-label">Marca:</label>
+                                                <div class="col-sm-10">
+                                                    <input name="brand" type="text"
+                                                           id="productBrand{{ loop.index }}" class="form-control"
+                                                           Value="{{ brand.productBrand }}"
+                                                           title="Marca del producto">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="file" id="file-update-brand{{ loop.index }}"
+                                                   class="inputfile inputfile-1 no-display"
+                                                   data-multiple-caption="{count} files selected">
+                                            <label for="file-update-brand{{ loop.index }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                     viewBox="0 0 20 17">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                </svg>
+                                                <span>Selecciona un archivo&hellip;</span></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="text" value="adminProduct" name="link" class="no-display">
-                        <input type="text" value="update" name="action" class="no-display">
-                        <input type="text" value="productBrand" name="object" class="no-display">
-                        <input type="text" value="{{ brand.productBrand }}" name="id" class="no-display">
-                        <input type="submit" value="Guardar" class="btn btn-primary">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                        <div class="modal-footer">
+                            <input type="text" value="adminProduct" name="link" class="no-display">
+                            <input type="text" value="update" name="action" class="no-display">
+                            <input type="text" value="productBrand" name="object" class="no-display">
+                            <input type="text" value="{{ brand.productBrand }}" name="id" class="no-display">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </form>
                 </div>
 
@@ -705,9 +860,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productBrand{{ loop.index }}" class="col-sm-2 control-label">Marca:</label>
+                                            <label for="productBrand{{ loop.index }}"
+                                                   class="col-sm-2 control-label">Marca:</label>
                                             <div class="col-sm-10">
-                                                <input type="text" id="productBrand{{ loop.index }}" class="form-control"
+                                                <input type="text" id="productBrand{{ loop.index }}"
+                                                       class="form-control"
                                                        placeholder="{{ brand.productBrand }}"
                                                        title="Marca del producto" disabled>
                                             </div>
@@ -763,11 +920,13 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Categoria:</label>
                                             <div class="col-sm-10">
-                                                <input name="category" type="text" id="productCategory" class="form-control"
+                                                <input name="category" type="text" id="productCategory"
+                                                       class="form-control"
                                                        placeholder="Ingrese la categoria del producto"
-                                                       title="Categoria del producto">
+                                                       title="Categoria del producto" required>
                                             </div>
                                         </div>
                                     </div>
@@ -804,7 +963,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Marca:</label>
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Marca:</label>
                                             <div class="col-sm-10">
                                                 <input type="text" id="productCategory" class="form-control"
                                                        placeholder="{{ category.productCategory }}"
@@ -840,9 +1000,11 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                                <label for="productCategory"
+                                                       class="col-sm-2 control-label">Categoria:</label>
                                                 <div class="col-sm-10">
-                                                    <input name="category" type="text" id="productCategory" class="form-control"
+                                                    <input name="category" type="text" id="productCategory"
+                                                           class="form-control"
                                                            value="{{ category.productCategory }}"
                                                            title="Categoria del producto">
                                                 </div>
@@ -882,7 +1044,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Categoria:</label>
                                             <div class="col-sm-10">
                                                 <input type="text" id="productCategory" class="form-control"
                                                        placeholder="{{ category.productCategory }}"
@@ -928,14 +1091,14 @@
 
 
     <!-- Modal -->
-    <div id="newModa3" class="modal fade" role="dialog">
+    <div id="newModal3" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <form action="index.php" method="post" enctype="multipart/form-data">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Nueva Categoria</h4>
+                        <h4 class="modal-title">Nueva Clase</h4>
                     </div>
                     <div class="modal-body">
                         <div class=" border-form">
@@ -943,11 +1106,24 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                            <label for="productClass" class="col-sm-2 control-label">Clase:</label>
                                             <div class="col-sm-10">
-                                                <input name="category" type="text" id="productCategory" class="form-control"
-                                                       placeholder="Ingrese la categoria del producto"
-                                                       title="Categoria del producto">
+                                                <input name="class" type="text" id="productClass"
+                                                       class="form-control"
+                                                       placeholder="Ingrese la clase del producto"
+                                                       title="Clase del producto" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Categoria:</label>
+                                            <div class="col-sm-10">
+                                                <select name="category" id="productCategory" class="form-control"
+                                                        title="Categoria del producto" required>
+                                                    {% for category in array.productCategoryList %}
+                                                        <option>{{ category.productCategory }}</option>
+                                                    {% endfor %}
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -958,7 +1134,7 @@
                     <div class="modal-footer">
                         <input type="text" value="adminProduct" name="link" class="no-display">
                         <input type="text" value="new" name="action" class="no-display">
-                        <input type="text" value="productCategory" name="object" class="no-display">
+                        <input type="text" value="productClass" name="object" class="no-display">
                         <input type="submit" value="Guardar" class="btn btn-primary">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
@@ -968,7 +1144,7 @@
         </div>
     </div>
 
-    {% for category in array.productCategoryList %}
+    {% for class in array.productClassList %}
         <!-- Modal -->
         <div id="selectModal3{{ loop.index }}" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -976,7 +1152,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Detalles de la Categoria</h4>
+                        <h4 class="modal-title">Detalles de la Clase</h4>
                     </div>
                     <div class="modal-body">
                         <div class=" border-form">
@@ -984,11 +1160,26 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Marca:</label>
+                                            <label for="productClass" class="col-sm-2 control-label">Clase:</label>
                                             <div class="col-sm-10">
-                                                <input type="text" id="productCategory" class="form-control"
-                                                       placeholder="{{ category.productCategory }}"
-                                                       title="Categoria del producto" disabled>
+                                                <input name="class" type="text" id="productClass"
+                                                       class="form-control"
+                                                       value="{{ class.productClass }}"
+                                                       placeholder="Ingrese la clase del producto"
+                                                       title="Clase del producto" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Categoria:</label>
+                                            <div class="col-sm-10">
+                                                <select name="category" id="productCategory" class="form-control"
+                                                        title="Categoria del producto" disabled>
+                                                    {% for category in array.productCategoryList %}
+                                                        <option value="{{ category.productCategory }}"
+                                                                {% if class.productCategory == category.productCategory %}selected="selected"{% endif %}>{{ category.productCategory }}</option>
+                                                    {% endfor %}
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -1012,7 +1203,7 @@
                     <form action="index.php" method="post" enctype="multipart/form-data">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Editar Categoria</h4>
+                            <h4 class="modal-title">Editar Clase</h4>
                         </div>
                         <div class="modal-body">
                             <div class=" border-form">
@@ -1020,11 +1211,28 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                                <label for="productClass"
+                                                       class="col-sm-2 control-label">Clase:</label>
                                                 <div class="col-sm-10">
-                                                    <input name="category" type="text" id="productCategory" class="form-control"
-                                                           value="{{ category.productCategory }}"
-                                                           title="Categoria del producto">
+                                                    <input name="class" type="text" id="productClass"
+                                                           class="form-control"
+                                                           value="{{ class.productClass }}"
+                                                           placeholder="Ingrese la clase del producto"
+                                                           title="Clase del producto">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="productCategory"
+                                                       class="col-sm-2 control-label">Categoria:</label>
+                                                <div class="col-sm-10">
+                                                    <select name="category" id="productCategory"
+                                                            class="form-control"
+                                                            title="Categoria del producto">
+                                                        {% for category in array.productCategoryList %}
+                                                            <option value="{{ category.productCategory }}"
+                                                                    {% if class.productCategory == category.productCategory %}selected="selected"{% endif %}>{{ category.productCategory }}</option>
+                                                        {% endfor %}
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -1035,8 +1243,8 @@
                         <div class="modal-footer">
                             <input type="text" value="adminProduct" name="link" class="no-display">
                             <input type="text" value="update" name="action" class="no-display">
-                            <input type="text" value="productCategory" name="object" class="no-display">
-                            <input type="text" value="{{ category.productCategory }}" name="id" class="no-display">
+                            <input type="text" value="productClass" name="object" class="no-display">
+                            <input type="text" value="{{ class.productClass }}" name="id" class="no-display">
                             <input type="submit" value="Guardar" class="btn btn-primary">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -1054,7 +1262,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Eliminar Categoria</h4>
+                        <h4 class="modal-title">Eliminar Clase</h4>
                     </div>
                     <div class="modal-body">
                         <div class=" border-form">
@@ -1062,11 +1270,26 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="productCategory" class="col-sm-2 control-label">Categoria:</label>
+                                            <label for="productClass" class="col-sm-2 control-label">Clase:</label>
                                             <div class="col-sm-10">
-                                                <input type="text" id="productCategory" class="form-control"
-                                                       placeholder="{{ category.productCategory }}"
-                                                       title="Categoria del producto" disabled>
+                                                <input name="class" type="text" id="productClass"
+                                                       class="form-control"
+                                                       value="{{ class.productClass }}"
+                                                       placeholder="Ingrese la clase del producto"
+                                                       title="Clase del producto" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="productCategory"
+                                                   class="col-sm-2 control-label">Categoria:</label>
+                                            <div class="col-sm-10">
+                                                <select name="category" id="productCategory" class="form-control"
+                                                        title="Categoria del producto" disabled>
+                                                    {% for category in array.productCategoryList %}
+                                                        <option value="{{ category.productCategory }}"
+                                                                {% if class.productCategory == category.productCategory %}selected="selected"{% endif %}>{{ category.productCategory }}</option>
+                                                    {% endfor %}
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -1078,8 +1301,8 @@
                         <form action="index.php" method="post">
                             <input type="text" value="adminProduct" name="link" class="no-display">
                             <input type="text" value="delete" name="action" class="no-display">
-                            <input type="text" value="productCategory" name="object" class="no-display">
-                            <input type="text" value="{{ category.productCategory }}" name="id" class="no-display">
+                            <input type="text" value="productClass" name="object" class="no-display">
+                            <input type="text" value="{{ class.productClass }}" name="id" class="no-display">
                             <input type="submit" value="Eleminar" class="btn btn-primary">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </form>

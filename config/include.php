@@ -11,7 +11,7 @@ include_once PATH . "/model/admin/adminProduct.php";
 include_once PATH . "/model/admin/adminVehicle.php";
 include_once PATH . "/model/admin/adminHistory.php";
 include_once PATH . "/model/admin/adminConfig.php";
-
+include_once PATH . "/model/admin/adminReport.php";
 
 
 

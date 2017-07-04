@@ -47,16 +47,9 @@
                                     <div class="product-main-img">
                                         <div class="xzoom-container">
                                             <img class="xzoom" id="xzoom-default"
-                                                 src="data:{{ array.singleProduct.product.img.0.productImgType }}; base64,{{ array.singleProduct.product.img.0.productImg }}"
+                                                 src="data:{{ array.singleProduct.product.productImgType }}; base64,{{ array.singleProduct.product.productImg }}"
                                                  alt="{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}"
                                                  xoriginal="data:{{ array.singleProduct.product.img.0.productImgType }}; base64,{{ array.singleProduct.product.img.0.productImg }}">
-                                            <div class="xzoom-thumbs">
-                                                {% for img in array.singleProduct.product.img %}
-                                                    <a href="data:{{ img.productImgType }}; base64,{{ img.productImg }}"><img class="xzoom-gallery" width="80"
-                                                                     src="data:{{ img.productImgType }}; base64,{{ img.productImg }}"
-                                                                     alt="{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}"></a>
-                                                {% endfor %}
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -65,40 +58,46 @@
                                 <div class="product-inner">
                                     <h2 class="product-name">{{ array.singleProduct.product.productCode }}
                                         / {{ array.singleProduct.product.productClass }} </h2>
-                                    <div class="product-inner-price">
+                                    <!-- <div class="product-inner-price">
                                         <ins>{{ array.singleProduct.product.offer }} Bs.</ins>
                                         <del>{{ array.singleProduct.product.price }} Bs.</del>
-                                    </div>
-
-
-                                    <div class="product-inner-category">
-                                        <p>Categoria: <a href="">{{ array.singleProduct.product.productCategory }}</a>.
-                                            Etiquetas: <a href=""> {{ array.singleProduct.product.productClass }}</a>.
-                                        </p>
-                                    </div>
+                                    </div> -->
 
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home"
-                                                                                      role="tab" data-toggle="tab">Descripción</a>
-                                            </li>
-                                            <li role="presentation"><a href="#profile" aria-controls="profile"
-                                                                       role="tab" data-toggle="tab">Vehiculos</a></li>
+                                            <li role="presentation" class="active"><a href="#description" aria-controls="home"
+                                                                                      role="tab" data-toggle="tab">Descripción</a></li>
+                                            <li role="presentation"><a href="#vehicle" aria-controls="profile"
+                                                                       role="tab" data-toggle="tab">Compatibilidad</a></li>
+                                            <li role="presentation"><a href="#contacts" aria-controls="profile"
+                                                                       role="tab" data-toggle="tab">Reservar</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="description">
                                                 <h2>Descripcion del Producto</h2>
                                                 <p>{{ array.singleProduct.product.description }}</p>
 
 
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                            <div role="tabpanel" class="tab-pane fade" id="vehicle">
                                                 <h2>Vehiculos Compatibles</h2>
 
                                             </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="contacts">
+                                                <h2>Contactos</h2>
+                                                <p>Telefonos: {{ array.main.phone1 }}, {{ array.main.phone2 }}.</p>
+                                                <p>Correo: {{ array.main.email }}</p>
+                                                <h2>{{ array.main.name1 }}<span> {{ array.main.name2 }}</span></h2>
+                                                <div class="footer-social">
+                                                    <a href="{{ array.main.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                                    <a href="{{ array.main.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                                    <a href="{{ array.main.googleplus }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="{{ array.main.skype }}" target="_blank"><i class="fa fa-skype"></i></a>
+                                                    <a href="{{ array.main.youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -113,7 +112,7 @@
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="single-product">
                                                     <div class="product-f-image">
-                                                        <img src="data:{{ product.img.0.productImgType }}; base64,{{ product.img.0.productImg }}"
+                                                        <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
                                                              alt="{{ product.productClass }} {{ product.productCode }}">
                                                         <div class="product-hover">
                                                             <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}"

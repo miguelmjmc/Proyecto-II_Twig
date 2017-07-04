@@ -24,7 +24,8 @@
                     <div class="item {% if loop.first %}active{% endif %}">
                         <div class="single-slide">
                             <div class="slide-bg slide-{{ slide.number }}"><img
-                                        src="data:{{ slide.slideImgType }}; base64,{{ slide.slideImg }}" class="img-slide">
+                                        src="data:{{ slide.slideImgType }}; base64,{{ slide.slideImg }}"
+                                        class="img-slide">
                             </div>
                             <div class="slide-text-wrapper">
                                 <div class="slide-text">
@@ -54,25 +55,25 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-refresh"></i>
-                        <p>30 Days return</p>
+                        <p>Respuesta Rapida</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
-                        <i class="fa fa-truck"></i>
-                        <p>Free shipping</p>
+                        <i class="fa fa-home"></i>
+                        <p>Tienda Fisica</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-lock"></i>
-                        <p>Secure payments</p>
+                        <p>Atencion Post-Venta</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-gift"></i>
-                        <p>New produc</p>
+                        <p>Alta Calidad</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +86,38 @@
                 <div class="col-md-12">
                     <div class="latest-product">
                         <h2 class="section-title">Quienes Somos</h2>
-                        <p>En construcción</p>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="footer-menu">
+                                <center>
+
+                                    <h3 class="section-title2">Vision </h3>
+                                    <p class="p1">{{ array.index.about.view }}</p>
+                                </center>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="footer-menu">
+                                <center>
+
+                                    <h3 class="section-title2">Mision</h3>
+                                    <p class="p1">{{ array.index.about.view }}</p>
+                                </center>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="footer-menu">
+                                <center>
+
+                                    <h3 class="section-title2">Valores</h3>
+                                    <p class="p1">{{ array.index.about.values }}</p>
+                                </center>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

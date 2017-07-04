@@ -68,8 +68,6 @@
     outline: none !important;
 }
 
-
-
 @media (max-width: 767px) {
     .slide-text-wrapper {
         height: 500px;
@@ -87,8 +85,8 @@
     background-color: rgba(255, 255, 255, .8);
 }
 
-#login-dp .btn-primary{
-    background-color:#1abc9c !important;
+#login-dp .btn-primary {
+    background-color: #1abc9c !important;
 }
 
 #login-dp .form-group {
@@ -123,6 +121,15 @@
     margin: 0;
 }
 
-.login-padding{
+.login-padding {
     padding: 15px 30px;
+}
+
+.section-title2 {
+    font-size: 14px;
+    text-align: center;
+}
+
+.p1 {
+    font-size: 14px;
 }

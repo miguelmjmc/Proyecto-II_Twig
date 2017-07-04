@@ -18,19 +18,10 @@ class userProduct extends userBase
         $productList = $query->query("SELECT * FROM product ");
         $i = 0;
         while (isset($productList["$i"])) {
-            $code = $productList["$i"]["productCode"];
-            $brand = $productList["$i"]["productBrand"];
-            $class = $productList["$i"]["productClass"];
-
-            $productList["$i"]["img"] = $query->query("SELECT * FROM  productImage WHERE productCode = '$code' AND productBrand = '$brand' AND productClass = '$class' ");
-            $j = 0;
-            while (isset($productList["$i"]["img"]["$j"])){
-                $productList["$i"]["img"]["$j"]["productImg"]=base64_encode($productList["$i"]["img"]["$j"]["productImg"]);
-                $j++;
-            }
+            $productList["$i"]["productImg"] = base64_encode($productList["$i"]["productImg"]);
             $i++;
         }
-        
+
         $product = compact("productList");
 
         $array = compact("main", "product");
