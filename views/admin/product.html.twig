@@ -301,9 +301,9 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="vehicle" class="col-sm-3 control-label">Vehiculos:</label>
-                                            <div class="col-sm-9">
-                                                <select name="vehicle[]" title="Vehículos compatibles" multiple>
+                                            <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
+                                            <div class="col-sm-12">
+                                                <select name="vehicle[]" title="Vehículos compatibles" class="form-control main-pop-select" multiple>
                                                     {% for vehicle in array.vehicleList %}
                                                         <option value="{{ vehicle.id }}">{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}
                                                             -{{ vehicle.lastYear }}</option>
@@ -538,6 +538,20 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
+                                                <div class="col-sm-12">
+                                                    <select name="vehicle[]" title="Vehículos compatibles" class="form-control main-pop-select" multiple>
+                                                        {% for vehicle in array.vehicleList %}
+                                                            <option value="{{ vehicle.id }}" {% for vehicleProduct in product.vehicle %}
+                                                                {% if vehicleProduct.vehicleModel_id == vehicle.id %}selected="selected"{% endif %}{% endfor %}>{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}
+                                                                -{{ vehicle.lastYear }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
                                                 <label for="description"
                                                        class="col-sm-12 control-label">Descripción:</label>
                                                 <div class="col-sm-12">
@@ -545,20 +559,6 @@
                                                            rows="5"
                                                            title="descripción del producto">{{ product.description }}</textarea>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="vehicle" class="col-sm-3 control-label">Vehiculos:</label>
-                                            <div class="col-sm-9">
-                                                <select name="vehicle[]" id="vehicle" title="Vehículos compatibles"
-                                                        multiple>
-                                                    {% for vehicle in array.vehicleList %}
-                                                        <option value="{{ vehicle.id }}"
-                                                                {% for vehicleProduct in product.vehicle %}
-                                                            {% if vehicleProduct.vehicleModel_id == vehicle.id %}selected="selected"{% endif %}{% endfor %}>{{ vehicle.vehicleModel }} {{ vehicle.firstYear }}
-                                                            -{{ vehicle.lastYear }}</option>
-                                                    {% endfor %}
-                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -1368,10 +1368,43 @@
 
 
 
+<!--
 
 
 
+                        <div class="container width-100">
+                            <div class="large-12 column">
+                                <div class="xzoom-container">
+                                    <img class="xzoom" id="xzoom-default"
+                                         src="data:{{ product.imgType }}; base64,{{ product.img }}"
+                                    />
+                                    <div class="xzoom-thumbs">
+                                        <a href="#"><img class="xzoom-gallery" width="80"
+                                                         src="data:{{ product.imgType }}; base64,{{ product.img }}"
+                                                         title="The description goes here"></a>
+                                        <!--    <a href="#"><img class="xzoom-gallery" width="80"
+                                                             src="http://www.bearings.parts/image/catalog/Tapered_Roller/30210/Timken-Poland-30210-Tapered-Roller-Bearing_S.jpg"
+                                                             title="The description goes here"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="vihicle" class="col-sm-12 control-label">Vehiculos:</label>
+                                        <div class="col-sm-12">
+
+                                            <select id="main-pop-select" class="form-control" title="Vehiculos que utilizan el producto" disabled>
+                                                <option value="" selected="selected">aaa</option>
+                                                {% for vehicle in product.vehicle %}
+                                                    <option value="{{ vehicle.vehicleModel }}" selected="selected">{{ vehicle.vehicleModel }}</option>
+                                                {% endfor %}
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
 
 
 

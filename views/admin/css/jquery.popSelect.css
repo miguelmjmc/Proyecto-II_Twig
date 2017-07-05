@@ -1,6 +1,7 @@
 .popover-select-wrapper {
     position: relative;
-    width: 90% !important;
+    width: 100% !important;
+    min-height: 34px;
 }
 
 .popover-select {
@@ -39,7 +40,7 @@
 
 .popover-select.top {
     margin-top: -10px;
-    left: 20% !important;
+    left: 70px !important;
 }
 
 .popover-select.right {
@@ -60,7 +61,7 @@
     font-size: 14px;
     background-color: #f7f7f7;
     border-bottom: 1px solid #ebebeb;
-    border-radius: 5px 5px 0 0;
+
 }
 
 .popover-select-content {
@@ -155,19 +156,19 @@
 }
 
 .popover-select-tags {
+    padding-left: 0 !important;
     cursor: pointer;
     list-style-type: none;
     display: block;
     width: 100%;
-    height: 47px;
-    padding: 5px;
+    height: auto;
+    min-height: 34px;
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
@@ -183,19 +184,16 @@
 }
 
 .popover-select-tags .tag {
-    display: block;
-    float: left;
-    margin-left: 10px;
+    display: inline-block;
+    margin: 5px;
     background-color: #3C8DBC;
     color: white;
     padding: 5px;
-    margin-top: 3px;
-    padding-right: 10px;
     border-color: #3C8DBC;
     vertical-align: middle;
     -webkit-transition: 0.25s linear;
     transition: 0.25s linear;
-    height: 30px;
+    height: 27px;
 }
 
 .popover-select-tags .tag:hover {
@@ -300,7 +298,7 @@ textarea.popover-select-textarea {
 .placeholder-text {
     position: absolute;
     top: 9px;
-    left: 30px;
+    left: 15px;
     color: lightgray;
 
 }

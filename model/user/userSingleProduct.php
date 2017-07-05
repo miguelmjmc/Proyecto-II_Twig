@@ -35,7 +35,11 @@ class userSingleProduct extends userBase
         $product = $query->query("SELECT * FROM product WHERE productCode = '$code' AND productClass = '$class' AND productBrand = '$brand'");
         $product = $product["0"];
         $product["productImg"] = base64_encode($product["productImg"]);
-       
+        $code = $product["productCode"];
+        $brand = $product["productBrand"];
+        $class = $product["productClass"];
+        $product["vehicle"] = $query->query("SELECT * FROM vehicleModel_has_product INNER JOIN vehicleModel ON (vehicleModel_has_product.vehicleModel_id = vehicleModel.id) WHERE (vehicleModel_has_product.productCode = '$code' AND vehicleModel_has_product.productBrand = '$brand' AND vehicleModel_has_product.productClass = '$class')");
+        
         $productList = $this->loadRelatedProducts();
 
         $singleProduct = compact("productList", "product");

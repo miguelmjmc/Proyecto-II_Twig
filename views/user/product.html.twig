@@ -14,68 +14,134 @@
 
 {% block main %}
     <div id="products">
-    <div class="product-big-title-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-bit-title text-center">
-                        <h2>Nuestros Productos</h2>
+        <div class="product-big-title-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-bit-title text-center">
+                            <h2>Nuestros Productos</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
+
         <div class="container">
-            <div class="row">
-                {% for product in array.product.productList %}
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
-                                     alt="{{ product.productClass }} {{ product.productCode }}">
-                                <div class="product-hover">
-                                    <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}" class="view-details-link"><i
-                                                class="fa fa-link"></i>detalles</a>
+            <div class=" border-form">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Marca:</label>
+                                <div class="col-sm-9">
+                                    <select  id="vehicleBrand" title="Marca del vehículo">
+                                        <option value="" selected="selected" disabled="disabled">Selecione una marca</option>
+                                        {% for brand in array.product.vehicleBrandList %}
+                                            <option value="{{ brand.vehicleBrand }}">{{ brand.vehicleBrand }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
-                            <h2><a href="">{{ product.productClass }} {{ product.productCode }}</a></h2>
-                            <div class="product-carousel-price">
-                                <ins>{{ product.offer }} Bs.</ins>
-                                <del>{{ product.price }} Bs.</del>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Vehiculos:</label>
+                                <div class="col-sm-9">
+                                    <select name="vehicleModel" id="vehicleModel" title="Modelo del vehículo">
+                                        <option value="" selected="selected" disabled>Seleccione un vehiculo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="productCategory" class="col-sm-3 control-label">Categoria:</label>
+                                <div class="col-sm-9">
+                                    <select name="productCategory" id="productCategory" title="Categoria del Producto">
+                                            <option value="" selected="selected" disabled>Seleccione una categoria</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                </form>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-pagination text-center">
-                        <nav>
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-
-                                <li><a href="#">1</a></li>
+        </div>
 
 
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="single-product-area">
+            <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="row" id="product">
+                    {% for product in array.product.productList %}
+                        <div class="col-md-3 col-sm-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="data:{{ product.productImgType }}; base64,{{ product.productImg }}"
+                                         alt="{{ product.productClass }} {{ product.productCode }}">
+                                    <div class="product-hover">
+                                        <a href="index.php?link=userSingleProduct&class={{ product.productClass }}&brand={{ product.productBrand }}&code={{ product.productCode }}"
+                                           class="view-details-link"><i
+                                                    class="fa fa-link"></i>detalles</a>
+                                    </div>
+                                </div>
+                                <h2><a href="">{{ product.productClass }} {{ product.productCode }}</a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>{{ product.offer }} Bs.</ins>
+                                    <del>{{ product.price }} Bs.</del>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-pagination text-center">
+                            <nav>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <li><a href="#">1</a></li>
+
+
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
-    </div>
     </div>
 {% endblock %}

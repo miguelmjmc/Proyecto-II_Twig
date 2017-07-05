@@ -100,7 +100,7 @@
       // Also Add the required css Properties
       this.$elem
       .parent(addDot(classNames.selectWrapper))
-      .css({width: this.settings.width || elemPos.width, height: elemPos.height});
+      .css({width: this.settings.width || elemPos.width});
 
       // Append the popover to $elem
       var popUpCode = this.generatePopover(this.$options);

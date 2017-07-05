@@ -9,7 +9,7 @@ class userProduct extends userBase
     {
     }
 
-    public function load($var)
+    public function load()
     {
         $main = $this->loadMain();
 
@@ -22,7 +22,9 @@ class userProduct extends userBase
             $i++;
         }
 
-        $product = compact("productList");
+        $vehicleBrandList = $query->query("SELECT * FROM vehicleBrand WHERE vehicleBrand IN (SELECT vehicleBrand FROM vehicleModel GROUP BY vehicleBrand)");
+
+        $product = compact("productList", "vehicleBrandList");
 
         $array = compact("main", "product");
 
@@ -34,6 +36,7 @@ class userProduct extends userBase
 
         return $values;
     }
+
 }
 
 /*

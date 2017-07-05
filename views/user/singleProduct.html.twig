@@ -58,10 +58,10 @@
                                 <div class="product-inner">
                                     <h2 class="product-name">{{ array.singleProduct.product.productCode }}
                                         / {{ array.singleProduct.product.productClass }} </h2>
-                                    <!-- <div class="product-inner-price">
+                                    <div class="product-inner-price">
                                         <ins>{{ array.singleProduct.product.offer }} Bs.</ins>
                                         <del>{{ array.singleProduct.product.price }} Bs.</del>
-                                    </div> -->
+                                    </div>
 
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
@@ -81,6 +81,26 @@
                                             </div>
                                             <div role="tabpanel" class="tab-pane fade" id="vehicle">
                                                 <h2>Vehiculos Compatibles</h2>
+                                                <div class="box-body">
+                                                    <table id="maintable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="th-3">Marca</th>
+                                                            <th class="th-3">Modelo</th>
+                                                            <th class="th-3">Año de Serie</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for vehicle in array.singleProduct.product.vehicle %}
+                                                            <tr>
+                                                                <td class="td-3">{{ vehicle.vehicleBrand }}</td>
+                                                                <td class="td-3">{{ vehicle.vehicleModel }}</td>
+                                                                <td class="td-3">{{ vehicle.firstYear }} - {{ vehicle.lastYear }}</td>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- / .table -->
+                                                </div>
 
                                             </div>
                                             <div role="tabpanel" class="tab-pane fade" id="contacts">
@@ -123,10 +143,10 @@
                                                     <h2>
                                                         <a href="">{{ product.productClass }} {{ product.productCode }}</a>
                                                     </h2>
-                                                    <!--<div class="product-carousel-price">
+                                                    <div class="product-carousel-price">
                                                         <ins>{{ product.offer }} Bs.</ins>
                                                         <del>{{ product.price }} Bs.</del>
-                                                    </div> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         {% endfor %}
