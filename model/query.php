@@ -1,7 +1,6 @@
 <?php
 
 include_once PATH . "/model/connection.php";
-include_once PATH . "/model/imgClass.php";
 
 class query extends connection
 {
@@ -10,34 +9,60 @@ class query extends connection
         parent::__construct();
     }
 
+    //query return array
     function query($query)
     {
         $this->connect();
-        $result = mysqli_query($this->conection, "$query");
-        $data = null;
-        $i = 0;
-        while ($assoc = mysqli_fetch_assoc($result)) {
-            $data["$i"] = $assoc;
-            $i++;
-        };
-        mysqli_free_result($result);
-        $this->disconnect();
-        return $data;
+        if ($this->manager == "mysql") {
+            $result = mysqli_query($this->connection, "$query");
+            $data = null;
+            $i = 0;
+            while ($assoc = mysqli_fetch_assoc($result)) {
+                $data["$i"] = $assoc;
+                $i++;
+            };
+            mysqli_free_result($result);
+            $this->disconnect();
+            return $data;
+        } elseif ($this->manager == "postgresql") {
+            $result = pg_query($this->connection, "$query");
+            $data = null;
+            $i = 0;
+            while ($assoc = pg_fetch_assoc($result)) {
+                $data["$i"] = $assoc;
+                $i++;
+            };
+            pg_free_result($result);
+            $this->disconnect();
+            return $data;
+        }
     }
 
+    //query return boolean
     function querySuccess($query)
     {
         $this->connect();
-        mysqli_query($this->conection, "$query");
-        $success = mysqli_affected_rows($this->conection);
+        if ($this->manager == "mysql") {
+            mysqli_query($this->connection, "$query");
+            $success = mysqli_affected_rows($this->conection);
+        } elseif ($this->manager == "postgresql") {
+            pg_query($this->connection, "$query");
+            $success = pg_affected_rows($this->conection);
+        }
         $this->disconnect();
         return $success;
     }
 
-    public function history ($action){
+    //register history
+    public function history($action)
+    {
         $this->connect();
-        $access=$_SESSION["access"]["email"];
-        mysqli_query($this->conection, "INSERT INTO history (`email`, `action`, `date`) values ('$access', '$action', now()) ");
+        $access = $_SESSION["access"]["email"];
+        if ($this->manager == "mysql") {
+            mysqli_query($this->connection, "INSERT INTO history (`email`, `action`, `date`) values ('$access', '$action', now()) ");
+        } elseif ($this->manager == "postgresql") {
+            pg_query($this->connection, "INSERT INTO history (`email`, `action`, `date`) values ('$access', '$action', now()) ");
+        }
     }
 }
 

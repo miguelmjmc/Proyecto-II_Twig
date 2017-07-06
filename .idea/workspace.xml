@@ -26,7 +26,27 @@
     <favorites_list name="untitled" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="adminReport.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/admin/adminReport.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="814">
+              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <folding>
+                <marker date="1499300120637" expanded="true" signature="776:955" placeholder="SELECT * FRO... product" />
+                <marker date="1499300120637" expanded="true" signature="1195:1701" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1202:1316" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1323:1701" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1387:1701" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1394:1500" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1507:1701" placeholder="..." />
+                <marker date="1499300120637" expanded="true" signature="1772:2026" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,9 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Downloads/jemaro (2).sql" />
-        <option value="$USER_HOME$/Downloads/jemaro.sql" />
-        <option value="$USER_HOME$/Downloads/jemaro (3).sql" />
         <option value="$PROJECT_DIR$/model/admin/adminBase.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/views/admin/css/fileinput.css" />
@@ -53,15 +70,12 @@
         <option value="$PROJECT_DIR$/model/admin/adminVehicle.php" />
         <option value="$PROJECT_DIR$/views/admin/history.html.twig" />
         <option value="$PROJECT_DIR$/views/admin/config.html.twig" />
-        <option value="$PROJECT_DIR$/model/query.php" />
         <option value="$PROJECT_DIR$/views/admin/vehicle.html.twig" />
         <option value="$PROJECT_DIR$/dataBaseDiagram/data.sql" />
         <option value="$PROJECT_DIR$/dataBaseDiagram/jemaro.sql" />
         <option value="$PROJECT_DIR$/views/user/index.html.twig" />
         <option value="$PROJECT_DIR$/model/user/userIndex.php" />
         <option value="$PROJECT_DIR$/views/admin/report.html.twig" />
-        <option value="$PROJECT_DIR$/model/admin/adminReport.php" />
-        <option value="$PROJECT_DIR$/config/include.php" />
         <option value="$PROJECT_DIR$/views/admin/user.html" />
         <option value="$PROJECT_DIR$/model/encrypt.php" />
         <option value="$PROJECT_DIR$/model/admin/adminConfig.php" />
@@ -71,7 +85,6 @@
         <option value="$PROJECT_DIR$/views/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminIndex.php" />
         <option value="$PROJECT_DIR$/model/admin/adminProduct.php" />
-        <option value="$PROJECT_DIR$/views/admin/base.html.twig" />
         <option value="$PROJECT_DIR$/views/admin/js/jquery.popSelect.js" />
         <option value="$PROJECT_DIR$/views/admin/css/jquery.popSelect.css" />
         <option value="$PROJECT_DIR$/views/admin/product.html.twig" />
@@ -94,6 +107,13 @@
         <option value="$PROJECT_DIR$/model/user/ajax/product-vehicle.php" />
         <option value="$PROJECT_DIR$/views/user/js/ajax.js" />
         <option value="$PROJECT_DIR$/model/user/ajax/product-category.php" />
+        <option value="$PROJECT_DIR$/config/configDB.php" />
+        <option value="$PROJECT_DIR$/model/connection.php" />
+        <option value="$PROJECT_DIR$/config/configPath.php" />
+        <option value="$PROJECT_DIR$/config/include.php" />
+        <option value="$PROJECT_DIR$/model/query.php" />
+        <option value="$PROJECT_DIR$/views/admin/base.html.twig" />
+        <option value="$PROJECT_DIR$/model/admin/adminReport.php" />
       </list>
     </option>
   </component>
@@ -168,6 +188,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proyecto-II_Twig" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -309,18 +393,18 @@
       <workItem from="1499209517379" duration="39000" />
       <workItem from="1499226077185" duration="12372000" />
       <workItem from="1499265634961" duration="5363000" />
-      <workItem from="1499272469455" duration="22140000" />
+      <workItem from="1499272469455" duration="27450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="591573000" />
+    <option name="totallyTimeSpent" value="596883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1362" y="-4" width="1608" height="908" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -358,41 +442,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/renderTwig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/config.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="84" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="84" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/adminVehicle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/adminReport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/adminHistory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/admin/adminConfig.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -453,13 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -606,36 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/configDB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="50" selection-start-line="5" selection-start-column="8" selection-end-line="8" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../select/vistas/conexion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/query.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="10" selection-start-line="16" selection-start-column="8" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <marker date="1499226042530" expanded="true" signature="957:1041" placeholder="INSERT INTO history... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="92" />
           <folding />
         </state>
       </provider>
@@ -825,6 +841,90 @@
         <state relative-caret-position="323">
           <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/include.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/configPath.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/configDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="54" column="1" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/imgClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="457" column="26" selection-start-line="441" selection-start-column="7" selection-end-line="459" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="151" column="128" selection-start-line="151" selection-start-column="128" selection-end-line="151" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+          <folding>
+            <marker date="1499298587638" expanded="true" signature="1740:1824" placeholder="INSERT INTO history... " />
+            <marker date="1499298587638" expanded="true" signature="1922:2006" placeholder="INSERT INTO history... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/admin/adminReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <marker date="1499300120637" expanded="true" signature="776:955" placeholder="SELECT * FRO... product" />
+            <marker date="1499300120637" expanded="true" signature="1195:1701" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1202:1316" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1323:1701" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1387:1701" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1394:1500" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1507:1701" placeholder="..." />
+            <marker date="1499300120637" expanded="true" signature="1772:2026" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

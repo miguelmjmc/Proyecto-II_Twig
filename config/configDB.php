@@ -3,10 +3,11 @@
 function configDB()
 {
     $configDB = array(
-        "host" => "127.0.0.1", // para conectarnos a localhost o el ip del servidor de postgres
-        "db" => "jemaro", // seleccionar la base de datos que vamos a utilizar
-        "user" => "admin", // seleccionar el usuario con el que nos vamos a conectar
-        "pass" => "admin", // la clave del usuario
+        "host" => "127.0.0.1", //server address
+        "db" => "jemaro", //data base name
+        "user" => "admin", //user
+        "password" => "admin", //password
+        "manager" => "mysql", //data base manager (values: mysql or postgressql)
     );
 
     return $configDB;
@@ -18,5 +19,3 @@ function configDB()
  * Date: 17/05/2017
  * Time: 12:54 AM
  */
-
-?>

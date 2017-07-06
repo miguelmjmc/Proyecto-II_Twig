@@ -1,42 +1,56 @@
 <?php
 
-include_once PATH. "/config/configDB.php";
+include_once PATH . "/config/configDB.php";
 
 class connection
 {
-    //declaración de variables
-    public $host; // para conectarnos a localhost o el ip del servidor de postgres
-    public $db; // seleccionar la base de datos que vamos a utilizar
-    public $user; // seleccionar el usuario con el que nos vamos a conectar
-    public $pass; // la clave del usuario
-    public $conection; //dirección de la conexión
+    //declaration of variables
+    public $host; //server address
+    public $db; //data base name
+    public $user; //user
+    public $password; //password
+    public $manager; //data base manager
+    public $connection; //connection address
 
-    //creación del constructor
+    //load configuration
     public function __construct()
     {
         $config_DB = configDB();
         $this->host = $config_DB["host"];
         $this->db = $config_DB["db"];
         $this->user = $config_DB["user"];
-        $this->pass = $config_DB["pass"];
+        $this->password = $config_DB["password"];
+        $this->manager = $config_DB["manager"];
 
     }
-    
-    //función que se utilizara al momento de hacer la instancia de la clase
+
+    //connection data base
     public function connect()
     {
-        $this->conection = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
-        if (!$this->conection) {
-            printf("No hay conexión con la base de datos. Error: %s", mysqli_connect_error());
-            exit();
+        if ($this->manager == "mysql") {
+            $this->connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$this->connection) {
+                printf("No hay conexión con la base de datos. Error: %s", mysqli_connect_error());
+                exit();
+            }
+            mysqli_set_charset($this->connection, "UTF-8");
+        } elseif ($this->manager == "postgresql") {
+            $this->connection = pg_connect("host = $this->host, user = $this->user, password = $this->password, dbname = $this->db");
+            if (!$this->connection) {
+                printf("No hay conexión con la base de datos. Error: %s", pg_last_error());
+                exit();
+            }
         }
-        mysqli_set_charset($this->conection,"UTF-8");
     }
 
-    //función para destruir la conexión.
+    //connection close
     public function disconnect()
     {
-        mysqli_close($this->conection);
+        if ($this->manager == "mysql") {
+            mysqli_close($this->connection);
+        } elseif ($this->manager == "postgresql") {
+            pg_close($this->connection);
+        }
     }
 }
 

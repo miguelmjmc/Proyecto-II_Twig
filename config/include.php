@@ -1,5 +1,7 @@
 <?php
 
+//include class
+
 include_once PATH . "/model/query.php";
 include_once PATH . "/model/encrypt.php";
 include_once PATH . "/model/renderTwig.php";
@@ -14,14 +16,9 @@ include_once PATH . "/model/admin/adminConfig.php";
 include_once PATH . "/model/admin/adminReport.php";
 include_once PATH . "/model/admin/adminUser.php";
 
-
-
-
 /*
  * Created by PhpStorm.
  * User: Windows
  * Date: 24/05/2017
  * Time: 02:33 AM
  */
-
-?>
