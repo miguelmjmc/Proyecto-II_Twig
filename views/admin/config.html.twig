@@ -86,6 +86,48 @@
             {% endfor %}
 
 
+            <div class="col-lg-6 col-sm-12">
+                <div class="box box-default collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">IVA</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-body">
+                            <div class="col-sm-12 margin-button">
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                        data-target="#ivaModal{{ loop.index }}">Editar
+                                </button>
+                            </div>
+                        </div>
+                        <div class=" border-form">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="iva" class="col-sm-2 control-label">IVA (%):</label>
+                                            <div class="col-sm-10">
+                                                <input type="number" min="0" max="100" id="iva" class="form-control"
+                                                       placeholder="{{ array.iva.iva }}"
+                                                       title="Impuesto del valor agregado" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+
+
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
@@ -170,7 +212,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="location" class="col-sm-2 control-label">Dirección:</label>
+                                            <label for="location"
+                                                   class="col-sm-2 control-label">Dirección:</label>
                                             <div class="col-sm-10">
                                                 <input type="text" id="location" class="form-control"
                                                        placeholder="{{ array.config.location }}"
@@ -180,7 +223,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="facebook" class="col-sm-2 control-label">Facebook:</label>
+                                            <label for="facebook"
+                                                   class="col-sm-2 control-label">Facebook:</label>
                                             <div class="col-sm-10">
                                                 <input type="text" id="facebook" class="form-control"
                                                        placeholder="{{ array.config.facebook }}"
@@ -200,7 +244,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="googleplus" class="col-sm-2 control-label">Google+:</label>
+                                            <label for="googleplus"
+                                                   class="col-sm-2 control-label">Google+:</label>
                                             <div class="col-sm-10">
                                                 <input type="text" id="facebook" class="form-control"
                                                        placeholder="{{ array.config.googleplus }}"
@@ -535,4 +580,43 @@
             </div>
         </div>
     {% endfor %}
+
+
+    <div id="ivaModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Editar IVA</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" border-form">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="iva" class="col-sm-2 control-label">IVA (%):</label>
+                                            <div class="col-sm-10">
+                                                <input name="iva" type="number" min="0" max="100" id="iva" class="form-control"
+                                                       value="{{ array.iva.iva }}"
+                                                       title="Impuesto del valor agregado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="text" value="adminConfig" name="link" class="no-display">
+                            <input type="text" value="update" name="action" class="no-display">
+                            <input type="text" value="iva" name="object" class="no-display">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

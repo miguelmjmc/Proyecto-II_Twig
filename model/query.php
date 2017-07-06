@@ -44,10 +44,10 @@ class query extends connection
         $this->connect();
         if ($this->manager == "mysql") {
             mysqli_query($this->connection, "$query");
-            $success = mysqli_affected_rows($this->conection);
+            $success = mysqli_affected_rows($this->connection);
         } elseif ($this->manager == "postgresql") {
             pg_query($this->connection, "$query");
-            $success = pg_affected_rows($this->conection);
+            $success = pg_affected_rows($this->connection);
         }
         $this->disconnect();
         return $success;

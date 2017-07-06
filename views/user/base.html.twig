@@ -67,10 +67,10 @@
                                                     <input type="password" class="form-control" placeholder="Contraseña"
                                                            name="password"
                                                            required>
-                                                    <!-- <div class="help-block text-right"><a href=""> Oldido su contraseña
-                                                            ?</a></div> -->
+                                                    <div class="help-block text-right"><a href=""> Oldido su contraseña
+                                                            ?</a></div>
                                                 </div>
-                                                <input name="link" value="adminBase" style="display: none">
+                                                <input name="link" value="adminBase" class="no-display"  readonly>
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-primary btn-block">Acceder
                                                     </button>
@@ -141,7 +141,7 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-6 col-sm-12">
                 <div class="footer-about-us">
                     <h2 class="footer-wid-title">Contactos</h2>
                     <p>Telefonos: {{ array.main.phone1 }}, {{ array.main.phone2 }}.</p>
@@ -157,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-6 col-sm-12">
                 <div class="footer-menu">
 
                     <h2 class="footer-wid-title">Ubicación</h2>
@@ -165,7 +165,7 @@
 
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12">
+        <!--    <div class="col-md-4 col-sm-12">
                 <div class="footer-newsletter">
                     <h2 class="footer-wid-title">Suscripción</h2>
                     <p>Regístrese en nuestro boletín y obtenga ofertas exclusivas que no encontrará en ningún otro sitio directamente a su
@@ -178,6 +178,7 @@
                     </div>
                 </div>
             </div>
+            -->
 
 
         </div>

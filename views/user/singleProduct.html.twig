@@ -34,12 +34,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-content-right">
-                        <!-- <div class="product-breadcroumb">
-                             <a href="">Home</a>
-                             <a href="">Category Name</a>
-                             <a href="">Sony Smart TV - 2015</a>
+                        <div class="product-breadcroumb">
+                             <a href="index.php">Inicio</a>
+                             <a href="index.php?link=userProduct">Nuestors Productos</a>
+                             <a href="#">{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}</a>
                          </div>
-                         -->
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -56,20 +55,18 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name">{{ array.singleProduct.product.productCode }}
-                                        / {{ array.singleProduct.product.productClass }} </h2>
+                                    <h2 class="product-name">{{ array.singleProduct.product.productClass }} {{ array.singleProduct.product.productCode }}</h2>
                                     <div class="product-inner-price">
-                                        <ins>{{ array.singleProduct.product.offer }} Bs.</ins>
+                                        <ins>{{ array.singleProduct.product.offer }} Bs. ({{ array.singleProduct.iva.offerAmount }} Bs + IVA )</ins>
                                         <del>{{ array.singleProduct.product.price }} Bs.</del>
                                     </div>
-
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
                                             <li role="presentation" class="active"><a href="#description" aria-controls="home"
                                                                                       role="tab" data-toggle="tab">Descripción</a></li>
                                             <li role="presentation"><a href="#vehicle" aria-controls="profile"
                                                                        role="tab" data-toggle="tab">Compatibilidad</a></li>
-                                            <li role="presentation"><a href="#contacts" aria-controls="profile"
+                                            <li role="presentation"><a href="#contacts1" aria-controls="profile"
                                                                        role="tab" data-toggle="tab">Reservar</a></li>
                                         </ul>
                                         <div class="tab-content">
@@ -103,7 +100,7 @@
                                                 </div>
 
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="contacts">
+                                            <div role="tabpanel" class="tab-pane fade" id="contacts1">
                                                 <h2>Contactos</h2>
                                                 <p>Telefonos: {{ array.main.phone1 }}, {{ array.main.phone2 }}.</p>
                                                 <p>Correo: {{ array.main.email }}</p>
@@ -124,7 +121,7 @@
 
 
                         <div class="related-products-wrapper">
-                            <h2 class="related-products-title">Productos Relacionados</h2>
+                            <h2 class="related-products-title">Productos</h2>
                             <div class="related-products-carousel">
                                 <div class="container">
                                     <div class="row">

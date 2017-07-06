@@ -40,21 +40,21 @@ class adminConfig extends adminBase
         $query = new query();
 
         $config = $query->query("SELECT * FROM configuration");
+        $config = $config["0"];
+        $config["img"] = base64_encode($config["img"]);
 
         $about = $query->query("SELECT * FROM about");
+        $about = $about["0"];
 
         $slide = $query->query("SELECT * FROM slide");
         for ($i = 0; $i < 3; $i++) {
             $slide["$i"]["slideImg"] = base64_encode($slide["$i"]["slideImg"]);
         }
 
-        $config = $config["0"];
+        $iva = $query->query("SELECT * FROM iva");
+        $iva = $iva["0"];
 
-        $about = $about["0"];
-
-        $config["img"] = base64_encode($config["img"]);
-
-        $array = compact("admin", "config", "about", "slide");
+        $array = compact("admin", "config", "about", "slide", "iva");
 
         return $array;
     }
@@ -132,6 +132,15 @@ class adminConfig extends adminBase
                 } else {
                     $alert = "danger";
                 }
+            }
+        } else if ($_POST["object"] == "iva") {
+            $iva = $_POST["iva"];
+            $success = $query->querySuccess("UPDATE jemaro.iva SET iva = '$iva' WHERE id = 1");
+            if ($success > 0) {
+                $query->history("Actualización: Iva");
+                $alert = "success";
+            } else {
+                $alert = "danger";
             }
         }
         return $alert;

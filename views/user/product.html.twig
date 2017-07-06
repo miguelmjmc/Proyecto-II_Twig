@@ -28,66 +28,46 @@
 
         <div class="container">
             <div class=" border-form">
-                <form class="form-horizontal">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Marca:</label>
-                                <div class="col-sm-9">
-                                    <select  id="vehicleBrand" title="Marca del vehículo">
-                                        <option value="" selected="selected" disabled="disabled">Selecione una marca</option>
-                                        {% for brand in array.product.vehicleBrandList %}
-                                            <option value="{{ brand.vehicleBrand }}">{{ brand.vehicleBrand }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Vehiculos:</label>
-                                <div class="col-sm-9">
-                                    <select name="vehicleModel" id="vehicleModel" title="Modelo del vehículo">
-                                        <option value="" selected="selected" disabled>Seleccione un vehiculo</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="productCategory" class="col-sm-3 control-label">Categoria:</label>
-                                <div class="col-sm-9">
-                                    <select name="productCategory" id="productCategory" title="Categoria del Producto">
-                                            <option value="" selected="selected" disabled>Seleccione una categoria</option>
-                                    </select>
-                                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Marca:</label>
+                            <div class="col-sm-9">
+                                <select id="vehicleBrand" title="Marca del vehículo" class="form-control">
+                                    <option value="" selected="selected" disabled="disabled">Selecione una marca
+                                    </option>
+                                    {% for brand in array.product.vehicleBrandList %}
+                                        <option value="{{ brand.vehicleBrand }}">{{ brand.vehicleBrand }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Vehiculos:</label>
+                            <div class="col-sm-9">
+                                <select name="vehicleModel" id="vehicleModel" title="Modelo del vehículo"
+                                        class="form-control">
+                                    <option value="" selected="selected" disabled>Seleccione un vehiculo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productCategory" class="col-sm-3 control-label">Categoria:</label>
+                            <div class="col-sm-9">
+                                <select name="productCategory" id="productCategory" title="Categoria del Producto"
+                                        class="form-control">
+                                    <option value="" selected="selected" disabled>Seleccione una categoria</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="single-product-area">

@@ -1,8 +1,8 @@
 <?php
 
-include_once PATH . "/model/admin/adminBase.php";
+include_once PATH . "/dompdf/dompdf_config.inc.php";
 
-class adminReport extends adminBase
+class adminReport
 {
     public function __construct()
     {
@@ -11,14 +11,14 @@ class adminReport extends adminBase
     function load()
     {
 
-        if ($_POST["object"] == "product") {
-            $this->productReport;
+        if ($_GET["object"] == "product") {
+            $this->productReport();
         } elseif ($_POST["object"] == "vehicle") {
-            $this->vehicleReport;
-        } elseif ($_POST["object"] == "user") {
-            $this->userReport;
-        } elseif ($_POST["object"] == "history") {
-            $this->historyReport;
+            $this->vehicleReport();
+        } elseif ($_GET["object"] == "user") {
+            $this->userReport();
+        } elseif ($_GET["object"] == "history") {
+            $this->historyReport();
         }
 
     }
@@ -26,6 +26,52 @@ class adminReport extends adminBase
     public function productReport()
     {
 
+        $query = new query();
+        $product = $query->query("SELECT * FROM (product INNER JOIN productClass ON (product.productClass = productClass.productClass)) INNER JOIN productBrand ON (product.productBrand = productBrand.productBRand)");
+
+
+        $html = '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+<body>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="4"><CENTER><strong>REPORTE DE PRODUCTOS</strong></CENTER></td>
+  </tr>
+  <tr>
+    <td><strong>Categoria</strong></td>
+    <td><strong>Clase</strong></td>
+    <td><strong>Codigo</strong></td>
+    <td><strong>Marca</strong></td>
+  </tr>';
+
+        $i = 0;
+        while (isset($product["$i"])) {
+            $html .= '	
+	<tr>
+	    <td>' . $product["$i"]["productCategory"] . '</td>
+	    <td>' . $product["$i"]["productClass"] . '</td>
+		<td>' . $product["$i"]["productCode"] . '</td>
+		<td>' . $product["$i"]["productBrand"] . '</td>							
+	</tr>';
+            $i++;
+        }
+        $html .= '
+</table>
+</body>
+</html>';
+
+
+        $html = utf8_encode($html);
+        $dompdf = new DOMPDF();
+        $dompdf->load_html($html);
+        ini_set("memory_limit", "128M");
+        $dompdf->render();
+        $dompdf->stream("Reporte_de_productos.pdf");
     }
 
     public function vehicleReport()
@@ -37,7 +83,6 @@ class adminReport extends adminBase
     {
 
 
-
     }
 
     public function historyReport()
@@ -46,71 +91,6 @@ class adminReport extends adminBase
 
     }
 }
-
-
-
-
-
-
-
-/*
-$query = new query();
-
-$product = $query->query("SELECT * FROM (product INNER JOIN productClass ON (product.productClass = productClass.productClass)) INNER JOIN productBrand ON (product.productBrand = productBrand.productBRand)");
-
-include_once PATH . "/dompdf/dompdf_config.inc.php";
-
-
-$codigoHTML = '
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Documento sin título</title>
-</head>
-<body>
-<table width="100%" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td colspan="5" bgcolor="skyblue"><CENTER><strong>REPORTE DE PRODUCTOS</strong></CENTER></td>
-  </tr>
-  <tr>
-    <td><strong>Codigo</strong></td>
-    <td><strong>Clase</strong></td>
-    <td><strong>Marca</strong></td>
-    <td><strong>Precio</strong></td>
-    <td><strong>Descuento</strong></td>
-  </tr>';
-
-$i = 0;
-while (isset($product["$i"])) {
-    $codigoHTML .= '	
-	<tr>
-	
-		<td>' . $product["$i"]["productCode"] . '</td>
-		<td>' . $product["$i"]["productClass"] . '</td>
-		<td>' . $product["$i"]["productBrand"] . '</td>
-		<td>' . $product["$i"]['price'] . '</td>
-		<td>' . $product["$i"]['offer'] . '</td>										
-	</tr>';
-    $i++;
-}
-$codigoHTML .= '
-</table>
-</body>
-</html>';
-
-
-$codigoHTML = utf8_encode($codigoHTML);
-$dompdf = new DOMPDF();
-$dompdf->load_html($codigoHTML);
-ini_set("memory_limit", "128M");
-$dompdf->render();
-$dompdf->stream("Reporte_tabla_usuarios.pdf");
-
-header("LOCATION:index.php");
-
-
-
 
 /*
  * Created by PhpStorm.

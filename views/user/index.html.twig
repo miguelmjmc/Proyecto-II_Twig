@@ -132,8 +132,10 @@
                         <h2 class="section-title">Nuestras Marcas</h2>
                         <div class="brand-list">
                             {% for brand  in array.index.vehicleBrand %}
+                                <a href="index.php?link=userProduct&filter={{ brand.vehicleBrand }}">
                                 <img src="data:{{ brand.vehicleBrandImgType }}; base64,{{ brand.vehicleBrandImg }}"
                                      alt="logo de {{ brand.vehicleBrand }}" class="brand-img">
+                                </a>
                             {% endfor %}
                         </div>
                     </div>

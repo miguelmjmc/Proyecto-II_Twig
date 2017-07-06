@@ -39,10 +39,15 @@ class userSingleProduct extends userBase
         $brand = $product["productBrand"];
         $class = $product["productClass"];
         $product["vehicle"] = $query->query("SELECT * FROM vehicleModel_has_product INNER JOIN vehicleModel ON (vehicleModel_has_product.vehicleModel_id = vehicleModel.id) WHERE (vehicleModel_has_product.productCode = '$code' AND vehicleModel_has_product.productBrand = '$brand' AND vehicleModel_has_product.productClass = '$class')");
+
+        $iva = $query->query("SELECT * FROM iva");
+        $iva = $iva["0"];
+        $iva["ivaAmount"] = (($iva["iva"] * $product["offer"]) / 100);
+        $iva["offerAmount"] = ($product["offer"] - (($iva["iva"] * $product["offer"]) / 100));
         
         $productList = $this->loadRelatedProducts();
 
-        $singleProduct = compact("productList", "product");
+        $singleProduct = compact("productList", "product", "iva");
 
         $array = compact("main", "singleProduct");
 

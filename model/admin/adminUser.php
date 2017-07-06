@@ -1,5 +1,7 @@
 <?php
 
+include_once PATH . "/model/admin/adminBase.php";
+
 class adminUser extends adminBase
 {
     public function __construct()
