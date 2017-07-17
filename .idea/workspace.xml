@@ -26,24 +26,7 @@
     <favorites_list name="untitled" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="aa.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../aa.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-              <folding>
-                <marker date="1499911654416" expanded="true" signature="232:254" placeholder="select * fro... personal" />
-                <marker date="1499911654416" expanded="true" signature="480:523" placeholder="select fecha... asistencia" />
-                <marker date="1499911654416" expanded="true" signature="690:734" placeholder="select * fro... permiso" />
-                <marker date="1499911654416" expanded="true" signature="916:983" placeholder="select count... asistencia" />
-                <marker date="1499911654416" expanded="true" signature="2252:2270" placeholder="SELECT * FRO... test" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -170,8 +153,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -334,17 +317,18 @@
       <workItem from="1499356238888" duration="188000" />
       <workItem from="1499706156308" duration="3363000" />
       <workItem from="1499909967224" duration="2880000" />
+      <workItem from="1500288793939" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="617386000" />
+    <option name="totallyTimeSpent" value="617445000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1362" y="-4" width="1608" height="908" extended-state="7" />
-    <editor active="true" />
+    <frame x="1362" y="-4" width="1608" height="908" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881773" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -642,30 +626,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/BADA.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.664/prueba.miguel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/BADA.sql" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.664/prueba.miguel.php" />
     <entry file="file://$PROJECT_DIR$/model/user/ajax/brand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <marker date="1499290497578" expanded="true" signature="165:314" placeholder="SELECT * FRO... vehicleModel" />
-            <marker date="1499290497578" expanded="true" signature="234:311" placeholder="SELECT vehic... vehicleModel_has_product" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,7 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="20" column="5" selection-start-line="11" selection-start-column="0" selection-end-line="46" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -689,19 +653,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <marker date="1499912300048" expanded="true" signature="30:52" placeholder="select * fro... personal" />
-            <marker date="1499912300048" expanded="true" signature="278:321" placeholder="select fecha... asistencia" />
-            <marker date="1499912300048" expanded="true" signature="488:532" placeholder="select * fro... permiso" />
-            <marker date="1499912300048" expanded="true" signature="714:781" placeholder="select count... asistencia" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../aa.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        <state relative-caret-position="323">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
           <folding>
             <marker date="1499911654416" expanded="true" signature="232:254" placeholder="select * fro... personal" />
             <marker date="1499911654416" expanded="true" signature="480:523" placeholder="select fecha... asistencia" />
