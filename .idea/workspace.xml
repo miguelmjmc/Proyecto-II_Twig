@@ -72,16 +72,10 @@
         <option value="$PROJECT_DIR$/views/admin/report.html.twig" />
         <option value="$PROJECT_DIR$/model/renderTwig.php" />
         <option value="$PROJECT_DIR$/views/user/product.html.twig" />
-        <option value="$PROJECT_DIR$/views/admin/vehicle.html.twig" />
-        <option value="$PROJECT_DIR$/views/admin/product.html.twig" />
-        <option value="$PROJECT_DIR$/views/admin/config.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminConfig.php" />
         <option value="$PROJECT_DIR$/model/query.php" />
-        <option value="$PROJECT_DIR$/views/admin/base.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminHelp.php" />
-        <option value="$PROJECT_DIR$/model/admin/adminReport.php" />
         <option value="$PROJECT_DIR$/model/user/userSingleProduct.php" />
-        <option value="$PROJECT_DIR$/views/admin/user.html.twig" />
         <option value="$PROJECT_DIR$/model/admin/adminUser.php" />
         <option value="$PROJECT_DIR$/config/include.php" />
         <option value="$PROJECT_DIR$/views/user/index.html.twig" />
@@ -94,6 +88,12 @@
         <option value="$USER_HOME$/Desktop/BADA.sql" />
         <option value="$PROJECT_DIR$/../aa.php" />
         <option value="$USER_HOME$/Desktop/prueba.miguel.php" />
+        <option value="$PROJECT_DIR$/views/admin/config.html.twig" />
+        <option value="$PROJECT_DIR$/views/admin/vehicle.html.twig" />
+        <option value="$PROJECT_DIR$/views/admin/user.html.twig" />
+        <option value="$PROJECT_DIR$/views/admin/product.html.twig" />
+        <option value="$PROJECT_DIR$/views/admin/base.html.twig" />
+        <option value="$PROJECT_DIR$/model/admin/adminReport.php" />
       </list>
     </option>
   </component>
@@ -317,12 +317,12 @@
       <workItem from="1499356238888" duration="188000" />
       <workItem from="1499706156308" duration="3363000" />
       <workItem from="1499909967224" duration="2880000" />
-      <workItem from="1500288793939" duration="59000" />
+      <workItem from="1500288793939" duration="7391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="617445000" />
+    <option name="totallyTimeSpent" value="624777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1362" y="-4" width="1608" height="908" extended-state="0" />
@@ -455,20 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/vehicle.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="344" column="72" selection-start-line="344" selection-start-column="72" selection-end-line="344" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/product.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="606" column="50" selection-start-line="606" selection-start-column="50" selection-end-line="606" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/admin/adminConfig.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -476,31 +462,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/config.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="602" column="78" selection-start-line="602" selection-start-column="78" selection-end-line="602" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/admin/adminHelp.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="158" column="117" selection-start-line="158" selection-start-column="117" selection-end-line="158" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/user.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="575" column="92" selection-start-line="575" selection-start-column="92" selection-end-line="575" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -512,13 +477,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/report.html.twig" />
-    <entry file="file://$PROJECT_DIR$/model/admin/adminReport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/admin/adminProduct.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -591,13 +549,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/user/passwordRecover.html.twig" />
     <entry file="file://$PROJECT_DIR$/views/user/passwordRecover.html.twig" />
-    <entry file="file://$PROJECT_DIR$/views/user/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/user/product.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
@@ -667,6 +618,104 @@
             <marker date="1499911654416" expanded="true" signature="916:983" placeholder="select count... asistencia" />
             <marker date="1499911654416" expanded="true" signature="2252:2270" placeholder="SELECT * FRO... test" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/vehicle.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="610" column="38" selection-start-line="610" selection-start-column="38" selection-end-line="610" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/config.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1705">
+          <caret line="482" column="75" selection-start-line="482" selection-start-column="75" selection-end-line="482" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/user.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="589" column="34" selection-start-line="589" selection-start-column="34" selection-end-line="589" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/product.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-808">
+          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/admin/adminReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+          <folding>
+            <marker date="1500296922042" expanded="true" signature="612:791" placeholder="SELECT * FRO... product" />
+            <marker date="1500296922042" expanded="true" signature="826:866" placeholder="SELECT * FRO... configuration" />
+            <marker date="1500296922042" expanded="true" signature="1081:1605" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1088:1202" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1209:1605" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1278:1298" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1441:1605" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1448:1605" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="1694:1916" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="2499:2525" placeholder="SELECT * FRO... product" />
+            <marker date="1500296922042" expanded="true" signature="2560:2600" placeholder="SELECT * FRO... configuration" />
+            <marker date="1500296922042" expanded="true" signature="2815:3300" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="2822:2936" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="2943:3300" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="3012:3032" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="3175:3300" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="3182:3300" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="3389:3593" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4171:4191" placeholder="SELECT * FRO... user" />
+            <marker date="1500296922042" expanded="true" signature="4226:4266" placeholder="SELECT * FRO... configuration" />
+            <marker date="1500296922042" expanded="true" signature="4481:5012" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4488:4601" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4608:5012" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4677:4697" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4839:5012" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="4846:5012" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="5098:5109" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="5098:5151" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="5098:5340" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="5921:5942" placeholder="SELECT * FRO... history" />
+            <marker date="1500296922042" expanded="true" signature="5921:6023" placeholder="SELECT * FRO... history" />
+            <marker date="1500296922042" expanded="true" signature="5921:6032" placeholder="SELECT * FRO... history" />
+            <marker date="1500296922042" expanded="true" signature="5921:6052" placeholder="SELECT * FRO... history" />
+            <marker date="1500296922042" expanded="true" signature="6087:6127" placeholder="SELECT * FRO... configuration" />
+            <marker date="1500296922042" expanded="true" signature="6342:6881" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6349:6461" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6468:6881" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6537:6557" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6709:6881" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6716:6881" placeholder="..." />
+            <marker date="1500296922042" expanded="true" signature="6970:7225" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="151" column="128" selection-start-line="151" selection-start-column="128" selection-end-line="151" selection-end-column="128" />
+          <folding />
         </state>
       </provider>
     </entry>
